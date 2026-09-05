@@ -1,0 +1,169 @@
+:root {
+    --cor-fundo: #141414;
+    --vermelho-padrao:#E50914;
+    --vermelho-secundario: #B20710;
+    --cinza-claro: #B3B3B3;
+    --cinza-escuro: #272727;
+    --cinza-borda: #505050;;
+    
+}
+
+@font-face {
+    font-family: 'Bebas';
+    src: url(../assets/font/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../assets/font/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../assets/font/Poppins-Regular.ttf);
+}
+
+body {
+    background-color: var(--vermelho-secundario);
+}
+
+.btn-voltar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+.btn-voltar img {
+    height: 40px;
+}
+
+.btn-voltar:hover , .btn-voltar img:hover{
+   text-decoration: underline;
+   transform: scale(1.05);
+   transition: 0.5s ease;
+}
+
+.containerPrincipal {
+    background-color: var(--cor-fundo);
+    margin: 48px;
+    padding: 20px;
+    border-radius: 25px;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.containerConteudo {
+    margin: 10px;
+    gap: 15px;
+    display: flex;
+    height: calc(100% - 60px);
+}
+
+.containerIMG{
+    width: 50%;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.containerIMG img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+}
+
+.containerParametros {
+    margin: 50px;
+    width: 50%;
+    /* align-self: center; */
+    margin-top: 40px;
+}
+
+.containerParametros .titulo {
+    font-family: 'Bebas';
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.containerParametros a {
+    font-family: 'Inter';
+    color: var(--cinza-borda);
+    text-decoration: underline;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.containerParametros a:visited {
+    color: var(--cinza-borda);
+}
+
+.containerParametros a:hover {
+    color: var(--cinza-claro);
+}
+
+
+.containerInputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.containerInputs input {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 5px;
+    font-size: 25px;
+    height: 45px;
+    color: whitesmoke;
+}
+
+.subcontainerInputs {
+    display: flex;
+    gap: 50px;
+}
+
+.subcontainerInputs input {
+    display: flex;
+    gap: 50px;
+    width: 50%;
+}
+
+.containerBTN {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    justify-self: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.containerBTN button {
+    background-color: #E50914;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    width: 180px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.containerBTN button:hover {
+    background-color: #B20710;
+    color: var(--cinza-claro);
+    transform: scale(1.05);
+    transition: 0.15s ease-in;
+}
+
+
