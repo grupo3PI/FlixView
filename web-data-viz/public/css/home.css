@@ -2,6 +2,9 @@
     --cor-fundo: #141414;
     --vermelho-padrao:#E50914;
     --vermelho-secundario: #B20710;
+    --cinza-claro: #B3B3B3;
+    --cinza-escuro: #272727;
+    --cinza-borda: #505050;;
 }
 
 @font-face {
@@ -54,36 +57,61 @@ header {
         z-index: 10;
        
         .left {
-           
             width: 15vw;
             height: 6vh;
             display: flex;
             align-items: center;
             
-            img {
-                width: 85%;
-                height: 40px;
+            .logo {
+                width: 5.5vw;
+                height: 3vh;
+                margin-right: 25px;
             }
 
-            a{
+            .link{
                 color: white;
                 font-family: 'Poppins';
                 margin-left: 20px;
                 font-size: 20px;
+                transition: 0.2s;
             }
+
         }
 
         .right {
             display: flex;
             justify-content: space-between;
             gap: 1vw;
-            .preenchido {
-                width: 5vw;
+
+            button{
+                cursor: pointer;
+                width: 7.5vw;
+                height: 3vh;
+                border: none;
+                border-radius: 7px;
+                font-family: 'Bebas';
+                font-size: 18px;
+                
             }
 
-            .vazado {
-                cursor: pointer;
-                width: 5vw;
+            .login {
+                background-color: var(--vermelho-padrao);
+                color: white;
+                transition: 0.2s;
+            }
+
+            .login:hover {
+                background-color: var(--vermelho-secundario);
+            }
+
+            .signup {
+                background-color: white;
+                color: black;
+                transition: 0.2s;
+            }
+
+            .signup:hover {
+                background-color: var(--cinza-claro);
             }
         }
     }
@@ -103,12 +131,13 @@ header {
 
     .title-banner {
             color: var(--vermelho-padrao);
-            font-size:60px;
+            font-size:80px;
             font-family: 'Bebas';
+            cursor: default;
             
             position: absolute;
-            top: 50%;
-            left: 15%;
+            top: 54%;
+            left: 20%;
 
             transform: translate(-50%, -50%);
             z-index: 2;
@@ -119,16 +148,331 @@ header {
             color: white;
             font-size:25px;
             font-family: 'Inter';
+            cursor: default;
 
             position: absolute;
             top: 60%;
-            left: 15.3%;
+            left: 16.2%;
 
             transform: translate(-50%, -50%);
-
             z-index: 2;
     }
     
+    main {
+
+        .container-A {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -5vh;
+
+            .seta {
+                border: none;
+                background-color: var(--cor-fundo);
+                color: white;
+                font-size: 50px;
+                cursor: pointer;
+            }
+
+            .seta-B {
+                border: none;
+                background-color: var(--cor-fundo);
+                color: white;
+                font-size: 50px;
+                cursor: pointer;
+                transform: scaleX(-1);
+            }
+
+        }
+            .section {
+                width: 95%;
+                height: 65%;
+                display: flex;
+
+            .title {
+                color: white;
+                font-family: 'Bebas';
+                font-size: 50px;
+                width: 7vw;
+                height: 7vh;
+                position: absolute;
+                left: 3.5%;
+                cursor: default;
+            }
+
+            .more {
+                color: var(--cinza-claro);
+                font-family: 'Inter';
+                font-size: 15px;
+                position: absolute;
+                cursor: pointer;
+                left: 91%;
+                top: 85%;
+            }
+
+            .card {
+                width: 17.6vw;
+                height: 43vh;
+                margin-top: 70px ;
+                margin-left: 20px;
+                transition: 0.2s ease;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .infos {
+                    color: var(--cinza-claro);
+                    font-family: 'Inter';
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap: 70px;    
+                }
+            }
+
+            .card:hover {
+                transform: scale(1.1);
+            }
+            }
+          
+        .container-B {
+            width: 100%;
+            height: 35vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            .section {
+                display: flex;
+                justify-content: space-around;
+                
+                .title {
+                width: 11vw;
+                height: 5vh;
+                margin-top: -2vh;
+                margin-left: 3vw;
+            }
+
+            .card {
+                background-color: var(--cinza-claro);
+                border: 2px solid var(--cinza-borda);
+                border-radius: 10px;
+                width: 25vw;
+                height: 18vh;
+                justify-content: flex-start;
+                cursor: pointer;
+
+                transition: 0.2s ease;
+                
+                .number {
+                    color: var(--vermelho-padrao);
+                    font-family: 'Bebas';
+                    font-size: 40px;
+                    font-weight: bold;
+                    margin-left: 15px;
+                }
+
+                .titulo {
+                    color: black;
+                    font-size: 30px;
+                    margin-left: 15px;
+                    font-family: 'Poppins';
+                    font-weight: bold;
+                    margin-top: 3vh;
+                }
+
+                .subtitle {
+                    font-size: 22px;
+                    margin-left: 15px;
+                    font-family: 'Poppins';
+                    font-weight: lighter;   
+                }
+            }
+
+            .card:hover {
+                transform: scale(1.1);
+            }
+            }
+            
+        }
+
+        .container-C {
+            width: 100%;
+            height: 42vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .section {
+                display: flex;
+                justify-content: space-around;
+
+                .title {
+                    width: 20vw;
+                }
+
+                .more {
+                    position: absolute;
+                    top: 184%;
+                    left: 93%;   
+                }
+
+                .card {
+                    width: 35vw;
+                    height: 26vh;
+                    background-color: var(--cinza-escuro);
+                    border: 1px solid var(--cinza-borda);
+                    display: flex;
+                    flex-direction: column;
+                    color: white;
+                    font-family: 'Inter';
+                    align-items: center;
+
+                    .topo {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        width: 90%;
+                        .foto {
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50px;
+                        margin-top: 20px;
+                        border: 2px solid var(--cinza-escuro);
+                        }
+                        .nickname {
+                            font-size: 25px;
+                            font-weight: bold;
+                            margin-left: 1vw;
+                            
+                        }
+                        .nota {
+                        color: var(--cinza-claro);
+                        font-size: 20px;
+                        }
+                    }
+
+                    .meio {
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 1vh;
+                        width: 90%;
+
+                        .titulo {
+                            font-size: 25px;
+                            font-weight: bold;
+                        }
+                        .resenha {
+                            margin-top: 1vh;
+                            font-size: 18px;
+                            width: 95%;
+                        }
+                        a{
+                            cursor: pointer;
+                            color: var(--cinza-claro);
+                        }
+                        
+                    }
+
+                    .base {
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 320px;
+                        margin-top: 15px;
+                        color: var(--cinza-claro);
+                    }
+                    
+
+                }
+
+
+
+                
+            }
+        }
+
+        .container-D {
+            width: 100%;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .titulo {
+                color: white;
+                font-family: 'Bebas';
+                font-size: 80px;
+                width: 70%;
+            }
+
+            .discover {
+                border: none;
+                font-family: 'Bebas';
+                font-size: 22px;
+                width: 15vw;
+                height: 3.7vh;
+                border-radius: 10px;
+                margin-left: 44vw;
+                margin-top: 2vh;
+                color: white;
+                background-color: var(--vermelho-padrao);
+                cursor: pointer;
+            }
+
+            .discover:hover {
+                background-color: var(--vermelho-secundario);
+            }
+        }
+    }
+
+    footer {
+        width: 100%;
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-top: 1px solid black;
+
+        .top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Poppins';
+            font-size: 18px;
+            margin-bottom: 2vh;
+
+            img {
+                width: 10%;
+            }
+        }
+
+        .mid {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 30%;
+            font-family: 'Inter';
+            font-weight: bolder;
+            font-size: 25px;
+            
+            a{
+                cursor: pointer;
+            }
+        }
+
+        .end {
+            text-align: center;
+            width: 30%;
+            margin-top: 2vh;
+            font-size: 18px;
+        }
+    }
     
 
     
