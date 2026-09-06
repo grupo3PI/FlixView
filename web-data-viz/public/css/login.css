@@ -160,6 +160,10 @@ body {
 
 @media (max-width: 999px) {
 
+    .containerPrincipal {
+        padding: 30px;
+    }
+
     .containerConteudo {
         display: block;
     }
