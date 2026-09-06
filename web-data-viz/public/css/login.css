@@ -25,6 +25,9 @@
 
 body {
     background-color: var(--vermelho-secundario);
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
 
 .btn-voltar {
@@ -34,7 +37,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     color: whitesmoke;
     font-weight: bold;
 }
@@ -53,7 +56,7 @@ body {
     margin: 48px;
     padding: 20px;
     border-radius: 25px;
-    height: 85vh;
+    height: 90vh;
     overflow: hidden;
 }
 
@@ -62,6 +65,10 @@ body {
     gap: 15px;
     display: flex;
     height: calc(100% - 60px);
+}
+
+.containerIMGC {
+    display: none;
 }
 
 .containerIMG{
@@ -82,13 +89,13 @@ body {
     margin: 50px;
     width: 50%;
     /* align-self: center; */
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 .containerParametros .titulo {
     font-family: 'Bebas';
     color: white;
-    font-size: 60px;
+    font-size: 70px;
     font-weight: bold;
     margin: 0;
 }
@@ -97,7 +104,7 @@ body {
     font-family: 'Inter';
     color: var(--cinza-borda);
     text-decoration: underline;
-    font-size: 22px;
+    font-size: 28px;
     cursor: pointer;
 }
 
@@ -119,13 +126,14 @@ body {
 .containerInputs input {
     background-color: transparent;
     border: 2px solid white;
-    padding: 5px;
-    font-size: 25px;
-    height: 45px;
+    padding: 10px;
+    font-size: 30px;
+    height: 40px;
+    
 }
 
 .containerBTN {
-    margin-top: 40px;
+    margin-top: 60px;
     justify-self: center;
 }
 
@@ -136,7 +144,7 @@ body {
     border-radius: 25px;
     color: white;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 20px;
     width: 180px;
     cursor: pointer;
 }
@@ -148,3 +156,98 @@ body {
     transition: 0.15s ease-in;
 }
 
+
+
+@media (max-width: 999px) {
+
+    .containerConteudo {
+        display: block;
+    }
+
+    .containerIMG {
+        display: none;
+        margin: 0;
+    }
+
+    .containerIMGC{
+        display: flex;
+        width: 100%;
+        height: 30%;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerIMGC img {
+        height: 50%;
+        width: auto;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .containerParametros {
+        margin: 0;
+        width: 100%;
+        align-self: center;
+    }
+
+    .containerParametros .titulo {
+        font-family: 'Bebas';
+        color: white;
+        font-size: 55px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .containerParametros a {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 500px) {
+    .containerPrincipal {
+        margin: 0;
+        border-radius: 0;
+        height: 100vh
+    }
+
+    .containerParametros .titulo {
+    font-family: 'Bebas';
+    color: white;
+    font-size: 55px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.containerParametros a {
+    font-size: 22px;
+}
+
+.containerInputs input {
+    font-size: 20px;
+}
+
+.containerIMGC{
+        height: 20%;
+        margin-bottom: 20px;
+    }
+
+    .containerIMGC img {
+        height: 50%;
+    }
+
+}
+
+@media (max-height: 670px) {
+
+    .containerPrincipal {
+        margin: 0;
+        border-radius: 0;
+        height: 100vh
+    }
+
+    .containerParametros {
+        margin-top: 0px;
+    }
+
+}
