@@ -1,0 +1,237 @@
+:root {
+    --cor-fundo: #141414;
+    --vermelho-padrao:#E50914;
+    --vermelho-secundario: #B20710;
+    --cinza-claro: #B3B3B3;
+    --cinza-escuro: #272727;
+    --cinza-borda: #505050;;
+    
+}
+
+@font-face {
+    font-family: 'Bebas';
+    src: url(../assets/font/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../assets/font/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../assets/font/Poppins-Regular.ttf);
+}
+
+body {
+    background-color: var(--cor-fundo);
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+header {
+        position: relative;
+        height: 8vh;
+        background-color: transparent;
+    }
+    
+.navbar{
+    display: flex;
+    width: calc(100%);
+    height: 8vh;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30vw;
+
+    position: fixed;
+    z-index: 10;
+       
+    .left {
+        width: 15vw;
+        height: 6vh;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 85%;
+            height: 40px;
+        }
+
+        a{
+            color: white;
+            font-family: 'Poppins';
+            margin-left: 20px;
+            font-size: 20px;
+        }
+    }
+
+    .right {
+        display: flex;
+        width: 35%;
+    }
+    
+    .containerInput {
+        width: 100%;
+    }
+
+    .containerInput img {
+        position: absolute;
+        right: 4.5%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 25px;
+        height: 25px;
+        }
+
+    .containerInput input {
+        padding: 5px;
+        padding-left: 15px;
+        padding-right: 12%;
+        border-radius: 35px;
+        width: 90%;
+        height: 25px;
+        background-color: var(--cinza-escuro);
+        border: 3px solid var(--cinza-borda);
+        color: white;
+        font-size: 20px;
+    }
+}
+
+main {
+    width: 100%;
+    height:20%;
+
+    .containerMenu {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        justify-content: space-between;
+        width: 85%;
+        margin-top: 70px;
+    }
+
+    .containerMenu .titulo {
+        color: white;
+        font-family: 'Bebas';
+        font-size: 50px;
+    }
+
+    .containerMenu .config img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .containerMenu button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .containerInfo {
+        margin-top: 50px;
+        display: flex;
+        width: 90%;
+        justify-self: center;
+        justify-content: space-between;
+    }
+
+    .containerInfo .usuario {
+        display: flex;
+        width: 50%;
+        gap: 50px;
+    }
+
+    .containerInfo .usuario .fotoPerfil img {
+        height: 300px;
+        width: 300px;
+        border-radius: 150px;
+    }
+
+    .containerInfo .usuario .info {
+        margin: 25px;
+        color: white;
+    }
+
+    .containerInfo .usuario .info .nome {
+        font-family: 'Inter';
+        font-size: 60px;
+        font-weight: bold;
+    }
+
+    .containerInfo .usuario .info .user {
+        font-family: 'Inter';
+        font-size: 30px;
+    }
+
+    .containerInfo .qtdavaliacoes {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+        font-family: "Bebas";
+        margin-right: 10%;
+    }
+
+    .containerInfo .qtdavaliacoes .qtdAv {
+        font-size: 150px;
+        font-weight: bolder;
+    }
+
+    .containerInfo .qtdavaliacoes .TxtAv {
+        font-size: 50px;
+    }
+
+    .containerAvaliacoes {
+        width: 90%;
+        height: fit-content;
+        display: grid;
+        justify-self: center;
+        color: white;
+        margin-top: 50px;
+    }
+
+    .containerAvaliacoes .card {
+        background-color: #505050;
+        width: 30%;
+        height: 250px;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    .containerAvaliacoes .card .headerCard {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .containerAvaliacoes .card .headerCard .infoUser {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .containerAvaliacoes .card .headerCard .infoUser img{
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;
+    }
+
+    .containerAvaliacoes .card .headerCard .infoUser .userCard{
+        font-size: 25px;
+    }
+
+    .containerAvaliacoes .card .headerCard .notaUser {
+        font-size: 25px;
+    }
+
+    .containerAvaliacoes .card .headerCard .notaUser img{
+        height: 20px;
+    }
+
+    
+
+
+
+}
+
+
