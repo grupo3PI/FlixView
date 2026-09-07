@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dashboard - Início</title>
+
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+
+<body>
+  <button class="menu-button" id="menuButton" aria-label="Abrir/fechar menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">
+      <a href="./home.html">
+      <img src="../assets/imgs/Logo FlixView.png" alt="" />
+      </a>
+    </div>
+
+    <div class="search-box">
+      <input type="text" aria-label="Pesquisar" placeholder="🔍︎" />
+    </div>
+
+    <nav class="menu">
+      <a href="./dashboard.html" class="menu-item active">
+        <span class="menu-iconA"></span>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="./" class="menu-item">
+        <span class="menu-iconB"></span>
+        <span>Insights</span>
+      </a>
+
+      <a href="./" class="menu-item">
+        <span class="menu-iconC"></span>
+        <span> Desempenho de Catálogo </span>
+      </a>
+
+      <a href="./" class="menu-item">
+        <span class="menu-iconD"> </span>
+        <span>Configurações</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="main-content" id="mainContent">
+    <div class="dashboard-container">
+      <h1>DASHBOARD</h1>
+
+      <section class="cards">
+        <div class="kpi-card destaque">
+          <span>Total de Títulos</span>
+          <strong> 5 </strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Total de Avaliações</span>
+          <strong>94</strong>
+        </div>
+
+        <div class="kpi-card-texto">
+          <span>Título mais avaliado</span>
+          <strong>The Whisper Man</strong>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="table-container">
+          <div class="table-header">
+            <h2>Títulos com maior interesse</h2>
+          </div>
+
+          <div class="table-placeholder">
+            <table class="tabela-titulos">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Gênero</th>
+                  <th>Avaliações</th>
+                  <th>Média</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>The Whisper Man</td>
+                  <td>Thriller</td>
+                  <td>25</td>
+                  <td>6.2</td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>The Last House</td>
+                  <td>Ficção Científica</td>
+                  <td>22</td>
+                  <td>8.4</td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>Don't Say Good Luck</td>
+                  <td>Drama</td>
+                  <td>18</td>
+                  <td>5.5</td>
+                </tr>
+            
+                <tr>
+                  <td>4</td>
+                  <td>The Heat</td>
+                  <td>Comédia</td>
+                  <td>17</td>
+                  <td>6.6</td>
+                </tr>
+
+                <tr>
+                  <td>5</td>
+                  <td>GTA VI - Trailer</td>
+                  <td>Jogos Eletrônicos</td>
+                  <td>12</td>
+                  <td>8.5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="graficoGeneros"></canvas>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>
+
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const sidebar = document.getElementById("sidebar");
+  const mainContent = document.getElementById("mainContent");
+
+  menuButton.addEventListener("click", function () {
+    sidebar.classList.toggle("collapsed");
+    mainContent.classList.toggle("expanded");
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById("graficoGeneros");
+
+const corBase = "#E50914";
+const cores = ["#E50914", "#EC3B33", "#F26356", "#F78B7C", "#FDB3A6"];
+
+new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: ["Thriller", "Ficção", "Drama", "Comédia", "Jogos"],
+    datasets: [{
+      label: "Quantidade de Reviews",
+      data: [25, 22, 18, 17, 12],
+      backgroundColor: cores,
+      borderRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: "y",
+    color: "#ffffff",
+    plugins: {
+      legend: {
+        labels: { color: "#ffffff" }
+      },
+      title: {
+        display: true,
+        text: "Popularidade por Gênero",
+        color: "#ffffff",
+        font: { size: 18 }
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: { color: "#ffffff" },
+        grid: { color: "rgba(255,255,255,0.2)" }
+      },
+      y: {
+        ticks: { color: "#ffffff" },
+        grid: { color: "rgba(255,255,255,0.2)" }
+      }
+    }
+  },
+  plugins: [{
+    id: "fundo",
+    beforeDraw: (chart) => {
+      const { ctx, width, height } = chart;
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-over";
+      ctx.fillStyle = "#505050";
+      ctx.fillRect(0, 0, width, height);
+      ctx.restore();
+    }
+  }]
+});
+</script>
