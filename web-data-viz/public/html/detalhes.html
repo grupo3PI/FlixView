@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlixView — Detalhes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/catalogo.css">
+    <link rel="stylesheet" href="../css/detalhes.css">
+</head>
+<body>
+
+<header class="top">
+    <div class="logo"><span class="flix">FLIX</span><span class="view">VIEW</span></div>
+    <nav class="primary">
+        <a href="catalogo.html">Home</a>
+        <a href="#">Reviews</a>
+        <a href="catalogo.html">Títulos</a>
+    </nav>
+    <div class="search-row header-search">
+        <input type="text" placeholder="Pesquisar">
+        <svg class="icon-search" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="1.8">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+        </svg>
+    </div>
+    <div class="avatar"></div>
+</header>
+
+<main class="detalhes">
+
+    <div class="topo-titulo">
+        <div class="poster-grande" id="posterGrande"></div>
+
+        <div class="info-titulo">
+            <h1 id="nome"></h1>
+
+            <p class="meta" id="meta"></p>
+
+            <div class="nota" id="nota"></div>
+
+            <p class="sinopse" id="sinopse"></p>
+
+            <p class="ficha">
+                <strong>Direção:</strong> <span id="direcao"></span>
+                &nbsp;&nbsp;&nbsp;
+                <strong>Elenco:</strong> <span id="elenco"></span>
+            </p>
+
+            <div class="acoes">
+                <button class="btn-acao" onclick="alert('Adicionado à lista!')">Adicionar à lista</button>
+                <button class="btn-acao" onclick="alert('Em breve: avaliar título.')">★ Avaliar</button>
+                <button class="btn-acao" onclick="alert('Em breve: escrever review.')">Escrever review</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-bloco">
+        <div class="reviews-titulo">
+            <h2>Reviews</h2>
+            <a href="#">Ver todas →</a>
+        </div>
+
+        <div class="review-card">
+            <div class="avatar-review"></div>
+            <div class="review-conteudo">
+                <strong>Usuário</strong>
+                <p>Review do filme</p>
+                <span>♥ 30</span>
+            </div>
+            <div class="review-nota">★ 8,5</div>
+        </div>
+    </div>
+
+    <h2 class="secao-semelhantes">Títulos semelhantes</h2>
+    <div id="gridSemelhantes" class="grid"></div>
+
+</main>
+
+<script>
+    /* Pessoal esse catalogo é temporario ate importamos os dados ... */
+    /* Pessoal esse catalogo é temporario ate importamos os dados ... */
+    /* Pessoal esse catalogo é temporario ate importamos os dados ... */
+
+    var catalogo = [
+        {
+            id: 0, nome: "Stranger Things", genero: "Terror", ano: "2016",
+            tipo: "Série", duracao: "5 Temporadas", classificacao: "16", nota: "8,6", poster: "../img/Stranger-Things.jpg",
+            sinopse: "Na década de 1980, um grupo de amigos se envolve em uma série de eventos sobrenaturais na pacata cidade de Hawkins.",
+            direcao: "Irmãos Duffer", elenco: "Millie Bobby Brown, Finn Wolfhard ..."
+        },
+        {
+            id: 1, nome: "The 100", genero: "Ficção científica", ano: "2014",
+            tipo: "Série", duracao: "7 Temporadas", classificacao: "16", nota: "7,5", poster: "../img/The-100.jpg",
+            sinopse: "Um século após um apocalipse nuclear, um grupo de jovens é enviado da estação espacial de volta à Terra para verificar se o planeta é habitável.",
+            direcao: "Jason Rothenberg", elenco: "Eliza Taylor, Bob Morley ..."
+        }
+    ];
+
+    function buscarIdDaUrl() {
+        var parametros = new URLSearchParams(window.location.search);
+        return Number(parametros.get("id"));
+    }
+
+    function buscarPorId(id) {
+        for (var i = 0; i < catalogo.length; i++) {
+            if (catalogo[i].id === id) {
+                return catalogo[i];
+            }
+        }
+        return null;
+    }
+
+    function montarPagina() {
+        var id = buscarIdDaUrl();
+        var item = buscarPorId(id);
+
+        if (item === null) {
+            document.querySelector(".detalhes").innerHTML = "<p>Título não encontrado.</p>";
+            return;
+        }
+
+        document.title = "FlixView — " + item.nome;
+
+        nome.innerText = item.nome;
+        meta.innerText = item.tipo + "    " + item.ano + "    " + item.duracao + "    Classificação " + item.classificacao + "    " + item.genero;
+        nota.innerHTML = item.nota + "/10 <span class='selo'>IMDb</span>";
+        sinopse.innerText = item.sinopse;
+        direcao.innerText = item.direcao;
+        elenco.innerText = item.elenco;
+
+        if (item.poster === "") {
+            posterGrande.innerHTML =
+                '<svg viewBox="0 0 100 150" preserveAspectRatio="none">' +
+                '<line x1="0" y1="0" x2="100" y2="150" stroke="#505050"></line>' +
+                '<line x1="100" y1="0" x2="0" y2="150" stroke="#505050"></line>' +
+                '</svg>';
+        } else {
+            posterGrande.innerHTML = '<img src="' + item.poster + '" alt="' + item.nome + '">';
+        }
+
+        montarSemelhantes(item);
+    }
+
+    function montarSemelhantes(itemAtual) {
+        var html = "";
+        var quantidade = 0;
+
+        for (var i = 0; i < catalogo.length; i++) {
+            var item = catalogo[i];
+
+            if (item.id === itemAtual.id) {
+                continue;
+            }
+
+            if (item.genero !== itemAtual.genero) {
+                continue;
+            }
+
+            if (quantidade >= 4) {
+                break;
+            }
+
+            html += cardSemelhante(item);
+            quantidade++;
+        }
+
+        gridSemelhantes.innerHTML = html;
+    }
+
+    function cardSemelhante(item) {
+        var miolo;
+
+        if (item.poster === "") {
+            miolo =
+                '<svg viewBox="0 0 100 150" preserveAspectRatio="none">' +
+                '<line x1="0" y1="0" x2="100" y2="150" stroke="#505050"></line>' +
+                '<line x1="100" y1="0" x2="0" y2="150" stroke="#505050"></line>' +
+                '</svg>';
+        } else {
+            miolo = '<img src="' + item.poster + '" alt="' + item.nome + '">';
+        }
+
+        return (
+            '<a class="card" href="detalhes.html?id=' + item.id + '">' +
+            '<div class="poster">' +
+            miolo +
+            '<div class="card-title">' + item.nome + '</div>' +
+            '</div>' +
+            '</a>'
+        );
+    }
+
+    montarPagina();
+</script>
+
+</body>
+</html>
