@@ -9,6 +9,21 @@
     --fundo-elevado: #1c1c1c;
 }
 
+@font-face {
+    font-family: 'Bebas';
+    src: url(../assets/font/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../assets/font/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../assets/font/Poppins-Regular.ttf);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -37,7 +52,7 @@ header.top {
 
 .logo {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
+    font-size: 30px;
     letter-spacing: .5px;
 }
 
@@ -56,7 +71,8 @@ nav.primary {
 }
 
 nav.primary a {
-    font-size: 14px;
+    font-family: 'Poppins';
+    font-size: 16px;
     font-weight: 500;
     color: #fff;
     padding-bottom: 4px;
@@ -69,10 +85,11 @@ nav.primary a:hover {
 }
 
 .avatar {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--vermelho-padrao), var(--vermelho-secundario));
+    background-image: url(../assets/profiles/user_profile.png);
+    background-size: cover;
     flex-shrink: 0;
 }
 
