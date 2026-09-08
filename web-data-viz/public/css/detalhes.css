@@ -160,6 +160,15 @@
     flex-shrink: 0;
 }
 
+.avatar {
+    background-image: url(../assets/profiles/menino_loiro.png);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
 .review-conteudo {
     flex: 1;
 }

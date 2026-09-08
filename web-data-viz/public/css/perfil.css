@@ -52,14 +52,15 @@ header {
         height: 6vh;
         display: flex;
         align-items: center;
-
+        
         img {
             width: 85%;
             height: 40px;
         }
-
+        
         a{
             color: white;
+            text-decoration: none;
             font-family: 'Poppins';
             margin-left: 20px;
             font-size: 20px;
@@ -138,13 +139,14 @@ main {
 
     .containerInfo .usuario {
         display: flex;
-        width: 50%;
+        width: 55%;
         gap: 50px;
     }
 
     .containerInfo .usuario .fotoPerfil img {
-        height: 300px;
-        width: 300px;
+        margin-left: 2vw;
+        height: 200px;
+        width: 200px;
         border-radius: 150px;
     }
 
@@ -174,7 +176,7 @@ main {
     }
 
     .containerInfo .qtdavaliacoes .qtdAv {
-        font-size: 150px;
+        font-size: 130px;
         font-weight: bolder;
     }
 
@@ -191,43 +193,80 @@ main {
         margin-top: 50px;
     }
 
-    .containerAvaliacoes .card {
-        background-color: #505050;
-        width: 30%;
-        height: 250px;
-        overflow: hidden;
-        padding: 20px;
-    }
 
-    .containerAvaliacoes .card .headerCard {
-        display: flex;
-        justify-content: space-between;
-    }
+    .card {
+       width: 35vw;
+       height: 29vh;
+       background-color: var(--cinza-escuro);
+       border: 1px solid var(--cinza-borda);
+       display: flex;
+       flex-direction: column;
+       color: white;
+       font-family: 'Inter';
+       align-items: center;
 
-    .containerAvaliacoes .card .headerCard .infoUser {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+       .topo {
+           display: flex;
+           flex-direction: row;
+           align-items: center;
+           width: 90%;
 
-    .containerAvaliacoes .card .headerCard .infoUser img{
-        width: 70px;
-        height: 70px;
-        border-radius: 50px;
-    }
+           .foto {
+           width: 80px;
+           height: 80px;
+           border-radius: 50px;
+           margin-top: 20px;
+           border: 2px solid var(--cinza-escuro);
+           }
 
-    .containerAvaliacoes .card .headerCard .infoUser .userCard{
-        font-size: 25px;
-    }
+           .foto img {
+            width: 100%;
+           }
+           .nickname {
+               font-size: 22px;
+               font-weight: bold;
+               margin-left: 1vw;
+               
+           }
+           
+       }
 
-    .containerAvaliacoes .card .headerCard .notaUser {
-        font-size: 25px;
-    }
+       .meio {
+           display: flex;
+           flex-direction: column;
+           margin-top: 1vh;
+           width: 90%;
 
-    .containerAvaliacoes .card .headerCard .notaUser img{
-        height: 20px;
-    }
+           .nota {
+           color: var(--cinza-claro);
+           font-size: 14px;
+           }
 
+           .titulo {
+               font-size: 20px;
+               font-weight: bold;
+           }
+           .resenha {
+               margin-top: 1vh;
+               font-size: 15px;
+               width: 95%;
+           }
+           a{
+               cursor: pointer;
+               color: var(--cinza-claro);
+           }
+           
+       }
+
+       .base {
+           display: flex;
+           justify-content: space-between;
+           gap: 19vw;
+           margin-top: 15px;
+           color: var(--cinza-claro);
+           font-size: 15px;
+       }  
+    } 
     
 
 
