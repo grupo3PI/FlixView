@@ -46,6 +46,7 @@ header {
     }
     
     .navbar{
+        background-color: rgba(0, 0, 0, 0.267);
         display: flex;
         width: 100vw;
         height: 8vh;
@@ -63,7 +64,7 @@ header {
             align-items: center;
             
             .logo {
-                width: 5.5vw;
+                width: 7vw;
                 height: 3vh;
                 margin-right: 25px;
             }
@@ -85,8 +86,8 @@ header {
 
             button{
                 cursor: pointer;
-                width: 7.5vw;
-                height: 2.5vh;
+                width: 8vw;
+                height: 3vh;
                 border: none;
                 border-radius: 7px;
                 font-family: 'Bebas';
@@ -137,7 +138,7 @@ header {
             
             position: absolute;
             top: 54%;
-            left: 20%;
+            left: 25%;
 
             transform: translate(-50%, -50%);
             z-index: 2;
@@ -151,8 +152,8 @@ header {
             cursor: default;
 
             position: absolute;
-            top: 60%;
-            left: 16.2%;
+            top: 62%;
+            left: 20.2%;
 
             transform: translate(-50%, -50%);
             z-index: 2;
@@ -169,6 +170,7 @@ header {
             margin-top: -5vh;
 
             .seta {
+                margin-top: 10vh;
                 border: none;
                 background-color: var(--cor-fundo);
                 color: white;
@@ -177,6 +179,7 @@ header {
             }
 
             .seta-B {
+                margin-top: 10vh;
                 border: none;
                 background-color: var(--cor-fundo);
                 color: white;
@@ -195,10 +198,10 @@ header {
                 color: white;
                 font-family: 'Bebas';
                 font-size: 50px;
-                width: 7vw;
+                width: 10vw;
                 height: 7vh;
                 position: absolute;
-                left: 3.5%;
+                left: 5%;
                 cursor: default;
             }
 
@@ -213,10 +216,10 @@ header {
             }
 
             .card {
-                width: 17.6vw;
-                height: 43vh;
+                width: 16vw;
+                height: 41vh;
                 margin-top: 70px ;
-                margin-left: 20px;
+                margin-left: 40px;
                 transition: 0.2s ease;
                 img {
                     width: 100%;
@@ -224,7 +227,9 @@ header {
                 }
 
                 .infos {
+                    width: 16vw;
                     color: var(--cinza-claro);
+                    font-size: 12px;
                     font-family: 'Inter';
                     display: flex;
                     flex-direction: row;
@@ -250,7 +255,7 @@ header {
                 justify-content: space-around;
                 
                 .title {
-                width: 11vw;
+                width: 13vw;
                 height: 5vh;
                 margin-top: -2vh;
                 margin-left: 3vw;
@@ -277,7 +282,7 @@ header {
 
                 .titulo {
                     color: black;
-                    font-size: 30px;
+                    font-size: 25px;
                     margin-left: 15px;
                     font-family: 'Poppins';
                     font-weight: bold;
@@ -285,7 +290,7 @@ header {
                 }
 
                 .subtitle {
-                    font-size: 22px;
+                    font-size: 18px;
                     margin-left: 15px;
                     font-family: 'Poppins';
                     font-weight: lighter;   
@@ -322,7 +327,7 @@ header {
 
                 .card {
                     width: 35vw;
-                    height: 26vh;
+                    height: 29vh;
                     background-color: var(--cinza-escuro);
                     border: 1px solid var(--cinza-borda);
                     display: flex;
@@ -337,22 +342,19 @@ header {
                         align-items: center;
                         width: 90%;
                         .foto {
-                        width: 100px;
-                        height: 100px;
+                        width: 80px;
+                        height: 80px;
                         border-radius: 50px;
                         margin-top: 20px;
                         border: 2px solid var(--cinza-escuro);
                         }
                         .nickname {
-                            font-size: 25px;
+                            font-size: 22px;
                             font-weight: bold;
                             margin-left: 1vw;
                             
                         }
-                        .nota {
-                        color: var(--cinza-claro);
-                        font-size: 20px;
-                        }
+                        
                     }
 
                     .meio {
@@ -361,13 +363,18 @@ header {
                         margin-top: 1vh;
                         width: 90%;
 
+                        .nota {
+                        color: var(--cinza-claro);
+                        font-size: 14px;
+                        }
+
                         .titulo {
-                            font-size: 25px;
+                            font-size: 20px;
                             font-weight: bold;
                         }
                         .resenha {
                             margin-top: 1vh;
-                            font-size: 18px;
+                            font-size: 15px;
                             width: 95%;
                         }
                         a{
@@ -380,17 +387,12 @@ header {
                     .base {
                         display: flex;
                         justify-content: space-between;
-                        gap: 320px;
+                        gap: 14vw;
                         margin-top: 15px;
                         color: var(--cinza-claro);
-                    }
-                    
-
-                }
-
-
-
-                
+                        font-size: 15px;
+                    }  
+                }  
             }
         }
 
@@ -405,7 +407,7 @@ header {
             .titulo {
                 color: white;
                 font-family: 'Bebas';
-                font-size: 80px;
+                font-size: 65px;
                 width: 70%;
             }
 
@@ -459,7 +461,7 @@ header {
             width: 30%;
             font-family: 'Inter';
             font-weight: bolder;
-            font-size: 25px;
+            font-size: 20px;
             
             a{
                 cursor: pointer;
@@ -470,7 +472,7 @@ header {
             text-align: center;
             width: 30%;
             margin-top: 2vh;
-            font-size: 18px;
+            font-size: 15px;
         }
     }
     
