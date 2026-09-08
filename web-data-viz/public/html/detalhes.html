@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlixView — Detalhes</title>
+    <title>The Whisper Man</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
 <header class="top">
     <div class="logo"><span class="flix">FLIX</span><span class="view">VIEW</span></div>
     <nav class="primary">
-        <a href="catalogo.html">Home</a>
-        <a href="#">Reviews</a>
+        <a href="./home.html">Home</a>
+        <a href="./reviews.html">Reviews</a>
         <a href="catalogo.html">Títulos</a>
     </nav>
     <div class="search-row header-search">
@@ -32,13 +32,14 @@
 <main class="detalhes">
 
     <div class="topo-titulo">
-        <div class="poster-grande" id="posterGrande"></div>
+        <div class="poster-grande" id="posterGrande">
+            
+        </div>
 
         <div class="info-titulo">
             <h1 id="nome"></h1>
 
             <p class="meta" id="meta"></p>
-
             <div class="nota" id="nota"></div>
 
             <p class="sinopse" id="sinopse"></p>
@@ -66,11 +67,11 @@
         <div class="review-card">
             <div class="avatar-review"></div>
             <div class="review-conteudo">
-                <strong>Usuário</strong>
-                <p>Review do filme</p>
-                <span>♥ 30</span>
+                <strong>Lucas Martins</strong>
+                <p>The Whisper Man consegue criar uma atmosfera realmente perturbadora sem depender apenas de sustos. A história vai ficando cada vez mais tensa conforme os mistérios são revelados, e a relação entre os personagens dá um peso maior para a trama. Em alguns momentos o ritmo poderia ser um pouco melhor, mas no geral é um suspense que prende bastante.</p>
+                <span>♡ 150</span>
             </div>
-            <div class="review-nota">★ 8,5</div>
+            <div class="review-nota">★ 9.0</div>
         </div>
     </div>
 
@@ -81,23 +82,39 @@
 
 <script>
     /* Pessoal esse catalogo é temporario ate importamos os dados ... */
-    /* Pessoal esse catalogo é temporario ate importamos os dados ... */
-    /* Pessoal esse catalogo é temporario ate importamos os dados ... */
 
     var catalogo = [
-        {
-            id: 0, nome: "Stranger Things", genero: "Terror", ano: "2016",
-            tipo: "Série", duracao: "5 Temporadas", classificacao: "16", nota: "8,6", poster: "../img/Stranger-Things.jpg",
-            sinopse: "Na década de 1980, um grupo de amigos se envolve em uma série de eventos sobrenaturais na pacata cidade de Hawkins.",
-            direcao: "Irmãos Duffer", elenco: "Millie Bobby Brown, Finn Wolfhard ..."
-        },
-        {
-            id: 1, nome: "The 100", genero: "Ficção científica", ano: "2014",
-            tipo: "Série", duracao: "7 Temporadas", classificacao: "16", nota: "7,5", poster: "../img/The-100.jpg",
-            sinopse: "Um século após um apocalipse nuclear, um grupo de jovens é enviado da estação espacial de volta à Terra para verificar se o planeta é habitável.",
-            direcao: "Jason Rothenberg", elenco: "Eliza Taylor, Bob Morley ..."
-        }
-    ];
+    {
+        id: 0, nome: "The Whisper Man", genero: "Suspense/Terror", ano: "2026",
+        tipo: "Filme", duracao: "1h54min", classificacao: "16", nota: "6.2", poster: "../assets/static/the_whisper_man.jpg",
+        sinopse: "Um escritor viúvo de romances policiais recorre a seu pai, um ex-detetive de quem está afastado, após o sequestro de seu filho de 8 anos, descobrindo uma ligação com um antigo caso de um serial killer conhecido como The Whisper Man.",
+        direcao: "James Ashcroft", elenco: "Robert De Niro, Michelle Monaghan, Adam Scott ..."
+    },
+    {
+        id: 1, nome: "The Last House", genero: "Ficção científica/Terror", ano: "2026",
+        tipo: "Filme", duracao: "1h52min", classificacao: "14", nota: "5,8", poster: "../img/The-Last-House.jpg",
+        sinopse: "Uma família fica inexplicavelmente presa dentro da própria casa por uma força desconhecida, e precisa aprender a sobreviver com a falta de água, comida e outros recursos essenciais.",
+        direcao: "Louis Leterrier", elenco: "Greta Lee, Wagner Moura ..."
+    },
+    {
+        id: 2, nome: "Don't Say Good Luck", genero: "Comédia dramática/Musical", ano: "2026",
+        tipo: "Filme", duracao: "1h36min", classificacao: "14", nota: "7,0", poster: "../img/Dont-Say-Good-Luck.jpg",
+        sinopse: "Sophie Birenbaum consegue o papel principal no musical da sua escola, mas descobre que o câncer de sua mãe voltou, tendo que lidar com muito mais drama em casa do que nos palcos.",
+        direcao: "Julia Hart", elenco: "Sunny Sandler, Melanie Lynskey, Max Greenfield ..."
+    },
+    {
+        id: 3, nome: "The Heat", genero: "Comédia de ação", ano: "2013",
+        tipo: "Filme", duracao: "1h57min", classificacao: "16", nota: "7,0", poster: "../img/The-Heat.jpg",
+        sinopse: "Uma agente do FBI rígida e workaholic precisa se unir a uma policial de Boston sem papas na língua para caçar um perigoso traficante, apesar de seus estilos completamente opostos.",
+        direcao: "Paul Feig", elenco: "Sandra Bullock, Melissa McCarthy ..."
+    },
+    {
+        id: 4, nome: "GTA VI Trailer", genero: "Trailer de jogo", ano: "2025",
+        tipo: "Vídeo", duracao: "1min30s", classificacao: "18", nota: "-", poster: "../img/GTA-VI-Trailer.jpg",
+        sinopse: "Trailer de anúncio de Grand Theft Auto VI, ambientado no estado fictício de Leonida, com os protagonistas Jason e Lucia.",
+        direcao: "Rockstar Games", elenco: "-"
+    }
+];
 
     function buscarIdDaUrl() {
         var parametros = new URLSearchParams(window.location.search);
