@@ -1,39 +1,90 @@
 package school.sptech;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ConsoleLogs {
-    static void main() {
-        Scanner input = new Scanner(System.in);
-        LocalDateTime dtAv = LocalDateTime.now();
-        DateTimeFormatter formatado = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
+    static void main(String[] args) {
 
-        System.out.println("Bem vindo! \nAntes de começarmos, insira o seu nome: ");
+        Scanner input = new Scanner(System.in);
+
+        LocalDateTime dtAv = LocalDateTime.now();
+        DateTimeFormatter formatado =
+                DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
+
+        System.out.println("Olá, Bem vindo! \n Antes de começarmos, insira seu nome:");
         String nome = input.nextLine();
 
-        System.out.printf("\nNovo login! Usuário %s logou ás %s%n \n", nome, dtAv.format(formatado));
+        System.out.printf("%s > [INFO] Novo login! Usuário %s entrou no sistema.%n%n", dtAv.format(formatado), nome);
 
-        System.out.println("Insira o filme/série favorito: ");
-        String filmeFav = input.nextLine();
+        System.out.println("""
+                Arquivos disponíveis:
+                
+                1. gtaVI.xlsx
+                2. theWhisperMan.xlsx
+                3. theLastHouse.xlsx
+                """);
 
-        System.out.println("\nInsira seu gẽnero favorito: ");
-        String genero = input.nextLine();
+        Integer arquivo = input.nextInt();
 
-        System.out.printf("O usuário %s adicionou novas informações ao seu perfil: \n", nome);
-        System.out.printf(" - Filme Favorito: %s \n - Gênero Favorito: %s \n", filmeFav, genero);
-        System.out.printf("Data da alteração: %s%n \n", dtAv.format(formatado));
+        String filme;
+        Integer linhas;
 
-        System.out.println("Insira um filme/série que deseja avaliar: ");
-        String filmeAv = input.nextLine();
+        if (arquivo == 1) {
+            filme = "gtaVI.xlsx";
+            linhas = 5240;
 
-        System.out.println("\nAvalie este filme (0 a 10): ");
-        Integer nota = input.nextInt();
+        } else if (arquivo == 2) {
+            filme = "theWhisperMan.xlsx";
+            linhas = 2380;
 
-        System.out.printf("\nO usuário %s avaliou um filme/série: \n", nome);
-        System.out.printf(" - Filme Avaliado: %s \n - Nota: %d \n - Data da avaliação: %s%n \n", filmeAv, nota, dtAv.format(formatado));
+        } else if (arquivo == 3) {
+            filme = "theLastHouse.xlsx";
+            linhas = 840;
+
+        } else {
+
+            System.out.printf("[%s] > [ERRO] Arquivo inválido!%n", dtAv.format(formatado));
+
+            System.out.println("[AVISO] Processamento interrompido.");
+
+            return;
+        }
+
+        System.out.printf("[%s] > [INFO] Arquivo selecionado: %s%n", dtAv.format(formatado), filme);
+
+        System.out.printf("[%s] > [INFO] Iniciando leitura do arquivo...%n", dtAv.format(formatado));
+
+        System.out.printf("[%s] > [INFO] Arquivo possui %d linhas. %n", dtAv.format(formatado), linhas);
+
+        if (linhas > 5000) {
+
+            System.out.printf("[%s] > [AVISO] O arquivo possui muitos registros. %n", dtAv.format(formatado));
+
+        } else if (linhas < 1000) {
+
+            System.out.printf("[%s] > [AVISO] O arquivo possui poucos registros. %n", dtAv.format(formatado));
+
+        } else {
+            System.out.printf("[%s] > [INFO]  Quantidade de registros dentro do esperado.%n", dtAv.format(formatado));
+        }
+
+        if (arquivo == 2) {
+
+            System.out.printf("[%s] > [ERRO] Falha ao processar o arquivo %s!%n", dtAv.format(formatado), filme);
+
+        } else {
+            System.out.printf("[%s] >[SUCESSO] Leitura do arquivo %s realizada com sucesso!%n", dtAv.format(formatado), filme);
+
+            System.out.printf("[%s] > [INFO] Iniciando processamento dos dados...%n", dtAv.format(formatado));
+
+            System.out.printf("[%s] > [INFO] %d registros sendo processados.%n", dtAv.format(formatado), linhas);
+
+            System.out.printf("[%s] > [SUCESSO] Processamento finalizado.%n", dtAv.format(formatado));
+        }
+
+        System.out.printf("[%s] > [INFO] Processamento encerrado.%n", dtAv.format(formatado));
 
     }
 }
