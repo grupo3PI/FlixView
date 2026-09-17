@@ -1,58 +1,68 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE IF NOT EXISTS FlixView;
 
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+USE FlixView;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    nomeUsuario VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    tpUsuario BOOLEAN NOT NULL,
+    dtCadastro DATETIME NOT NULL
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+
+CREATE TABLE titulo (
+    idTitulo INT AUTO_INCREMENT PRIMARY KEY,
+    idShow VARCHAR(10) NOT NULL UNIQUE,
+    idTMDB INT NOT NULL UNIQUE,
+    tipo VARCHAR(20) NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    diretor VARCHAR(255),
+    elenco VARCHAR(255),
+    anoLancamento INT,
+    classificacao VARCHAR(20),
+    duracao VARCHAR(30),
+    descricao VARCHAR(255),
+    poster VARCHAR(255),
+    notaTMDB DECIMAL(3,1),
+    qtdVotosTMDB INT,
+    popularidadeTMDB DECIMAL(10,3)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE genero (
+    idGenero INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+CREATE TABLE titulo_genero (
+    idTitulo INT,
+    idGenero INT,
+    PRIMARY KEY (idTitulo, idGenero),
+    FOREIGN KEY (idTitulo) REFERENCES titulo(idTitulo),
+    FOREIGN KEY (idGenero) REFERENCES genero(idGenero)
 );
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+CREATE TABLE avaliacao (
+    idAvaliacao INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT NOT NULL,
+    idTitulo INT NOT NULL,
+    nota DECIMAL(3,1) NOT NULL,
+    comentario VARCHAR(255),
+    dtAvaliacao DATETIME NOT NULL,
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idTitulo) REFERENCES titulo(idTitulo)
+);
+
+
+CREATE TABLE preferencia_usuario (
+    idPreferencia INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT NOT NULL,
+    genero VARCHAR(255),
+    tituloPreferido VARCHAR(50),
+    tpConteudo VARCHAR(20),
+    periodoLancamento VARCHAR(30),
+    dtAtualizacao DATETIME NOT NULL,
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+);
