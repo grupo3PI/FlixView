@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlixView</title>
+    <link rel="stylesheet" href="../css/dashboard_config.css">
+</head>
+
+<body>
+    <button class="menu-button" id="menuButton" aria-label="Abrir/fechar menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../assets/imgs/Logo FlixView.png" alt="" />
+            </a>
+        </div>
+
+        <div class="search-box">
+            <input type="text" aria-label="Pesquisar" placeholder="🔍︎" />
+        </div>
+
+        <nav class="menu">
+            <a href="" class="menu-item">
+                <span class="menu-iconA"></span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="" class="menu-item">
+                <span class="menu-iconB"></span>
+                <span>Insights</span>
+            </a>
+
+            <a href="" class="menu-item">
+                <span class="menu-iconC"></span>
+                <span> Desempenho de Catálogo </span>
+            </a>
+
+            <a href="" class="menu-item" class="menu-item active">
+                <span class="menu-iconD"> </span>
+                <span>Configurações</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+        <div class="dashboard-container">
+            <h1>CONFIGURAÇÕES DE USUÁRIO</h1>
+
+            <div class="titulo">
+                <span>Dados da conta</span>
+            </div>
+
+            <div class="inputsClass">
+                <span>Nome:</span>
+                <input type="text" id="nome" placeholder="">
+            </div>
+
+            <div class="inputsClass">
+                <span>Cargo:</span>
+                <input type="text" id="cargo" placeholder="">
+            </div>
+
+            <div class="inputsClass">
+                <span>Email:</span>
+                <input type="text" id="email" placeholder="">
+            </div>
+
+            <div class="alterarClass">
+                <span class="alterarTitulo">Alterar senha</span>
+
+                <div class="inputsClass">
+                    <span>Nova senha</span>
+                    <input type="text" id="novaSenha" placeholder="">
+                </div>
+
+                <div class="inputsClass">
+                    <span>Confirme a senha</span>
+                    <input type="text" id="confSenha" placeholder="">
+                </div>
+            </div>
+
+            <button onclick="salvar()">Salvar</button>
+        </div>
+    </main>
+</body>
+
+</html>
