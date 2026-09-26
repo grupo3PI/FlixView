@@ -1,0 +1,272 @@
+:root {
+    --cor-fundo: #141414;
+    --vermelho-padrao: #E50914;
+    --vermelho-secundario: #B20710;
+    --cinza-claro: #B3B3B3;
+    --cinza-escuro: #272727;
+    --cinza-borda: #505050;
+    ;
+}
+
+@font-face {
+    font-family: 'Bebas';
+    src: url(../assets/font/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../assets/font/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../assets/font/Poppins-Regular.ttf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+body {
+    background-color: var(--cor-fundo);
+}
+
+header {
+    position: relative;
+    height: 9vh;
+    background-color: black;
+}
+
+.navbar {
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+
+    position: fixed;
+    z-index: 10;
+
+    .left {
+        width: 7vw;
+        height: 6vh;
+        display: flex;
+        align-items: center;
+
+        .logo {
+            width: 7vw;
+
+            img {
+                width: 7vw;
+                height: auto;
+            }
+        }
+    }
+
+    .link {
+        color: white;
+        font-family: 'Poppins';
+        margin-left: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        transition: 0.2s;
+        padding-bottom: 4px;
+        border-bottom: 2px solid transparent;
+    }
+
+    .link:hover {
+        color: var(--vermelho-padrao);
+    }
+}
+
+.faixa {
+    background-color: var(--cinza-escuro);
+    border-bottom: 2px var(--vermelho-secundario) solid;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.caixa-icone {
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+}
+
+.caixa-icone img {
+    width: 500px;
+    height: 70px;
+}
+
+.intro {
+    color: white;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: default;
+    margin-right: 35px;
+
+}
+
+.container-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 130px;
+    margin-top: 100px;
+}
+
+.card {
+    background-color: var(--cinza-escuro);
+    width: 210px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.card img {
+    width: 65px;
+    height: auto;
+    gap: 10px;
+}
+
+.card span {
+    color: white;
+    font-family: 'Bebas', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+.card:hover {
+    background-color: var(--cinza-borda);
+    transform: translateY(5px);
+    border: 3px solid var(--vermelho-secundario);
+
+}
+
+.container-texto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+}
+
+.container-texto .texto {
+    color: var(--cinza-claro);
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    margin-top: 50px;
+    max-width: 600px;
+    line-height: 1.2;
+    cursor: default;
+    transition: color 0.3s ease;
+}
+
+.container-texto .texto:hover {
+    color: var(--vermelho-secundario);
+
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        position: relative;
+        height: 9vh;
+        background-color: black;
+    }
+
+    .navbar {
+        display: flex;
+        width: 100vw;
+        height: 10vh;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30 px;
+
+        position: fixed;
+        z-index: 10;
+
+        .left {
+            width: 7vw;
+            height: 6vh;
+            display: flex;
+            align-items: center;
+
+            .logo {
+                width: 7vw;
+
+                img {
+                    width: 7vw;
+                    height: auto;
+                }
+            }
+        }
+
+        .link {
+            color: white;
+            font-family: 'Poppins';
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.2s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+    }
+
+    .faixa {
+        height: auto;
+        padding: 20px 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .intro {
+        font-size: 30px;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .container-cards {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 60px;
+    }
+
+    .card {
+        width: 80vw;
+        height: 140px;
+    }
+
+    .container-texto-hover .text {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+}
