@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard - Insights</title>
+
+    <link rel="stylesheet" href="../css/dashboard_insights.css" />
+</head>
+
+<body>
+<button class="menu-button" id="menuButton" aria-label="Abrir/fechar menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<aside class="sidebar" id="sidebar">
+    <div class="logo">
+        <a href="home.html">
+            <img src="../assets/imgs/Logo FlixView.png" alt="" />
+        </a>
+    </div>
+
+    <div class="search-box">
+        <input type="text" aria-label="Pesquisar" placeholder="🔍︎" />
+    </div>
+
+    <nav class="menu">
+        <a href="./dashboard - inicio.html" class="menu-item">
+            <span class="menu-iconA"></span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="./dashboard_insights.html" class="menu-item active">
+            <span class="menu-iconB"></span>
+            <span>Insights</span>
+        </a>
+
+        <a href="./" class="menu-item">
+            <span class="menu-iconC"></span>
+            <span> Desempenho de Catálogo </span>
+        </a>
+
+        <a href="./" class="menu-item">
+            <span class="menu-iconD"> </span>
+            <span>Configurações</span>
+        </a>
+    </nav>
+</aside>
+
+<main class="main-content" id="mainContent">
+
+    <div class="dashboard-container">
+
+        <h1>INSIGHTS</h1>
+
+        <section class="legenda-insights">
+
+            <span class="legenda positivo">
+                <span class="bolinha"></span>
+                POSITIVO
+            </span>
+
+            <span class="legenda alerta">
+                <span class="bolinha"></span>
+                ALERTA
+            </span>
+
+            <span class="legenda oportunidade">
+                <span class="bolinha"></span>
+                OPORTUNIDADE
+            </span>
+
+            <span class="legenda risco">
+                <span class="bolinha"></span>
+                RISCO
+            </span>
+
+        </section>
+
+
+        <section class="insights-grid">
+
+            <article class="insight-card positivo">
+                <h2>Título do insight</h2>
+
+                <p>
+                    Informação estratégica identificada a partir
+                    dos dados analisados.
+                </p>
+            </article>
+
+
+            <article class="insight-card alerta">
+                <h2>Título do insight</h2>
+
+                <p>
+                    Informação estratégica identificada a partir
+                    dos dados analisados.
+                </p>
+            </article>
+
+
+            <article class="insight-card risco">
+                <h2>Título do insight</h2>
+
+                <p>
+                    Informação estratégica identificada a partir
+                    dos dados analisados.
+                </p>
+            </article>
+
+
+            <article class="insight-card oportunidade">
+                <h2>Título do insight</h2>
+
+                <p>
+                    Informação estratégica identificada a partir
+                    dos dados analisados.
+                </p>
+            </article>
+
+        </section>
+
+    </div>
+
+</main>
+<script>
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+    const mainContent = document.getElementById("mainContent");
+
+    menuButton.addEventListener("click", function () {
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("expanded");
+    });
+</script>
+
+</body>
+</html>
