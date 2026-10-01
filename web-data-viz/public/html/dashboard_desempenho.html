@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Desempenho de Catálogo</title>
+
+    <link rel="stylesheet" href="../css/dashboard_desempenho.css">
+</head>
+
+<body>
+
+<button class="menu-button" id="menuButton" aria-label="Abrir/fechar menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="logo">
+        <a href="home.html">
+            <img src="../assets/imgs/Logo FlixView.png" alt="Logo FlixView">
+        </a>
+    </div>
+
+    <div class="search-box">
+        <input type="text" aria-label="Pesquisar" placeholder="🔍︎">
+    </div>
+
+    <nav class="menu">
+
+        <a href="./dashboard - inicio.html" class="menu-item">
+            <span class="menu-iconA"></span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="./dashboard_insights.html" class="menu-item">
+            <span class="menu-iconB"></span>
+            <span>Insights</span>
+        </a>
+
+        <a href="./dashboard_desempenho.html" class="menu-item active">
+            <span class="menu-iconC"></span>
+            <span>Desempenho de Catálogo</span>
+        </a>
+
+        <a href="./" class="menu-item">
+            <span class="menu-iconD"></span>
+            <span>Configurações</span>
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<main class="main-content" id="mainContent">
+
+    <div class="dashboard-container">
+
+        <h1>DESEMPENHO DE CATÁLOGO</h1>
+
+        <!-- KPIs -->
+        <section class="cards-desempenho">
+
+            <div class="kpi-card-desempenho">
+                <span>Total de Títulos</span>
+                <strong>--</strong>
+            </div>
+
+            <div class="kpi-card-desempenho">
+                <span>Total de Avaliações</span>
+                <strong>--</strong>
+            </div>
+
+            <div class="kpi-card-desempenho">
+                <span>Média Geral</span>
+                <strong>--</strong>
+            </div>
+
+            <div class="kpi-card-desempenho">
+                <span>Título em Destaque</span>
+                <strong>--</strong>
+            </div>
+
+        </section>
+
+
+        <!-- Área principal -->
+        <section class="desempenho-grid">
+
+            <div class="chart-container-desempenho">
+
+                <div class="chart-header">
+                    <h2>Desempenho dos Títulos</h2>
+                    <span>Visão geral do catálogo</span>
+                </div>
+
+                <div class="chart-placeholder">
+                    <p>Área destinada ao gráfico de desempenho</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<script>
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+    const mainContent = document.getElementById("mainContent");
+
+    menuButton.addEventListener("click", function () {
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("expanded");
+    });
+</script>
+
+</body>
+</html>
