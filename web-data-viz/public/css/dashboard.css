@@ -135,69 +135,104 @@ body {
     transition: color 0.2s ease;
 }
 
-.menu-item:hover,
-.menu-item.active {
+.menu-item:hover {
     color: var(--vermelho-padrao);
 }
 
-.menu-iconA {
+.menu-icon {
     margin-left: 1vw;
     width: 30px;
     height: 30px;
     display: inline-block;
-    background-image: url(../assets/icon/dash_branca.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.menu-item:hover .menu-iconA,
-.menu-item.active .menu-iconA {
-    background-image: url(../assets/icon/dash_vermelha.png);
+.menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_branca.png");
 }
 
-.menu-iconB {
-    margin-left: 1vw;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    background-image: url(../assets/icon/lampada_branca.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_branca.png");
 }
 
-.menu-item:hover .menu-iconB,
-.menu-item.active .menu-iconB {
-    background-image: url(../assets/icon/lampada_vermelha.png);
+.menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_branco.png");
 }
 
-.menu-iconC {
-    margin-left: 1vw;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    background-image: url(../assets/icon/catalogo_branco.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.menu-reviews .menu-icon {
+    background-image: url("../assets/icon/review-branco.png");
 }
 
-.menu-item:hover .menu-iconC,
-.menu-item.active .menu-iconC {
-    background-image: url(../assets/icon/catalogo_vermelho.png);
+.menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_branca.png");
 }
 
-.menu-iconD {
-    margin-left: 1vw;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    background-image: url(../assets/icon/engrenagem_branca.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.menu-dashboard:hover,
+.menu-insights:hover,
+.menu-desempenho:hover,
+.menu-config:hover {
+    color: var(--vermelho-padrao);
 }
 
-.menu-item:hover .menu-iconD,
-.menu-item.active .menu-iconD {
-    background-image: url(../assets/icon/engrenagem_vermelha.png);
+.menu-dashboard:hover .menu-icon,
+.pagina-dashboard .menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_vermelha.png");
+}
+
+.menu-insights:hover .menu-icon,
+.pagina-insights .menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_vermelha.png");
+}
+
+.menu-desempenho:hover .menu-icon,
+.pagina-desempenho .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_vermelho.png");
+}
+
+.menu-reviews:hover .menu-icon,
+.pagina-reviews .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/review-vermelho.png");
+}
+
+.menu-config:hover .menu-icon,
+.pagina-config .menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_vermelha.png");
+}
+
+.pagina-dashboard .menu-dashboard {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-dashboard .menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_vermelha.png");
+}
+
+
+.pagina-insights .menu-insights {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-insights .menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_vermelha.png");
+}
+
+
+.pagina-desempenho .menu-desempenho {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-desempenho .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_vermelho.png");
+}
+
+
+.pagina-config .menu-config {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-config .menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_vermelha.png");
 }
 
 .main-content {

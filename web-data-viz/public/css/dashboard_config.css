@@ -136,69 +136,104 @@ body {
     transition: color 0.2s ease;
 }
 
-.menu-item:hover,
-.menu-item.active {
+.menu-item:hover {
     color: var(--vermelho-padrao);
 }
 
-.menu-iconA {
+.menu-icon {
     margin-left: 1vw;
     width: 30px;
     height: 30px;
     display: inline-block;
-    background-image: url(../assets/icon/dash_branca.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.menu-item:hover .menu-iconA,
-.menu-item.active .menu-iconA {
-    background-image: url(../assets/icon/dash_vermelha.png);
+.menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_branca.png");
 }
 
-.menu-iconB {
-    margin-left: 1vw;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    background-image: url(../assets/icon/lampada_branca.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_branca.png");
 }
 
-.menu-item:hover .menu-iconB,
-.menu-item.active .menu-iconB {
-    background-image: url(../assets/icon/lampada_vermelha.png);
+.menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_branco.png");
 }
 
-.menu-iconC {
-    margin-left: 1vw;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    background-image: url(../assets/icon/catalogo_branco.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.menu-reviews .menu-icon {
+    background-image: url("../assets/icon/review-branco.png");
 }
 
-.menu-item:hover .menu-iconC,
-.menu-item.active .menu-iconC {
-    background-image: url(../assets/icon/catalogo_vermelho.png);
+.menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_branca.png");
 }
 
-.menu-iconD {
-    margin-left: 1vw;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    background-image: url(../assets/icon/engrenagem_branca.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.menu-dashboard:hover,
+.menu-insights:hover,
+.menu-desempenho:hover,
+.menu-config:hover {
+    color: var(--vermelho-padrao);
 }
 
-.menu-item:hover .menu-iconD,
-.menu-item.active .menu-iconD {
-    background-image: url(../assets/icon/engrenagem_vermelha.png);
+.menu-dashboard:hover .menu-icon,
+.pagina-dashboard .menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_vermelha.png");
+}
+
+.menu-insights:hover .menu-icon,
+.pagina-insights .menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_vermelha.png");
+}
+
+.menu-desempenho:hover .menu-icon,
+.pagina-desempenho .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_vermelho.png");
+}
+
+.menu-reviews:hover .menu-icon,
+.pagina-reviews .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/review-vermelho.png");
+}
+
+.menu-config:hover .menu-icon,
+.pagina-config .menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_vermelha.png");
+}
+
+.pagina-dashboard .menu-dashboard {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-dashboard .menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_vermelha.png");
+}
+
+
+.pagina-insights .menu-insights {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-insights .menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_vermelha.png");
+}
+
+
+.pagina-desempenho .menu-desempenho {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-desempenho .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_vermelho.png");
+}
+
+
+.pagina-config .menu-config {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-config .menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_vermelha.png");
 }
 
 .main-content {
@@ -222,13 +257,12 @@ body {
 
 .dashboard-container h1 {
     font-family: "Bebas", sans-serif;
-    font-size: 32px;
-    color: var(--cinza-claro);
-    margin-bottom: 25px;
+    font-size: 40px;
+    color: white;
 }
 
 .titulo{
-    font-family: "Ppoppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 600;
     color: var(--cinza-claro);
@@ -242,11 +276,12 @@ body {
 }
 
 .inputsClass input {
+    width: 50%;
     height: 22px;
     background-color: transparent; 
     border: 1px solid var(--cinza-borda);
     border-radius: 2px;
-    padding: 0 10px;
+    padding: 15px;
     color: var(--cinza-claro);
     font-size: 15px;
     outline: none;
@@ -261,10 +296,14 @@ body {
 }
 
 .alterarClass {
-    display: grid;
-    gap: 20px;
-    width: 100%;
-    margin-top: 5px;
+    width: 90%;
+    margin-top: 15px;
+}
+
+.alterarClass .inputsClass {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
 }
 
 .alterarTitulo {
@@ -275,23 +314,58 @@ body {
     color: var(--cinza-claro);
 }
 
-.dashboard-container button {
+.botao {
     background-color: var(--vermelho-padrao);
     color: white;
     border: none;
+    width: 8vw;
     border-radius: 6px;
-    padding: 10px 30px;
+    padding: 5px 20px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    align-self: flex-end;
-    margin-top: 10px;
-    margin-right: 15px;
+    align-self: start;
+    margin-top: 5px;
+    margin-right: 40vw;
     font-family: "Poppins", sans-serif;
     transition: background-color 0.2s;
 }
 
-.dashboard-container button:hover {
+.botao:hover {
     background-color: var(--vermelho-secundario);
 }
+
+.section {
+    display: flex;
+    margin-top: 30px;
+         .botao-excluir {
+          all: unset;
+          cursor: pointer;
+          font-family: 'Poppins';
+          font-size: 18px;
+          color: var(--vermelho-padrao);
+          transition: 0.2s ease;
+        }
+
+        .botao-excluir:hover {
+            color: var(--vermelho-secundario);
+        } 
+}
+
+.image-excluir {
+    width: 1vw;
+    height: 2vh;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+.botao-ver {
+    width: 1vw;
+    all: unset;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+
 

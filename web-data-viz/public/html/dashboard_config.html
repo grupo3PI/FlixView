@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/dashboard_config.css">
 </head>
 
-<body>
+<body class="pagina-config">
     <button class="menu-button" id="menuButton" aria-label="Abrir/fechar menu">
         <span></span>
         <span></span>
@@ -26,27 +26,34 @@
             <input type="text" aria-label="Pesquisar" placeholder="🔍︎" />
         </div>
 
-        <nav class="menu">
-            <a href="" class="menu-item">
-                <span class="menu-iconA"></span>
-                <span>Dashboard</span>
-            </a>
+    <nav class="menu">
 
-            <a href="" class="menu-item">
-                <span class="menu-iconB"></span>
-                <span>Insights</span>
-            </a>
+    <a href="./dashboard _inicio.html" class="menu-item menu-dashboard">
+        <span class="menu-icon"></span>
+        <span>Dashboard</span>
+    </a>
 
-            <a href="" class="menu-item">
-                <span class="menu-iconC"></span>
-                <span> Desempenho de Catálogo </span>
-            </a>
+    <a href="./dashboard_insights.html" class="menu-item menu-insights">
+        <span class="menu-icon"></span>
+        <span>Insights</span>
+    </a>
 
-            <a href="" class="menu-item" class="menu-item active">
-                <span class="menu-iconD"> </span>
-                <span>Configurações</span>
-            </a>
-        </nav>
+    <a href="./dashboard_desempenho.html" class="menu-item menu-desempenho">
+        <span class="menu-icon"></span>
+        <span>Desempenho de Catálogo</span>
+    </a>
+
+    <a href="./dashboard_review.html" class="menu-item menu-reviews">
+        <span class="menu-icon"></span>
+        <span>Reviews</span>
+    </a>
+
+    <a href="./dashboard_config.html" class="menu-item menu-config">
+        <span class="menu-icon"></span>
+        <span>Configurações</span>
+    </a>
+
+</nav>
     </aside>
 
     <main class="main-content" id="mainContent">
@@ -59,36 +66,73 @@
 
             <div class="inputsClass">
                 <span>Nome:</span>
-                <input type="text" id="nome" placeholder="">
+                <input type="text" id="nome" placeholder="Nome do Usuário">
             </div>
 
             <div class="inputsClass">
                 <span>Cargo:</span>
-                <input type="text" id="cargo" placeholder="">
+                <input type="text" id="cargo" placeholder="Cargo do Usuário">
             </div>
 
             <div class="inputsClass">
                 <span>Email:</span>
-                <input type="text" id="email" placeholder="">
+                <input type="text" id="email" placeholder="emailuser@email.com">
             </div>
+
+            <button onclick="salvar()" class="botao">Salvar</button>
 
             <div class="alterarClass">
                 <span class="alterarTitulo">Alterar senha</span>
 
                 <div class="inputsClass">
-                    <span>Nova senha</span>
-                    <input type="text" id="novaSenha" placeholder="">
+                    <input type="password" id="novaSenha" placeholder="Nova Senha">
+                    <button onclick="alterTypeB(this)" class="botao-ver">⌣</button>
                 </div>
 
                 <div class="inputsClass">
-                    <span>Confirme a senha</span>
-                    <input type="text" id="confSenha" placeholder="">
+                    <input type="password" id="confSenha" placeholder="Confirme a Senha">
+                    <button onclick="alterTypeA(this)" class="botao-ver">⌣</button>
                 </div>
             </div>
 
-            <button onclick="salvar()">Salvar</button>
+            <button onclick="alterar()" class="botao">Alterar</button>
+
+            <div class="section">
+                <img src="../assets/icon/lixeira-vermelha.png" alt="" class="image-excluir">
+                <button onclick="excluirConta()" class="botao-excluir">Excluir Conta</button>
+            </div>
+
         </div>
+
     </main>
 </body>
 
 </html>
+<script>
+
+    const novaSenha = document.getElementById('novaSenha');
+
+    function alterTypeB(botao) {
+    if (novaSenha.type === 'password') {
+        novaSenha.type = 'text';
+        botao.textContent = '👁'; 
+    } else {
+        novaSenha.type = 'password';
+        botao.textContent = '⌣'; 
+    }
+}
+
+    const confSenha = document.getElementById('confSenha');
+
+    function alterTypeA(botao) {
+    if (confSenha.type === 'password') {
+        confSenha.type = 'text';
+        botao.textContent = '👁'; 
+    } else {
+        confSenha.type = 'password';
+        botao.textContent = '⌣'; 
+    }
+}
+
+
+</script>

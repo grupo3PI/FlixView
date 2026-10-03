@@ -156,33 +156,120 @@ body {
 
 .menu {
     margin-top: 42px;
-
     display: flex;
     flex-direction: column;
-
     gap: 25px;
 }
 
 .menu-item {
+    color: white;
     min-height: 28px;
-
     display: flex;
     align-items: center;
-
     gap: 13px;
-
-    color: white;
-
     text-decoration: none;
-
     font-size: 18px;
-
     transition: color 0.2s ease;
 }
 
-.menu-item:hover,
-.menu-item.active {
+.menu-item:hover {
     color: var(--vermelho-padrao);
+}
+
+.menu-icon {
+    margin-left: 1vw;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_branca.png");
+}
+
+.menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_branca.png");
+}
+
+.menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_branco.png");
+}
+
+.menu-reviews .menu-icon {
+    background-image: url("../assets/icon/review-branco.png");
+}
+
+.menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_branca.png");
+}
+
+.menu-dashboard:hover,
+.menu-insights:hover,
+.menu-desempenho:hover,
+.menu-config:hover {
+    color: var(--vermelho-padrao);
+}
+
+.menu-dashboard:hover .menu-icon,
+.pagina-dashboard .menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_vermelha.png");
+}
+
+.menu-insights:hover .menu-icon,
+.pagina-insights .menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_vermelha.png");
+}
+
+.menu-desempenho:hover .menu-icon,
+.pagina-desempenho .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_vermelho.png");
+}
+
+.menu-reviews:hover .menu-icon,
+.pagina-reviews .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/review-vermelho.png");
+}
+
+.menu-config:hover .menu-icon,
+.pagina-config .menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_vermelha.png");
+}
+
+.pagina-dashboard .menu-dashboard {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-dashboard .menu-dashboard .menu-icon {
+    background-image: url("../assets/icon/dash_vermelha.png");
+}
+
+
+.pagina-insights .menu-insights {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-insights .menu-insights .menu-icon {
+    background-image: url("../assets/icon/lampada_vermelha.png");
+}
+
+
+.pagina-desempenho .menu-desempenho {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-desempenho .menu-desempenho .menu-icon {
+    background-image: url("../assets/icon/catalogo_vermelho.png");
+}
+
+
+.pagina-config .menu-config {
+    color: var(--vermelho-padrao);
+}
+
+.pagina-config .menu-config .menu-icon {
+    background-image: url("../assets/icon/engrenagem_vermelha.png");
 }
 
 
@@ -299,53 +386,6 @@ body {
     letter-spacing: -1px;
 }
 
-
-/* =========================
-   KPIs - DESEMPENHO
-========================= */
-
-.cards-desempenho {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: flex-start;
-
-    gap: 2vw;
-
-    margin-bottom: 4vh;
-}
-
-.kpi-card-desempenho {
-    width: 18vw;
-    height: 7vw;
-
-    padding: 12px;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    background-color: #505050;
-
-    border-radius: 14px;
-}
-
-.kpi-card-desempenho span {
-    font-size: 16px;
-
-    font-family: "Poppins";
-}
-
-.kpi-card-desempenho strong {
-    margin-left: 0.5vw;
-
-    font-size: 35px;
-
-    font-family: "Poppins";
-}
-
-
 /* =========================
    ÁREA DO GRÁFICO
 ========================= */
@@ -359,8 +399,8 @@ body {
 }
 
 .chart-container-desempenho {
-    width: 78vw;
-    height: 55vh;
+    width: 100vw;
+    height: 75vh;
 
     padding: 20px;
 
