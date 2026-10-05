@@ -4,9 +4,10 @@ USE flixview;
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100),
-    email VARCHAR(150),
-    senha VARCHAR(50),
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NULL,
+    senha VARCHAR(50) NULL,
+    cargo VARCHAR(100) NULL,
     tipoUsuario TINYINT,
     logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
