@@ -188,41 +188,35 @@ header {
             }
 
             .section {
-                width: 60%;
+                width: 100%;
                 display: flex;
                 justify-content: space-between;
-                
                 align-items: center;
 
                 .card {
-                    background-color: var(--cinza-escuro);
+                    background-color: var(--cor-fundo);
                     margin-top: 8vh;
-                    width: 25vw;
-                    height: 35vh;
-                    border-radius: 15px;
+                    width: 90%;
+                    height: 40vh;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
 
-                    transition: 0.2s ease;
-
                     img {
-                        width: 4vw;
-                        
+                        width: 5vw;
                     }
 
                     .titulo {
                         color: var(--vermelho-padrao);
                         font-family: 'Bebas';
-                        font-size: 35px;
-
+                        font-size: 40px;
                     }
 
                     .desc {
                         text-align: center;
                         color: white;
-                        font-size: 18px;
+                        font-size: 22px;
                         font-family: 'Poppins';
                         width: 65%;
                         height: 10vh;
@@ -232,13 +226,20 @@ header {
                         font-family: 'Poppins';
                         color: white;
                         text-decoration: underline;
-                        font-size: 18px;
+                        font-size: 22px;
                     } 
+
                 }
 
-                .card:hover {
-                        transform: scale(1.1);
+                .card:nth-child(1):hover {
+                         background: linear-gradient(to right, #141414 20%, #E50914);
                     }
+                
+                .card:nth-child(2):hover {
+                         background: linear-gradient(to left, #141414 20%, #E50914);
+                    }
+
+                
             }
         }   
         
