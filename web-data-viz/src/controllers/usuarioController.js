@@ -52,7 +52,6 @@ function autenticar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var cargo = req.body.cargoServer;
     var tipoUsuario = req.body.tipoUsuarioServer;
 
     if (nome == undefined) {
@@ -62,11 +61,10 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Seu senha está undefined!");
     } else {
-        if (cargo == undefined) cargo = "Analista de Dados";
         if (tipoUsuario == undefined) tipoUsuario = 1; // Pessoal, aq está 1, pq na modelagem consta TINYT, mas depois definimos melhor oq será cada um, fica apenas de teste esse valor.
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, fkEmpresa)
+        usuarioModel.cadastrar(nome, email, senha, tipoUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
