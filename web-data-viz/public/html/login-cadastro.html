@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="section-C" style="display: flex;">
-                    <button class="singin">Entrar</button>
+                    <button class="singin" onclick="LoginAdimin()" >Entrar</button>
                     <a href="" class="link">Esqueceu a senha?</a>
                 </div>
 
@@ -72,4 +72,12 @@
         document.querySelector(".container-entrar").style.display = "none";
         document.querySelector(".section-C").style.display = "none";
     }
+    
+    function LoginAdimin(){
+        if (document.getElementById("usuario_email").value == "admin" && document.getElementById("usuario_senha").value == "admin") {
+            window.location.href = "area-usuario.html";
+    } else {
+        alert("Email ou senha incorretos!");
+    }
+}
 </script>
