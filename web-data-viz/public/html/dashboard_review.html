@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlixView - Reviews</title>
+    <link rel="stylesheet" href="../css/dashboard_review.css">
+</head>
+<body class="pagina-reviews">
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir ou fechar menu" aria-controls="sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <a href="index.html" aria-label="FlixView - Página inicial">
+                <img src="../assets/imgs/Logo FlixView.png" alt="FlixView">
+            </a>
+        </div>
+
+        <div class="search-box">
+            <input type="text" aria-label="Pesquisar" placeholder="🔍︎" />
+        </div>
+
+        <nav class="menu" aria-label="Navegação principal">
+            <a href="./dashboard _inicio.html" class="menu-item menu-dashboard">
+                <span class="menu-icon" aria-hidden="true"></span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="./dashboard_insights.html" class="menu-item menu-insights">
+                <span class="menu-icon" aria-hidden="true"></span>
+                <span>Insights</span>
+            </a>
+
+            <a href="./dashboard_desempenho.html" class="menu-item menu-desempenho">
+                <span class="menu-icon" aria-hidden="true"></span>
+                <span>Desempenho de Catálogo</span>
+            </a>
+
+            <a href="./dashboard_review.html" class="menu-item menu-reviews" aria-current="page">
+                <span class="menu-icon" aria-hidden="true"></span>
+                <span>Reviews</span>
+            </a>
+
+            <a href="./dashboard_config.html" class="menu-item menu-config">
+                <span class="menu-icon" aria-hidden="true"></span>
+                <span>Configurações</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+        <section class="dashboard-container" aria-labelledby="pageTitle">
+            <header class="page-header">
+                <h1 id="pageTitle">Reviews</h1>
+                <p class="page-description">Pesquise um filme ou série para consultar as avaliações feitas pelos usuários sobre o mesmo título.</p>
+            </header>
+
+            <form class="review-search" role="search" action="" method="get">
+                <label for="tituloBusca">Título do filme ou série</label>
+                <div class="review-search-control">
+                    <span class="search-symbol" aria-hidden="true">⌕</span>
+                    <input id="tituloBusca" name="titulo" placeholder="Ex.: Interestelar" autocomplete="on">
+                    <button type="submit">Buscar reviews</button>
+                </div>
+            </form>
+
+            <section class="reviews-section" aria-labelledby="reviewsTitle">
+                <div class="results-header">
+                    <div>
+                        <p class="eyebrow">TÍTULO SELECIONADO</p>
+                        <h2 id="reviewsTitle">Interestelar <span>(2014)</span></h2>
+                        <p class="title-meta">Ficção científica · Aventura · Drama</p>
+                    </div>
+                    <div class="reviews-summary" aria-label="Média de demonstração 9 de 10, três avaliações">
+                        <strong>9,0<span>/10</span></strong>
+                        <small>3 reviews de exemplo</small>
+                    </div>
+                </div>
+
+                <div class="reviews-list">
+                    <article class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="avatar" aria-hidden="true">MA</div>
+                                <div>
+                                    <h3>Mariana Alves</h3>
+                                    <p>12/09/2026</p>
+                                </div>
+                            </div>
+                            <div class="review-score"><span aria-hidden="true">★</span> 9/10</div>
+                        </div>
+                        <p class="review-text">Uma experiência visual e emocional incrível. A história faz pensar sobre o tempo, a família e as escolhas, e a trilha sonora deixa tudo ainda mais marcante.</p>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="avatar" aria-hidden="true">JM</div>
+                                <div>
+                                    <h3>João Mendes</h3>
+                                    <p>08/09/2026</p>
+                                </div>
+                            </div>
+                            <div class="review-score"><span aria-hidden="true">★</span> 8/10</div>
+                        </div>
+                        <p class="review-text">Gostei muito da proposta e da forma como a narrativa conecta ciência e sentimentos. Algumas partes exigem atenção, mas o resultado vale a pena.</p>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="avatar" aria-hidden="true">CR</div>
+                                <div>
+                                    <h3>Camila Rocha</h3>
+                                    <p>02/09/2026</p>
+                                </div>
+                            </div>
+                            <div class="review-score"><span aria-hidden="true">★</span> 10/10</div>
+                        </div>
+                        <p class="review-text">Um dos filmes que mais me marcou. A mistura de ficção científica com a relação entre os personagens torna a história envolvente do começo ao fim.</p>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.getElementById("mainContent");
+
+        menuButton.addEventListener("click", function () {
+            sidebar.classList.toggle("collapsed");
+            mainContent.classList.toggle("expanded");
+        });
+    </script>
+</body>
+</html>
