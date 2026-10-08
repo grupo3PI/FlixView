@@ -108,6 +108,7 @@
 </body>
 
 </html>
+
 <script>
 
     const novaSenha = document.getElementById('novaSenha');
@@ -133,6 +134,16 @@
         botao.textContent = '⌣'; 
     }
 }
-
-
 </script>
+
+<script>
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+    const mainContent = document.getElementById("mainContent");
+
+    menuButton.addEventListener("click", function () {
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("expanded");
+    });
+</script>
+

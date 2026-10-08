@@ -41,7 +41,7 @@ header {
     align-items: center;
 
     .logo {
-        width: 12vw;
+        width: 7vw;
         margin-left: 2vw;
         margin-top: 1vh;
     }
@@ -163,8 +163,8 @@ main {
 
                 .singin {
                     margin-top: 5vh;
-                    width: 50%;
-                    height: 4vh;
+                    width: 30%;
+                    padding: 0.3vw;
 
                     color: white;
                     background-color: var(--vermelho-padrao);
@@ -199,8 +199,8 @@ main {
                 justify-content: center;
 
                 .singout {
-                    width: 50%;
-                    height: 4vh;
+                    width: 30%;
+                    padding: 0.3vw;
 
                     color: white;
                     background-color: var(--vermelho-padrao);
@@ -241,6 +241,102 @@ main {
     }
 
     
+
+    
 }
     
+}
+
+
+@media (max-width: 480px) {
+
+    header {
+        height: 9vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    header .logo {
+        width: 28vw;
+        
+    }
+
+    main {
+        height: auto;
+        min-height: 91vh;
+        align-items: flex-start;
+
+    }
+
+    main .container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 4vh;
+        padding: 3vh 0 6vh;
+    }
+
+    main .container .section-A {
+        display: none;
+    }
+
+    main .container .forms {
+        width: 100%;
+        height: auto;
+    }
+
+    main .container .forms .nav {
+        height: auto;
+        gap: 4vw;
+    }
+
+    main .container .forms .nav .acess {
+        width: 42vw;
+        height: 6vh;
+        font-size: 20px;
+    }
+
+    main .container .forms .section-B {
+        margin-top: 4vh;
+    }
+
+    main .container .forms .section-B .container-entrar,
+    main .container .forms .section-B .container-cadastrar {
+        width: 100%;
+    }
+
+    main .container .forms .section-B .container-entrar .info,
+    main .container .forms .section-B .container-cadastrar .info {
+        width: 85vw;
+        height: 6vh;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    main .container .forms .section-C,
+    main .container .forms .section-D {
+        height: auto;
+        margin-top: 3vh;
+    }
+
+    main .container .forms .section-C .singin,
+    main .container .forms .section-D .singout {
+        width: 85%;
+        margin-top: 2vh;
+        padding: 12px;
+        font-size: 22px;
+    }
+
+    main .container .forms .section-C .link,
+    main .container .forms .section-D .manter .link {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    main .container .forms .section-D .manter {
+        margin-top: 3vh;
+        margin-bottom: 1vh;
+    }
 }
