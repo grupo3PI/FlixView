@@ -26,7 +26,6 @@ function autenticar(req, res) {
                                         idUsuario: resultadoAutenticar[0].idUsuario,
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
-                                        cargo: resultadoAutenticar[0].cargo,
                                         tipoUsuario: resultadoAutenticar[0].tipoUsuario
                                     });
                                 } else {
