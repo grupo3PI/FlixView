@@ -129,6 +129,7 @@
                 alert("Cadastro realizado com sucesso!");
                 exibirEntrar();
             } else {
+                resposta.text().then(texto => {
                     alert(texto);
                 });
             }
