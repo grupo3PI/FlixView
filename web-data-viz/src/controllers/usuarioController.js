@@ -14,24 +14,16 @@ function autenticar(req, res) {
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
-
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        idUsuario: resultadoAutenticar[0].idUsuario,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        tipoUsuario: resultadoAutenticar[0].tipoUsuario
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
+                        res.json({
+                            idUsuario: resultadoAutenticar[0].idUsuario,
+                            email: resultadoAutenticar[0].email,
+                            nome: resultadoAutenticar[0].nome,
+                            tipoUsuario: resultadoAutenticar[0].tipoUsuario
+                        });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -39,18 +31,19 @@ function autenticar(req, res) {
                     }
                 }
             ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
     }
-
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
     var tipoUsuario = req.body.tipoUsuarioServer;
 
     if (nome == undefined) {
@@ -58,26 +51,25 @@ function cadastrar(req, res) {
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
-        res.status(400).send("Seu senha está undefined!");
+        res.status(400).send("Sua senha está undefined!");
     } else {
-        if (tipoUsuario == undefined) tipoUsuario = 1; // Pessoal, aq está 1, pq na modelagem consta TINYT, mas depois definimos melhor oq será cada um, fica apenas de teste esse valor.
+        if (tipoUsuario == undefined) tipoUsuario = 1;
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha, tipoUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
                 }
             ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
     }
 }
 

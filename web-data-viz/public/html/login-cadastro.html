@@ -7,53 +7,53 @@
     <link rel="stylesheet" href="../css/login-cadastro.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="./index.html">
+<header>
+    <div class="logo">
+        <a href="./index.html">
             <img src="../assets/imgs/Logo FlixView.png" alt="" class="logo">
-            </a>
+        </a>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="section-A">
+            <img src="../assets/imgs/bannerLog.png" alt="" class="banner">
         </div>
-    </header>
-    <main>
-        <div class="container">
-            <div class="section-A">
-                <img src="../assets/imgs/bannerLog.png" alt="" class="banner">
+        <div class="forms">
+            <div class="nav">
+                <button class="acess" onclick="exibirEntrar()">Entrar</button>
+                <button class="acess" onclick="exibirCadastrar()">Cadastrar</button>
             </div>
-             <div class="forms">
-                <div class="nav">
-                    <button class="acess" onclick="exibirEntrar()">Entrar</button>
-                    <button class="acess" onclick="exibirCadastrar()">Cadastrar</button>
+            <div class="section-B">
+                <div class="container-entrar" style="display:flex;">
+                    <input type="text" placeholder="Email" class="info" id="usuario_email">
+                    <input type="text" placeholder="Senha" class="info" id="usuario_senha">
                 </div>
-                <div class="section-B">
-                    <div class="container-entrar" style="display:flex;">
-                   <input type="text" placeholder="Email" class="info" id="usuario_email">
-                   <input type="text" placeholder="Senha" class="info" id="usuario_senha">
-                    </div>
 
-                    <div class="container-cadastrar" style="display: none;">
-                   <input type="text" placeholder="Nome" class="info" id="usuario_nome">
-                   <input type="text" placeholder="Email" class="info" id="usuario_email">
-                   <input type="text" placeholder="Senha" class="info" id="usuario_senha">
-                   <input type="text" placeholder="Confirme a Senha" class="info" id="usuario_senha_confirmacao">
+                <div class="container-cadastrar" style="display: none;">
+                    <input type="text" placeholder="Nome" class="info" id="cadastro_nome">
+                    <input type="text" placeholder="Email" class="info" id="cadastro_email">
+                    <input type="text" placeholder="Senha" class="info" id="cadastro_senha">
+                    <input type="text" placeholder="Confirme a Senha" class="info" id="cadastro_senha_confirmacao">
                 </div>
 
                 <div class="section-C" style="display: flex;">
-                    <button class="singin" onclick="LoginAdimin()" >Entrar</button>
+                    <button class="singin" onclick="entrar()" >Entrar</button>
                     <a href="" class="link">Esqueceu a senha?</a>
                 </div>
 
                 <div class="section-D" style="display: none;">
                     <div class="manter">
                         <input type="checkbox" id="manter" checked class="check">
-                        <label for="manter" class="link">Manter-me conectado</label>  
+                        <label for="manter" class="link">Manter-me conectado</label>
                     </div>
 
-                    <button class="singout">Cadastrar</button>
+                    <button class="singout" onclick="cadastrar()">Cadastrar</button>
                 </div>
 
             </div>
         </div>
-    </main>
+</main>
 </body>
 </html>
 <script>
@@ -72,12 +72,68 @@
         document.querySelector(".container-entrar").style.display = "none";
         document.querySelector(".section-C").style.display = "none";
     }
-    
-    function LoginAdimin(){
-        if (document.getElementById("usuario_email").value == "admin" && document.getElementById("usuario_senha").value == "admin") {
+
+    function entrar(){
+        var emailVar = document.getElementById("usuario_email").value;
+        var senhaVar = document.getElementById("usuario_senha").value;
+
+        if (emailVar == "admin" && senhaVar == "admin") {
             window.location.href = "area-usuario.html";
-    } else {
-        alert("Email ou senha incorretos!");
+            return;
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    window.location = "area-usuario.html";
+                });
+            } else {
+                resposta.text().then(texto => {
+                    alert(texto);
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
     }
-}
+
+    function cadastrar() {
+        var nomeVar = document.getElementById("cadastro_nome").value;
+        var emailVar = document.getElementById("cadastro_email").value;
+        var senhaVar = document.getElementById("cadastro_senha").value;
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                alert("Cadastro realizado com sucesso!");
+                exibirEntrar();
+            } else {
+                    alert(texto);
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+    }
 </script>
