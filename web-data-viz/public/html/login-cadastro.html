@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,6 +71,10 @@
 
         document.querySelector(".container-entrar").style.display = "none";
         document.querySelector(".section-C").style.display = "none";
+    }
+
+    if (window.location.hash === "#cadastro") {
+        exibirCadastrar();
     }
     
     function LoginAdimin(){

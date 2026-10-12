@@ -46,26 +46,26 @@ header {
 .navbar {
     background-color: rgba(0, 0, 0, 0.267);
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 9vh;
     align-items: center;
     justify-content: space-around;
-    gap: 54vw;
+    gap: clamp(16px, 8vw, 160px);
 
     position: fixed;
     z-index: 10;
 
     .left {
-        width: 6.3vw;
+        width: auto;
         height: 5.4vh;
         display: flex;
         align-items: center;
 
         .logo {
-            width: 6.3vw;
+            width: clamp(76px, 6.3vw, 112px);
 
             img {
-                width: 6.3vw;
+                width: 100%;
                 height: auto;
             }
         }
@@ -89,8 +89,8 @@ header {
 
         button {
             cursor: pointer;
-            width: 7.2vw;
-            height: 3.15vh;
+            width: clamp(92px, 7.2vw, 138px);
+            min-height: 34px;
             border: none;
             border-radius: 14px;
             font-family: 'Poppins';
@@ -166,7 +166,8 @@ main {
 
     .container-A {
         width: 100%;
-        height: 63vh;
+        height: auto;
+        min-height: 63vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -177,7 +178,7 @@ main {
             font-family: 'Bebas';
             font-size: 45px;
             width: 40%;
-            height: 6.3vh;
+            height: auto;
             cursor: default;
         }
 
@@ -191,7 +192,8 @@ main {
                 background-color: var(--cinza-escuro);
                 margin-top: 7.2vh;
                 width: 22.5vw;
-                height: 31.5vh;
+                height: auto;
+                min-height: 31.5vh;
                 border-radius: 14px;
                 display: flex;
                 flex-direction: column;
@@ -216,7 +218,7 @@ main {
                     font-size: 16px;
                     font-family: 'Poppins';
                     width: 65%;
-                    height: 9vh;
+                    height: auto;
                 }
 
                 .link {
@@ -235,7 +237,8 @@ main {
 
     .container-B {
         width: 100%;
-        height: 45vh;
+        height: auto;
+        min-height: 45vh;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -245,20 +248,22 @@ main {
             font-family: 'Bebas';
             font-size: 45px;
             width: 29%;
-            height: 6.3vh;
+            height: auto;
             cursor: default;
         }
 
         .section {
             width: 70%;
-            height: 36vh;
+            height: auto;
+            min-height: 36vh;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             .conteudo {
                 width: 18vw;
-                height: 80%;
+                height: auto;
+                min-height: 28vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -281,7 +286,7 @@ main {
                     font-family: 'Poppins';
                     text-align: center;
                     width: 80%;
-                    height: 40%;
+                    height: auto;
                 }
             }
         }
@@ -289,7 +294,8 @@ main {
 
     .container-C {
         width: 100%;
-        height: 63vh;
+        height: auto;
+        min-height: 63vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -325,7 +331,8 @@ main {
 
 footer {
     width: 100%;
-    height: 22.5vh;
+    height: auto;
+    min-height: 22.5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -483,6 +490,76 @@ footer {
     }
 }
 
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 0 24px;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .navbar .left {
+        width: auto;
+    }
+
+    .navbar .right button {
+        width: 112px;
+        min-height: 36px;
+    }
+
+    .title-banner {
+        left: 30%;
+        font-size: 48px;
+    }
+
+    .subtitle-banner {
+        left: 30%;
+        width: 50%;
+        font-size: 19px;
+    }
+
+    main .container-A,
+    main .container-B,
+    main .container-C {
+        height: auto;
+        min-height: 48vh;
+        padding: 48px 24px;
+    }
+
+    main .container-A .title,
+    main .container-B .title {
+        width: 80%;
+        height: auto;
+    }
+
+    main .container-A .section,
+    main .container-B .section {
+        width: 90%;
+        gap: 20px;
+    }
+
+    main .container-A .section .card {
+        width: 48%;
+        min-height: 280px;
+        height: auto;
+        padding: 20px;
+    }
+
+    main .container-B .section .conteudo {
+        width: 30%;
+        height: auto;
+    }
+
+    main .container-C .mockup {
+        width: 45%;
+        height: auto;
+    }
+
+    footer .mid,
+    footer .end {
+        width: 70%;
+    }
+}
 
 @media (max-width: 768px) {
 
@@ -701,5 +778,44 @@ footer {
             width: 100%;
             font-size: 12px;
         }
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        height: auto;
+        min-height: 64px;
+        padding: 8px 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .navbar .left {
+        width: 100%;
+        flex: 1 1 100%;
+        flex-wrap: wrap;
+        gap: 6px 14px;
+    }
+
+    .navbar .left .logo,
+    .navbar .left .logo img {
+        width: 72px;
+        flex-shrink: 0;
+    }
+
+    .navbar .left .link {
+        margin-left: 0;
+        font-size: 13px;
+    }
+
+    .navbar .right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .navbar .right button {
+        min-width: 90px;
+        padding: 0 12px;
     }
 }
