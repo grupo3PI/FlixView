@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,53 +7,53 @@
     <link rel="stylesheet" href="../css/login-cadastro.css">
 </head>
 <body>
-<header>
-    <div class="logo">
-        <a href="./index.html">
+    <header>
+        <div class="logo">
             <img src="../assets/imgs/Logo FlixView.png" alt="" class="logo">
-        </a>
-    </div>
-</header>
-<main>
-    <div class="container">
-        <div class="section-A">
-            <img src="../assets/imgs/bannerLog.png" alt="" class="banner">
         </div>
-        <div class="forms">
-            <div class="nav">
-                <button class="acess" onclick="exibirEntrar()">Entrar</button>
-                <button class="acess" onclick="exibirCadastrar()">Cadastrar</button>
+    </header>
+    <main>
+        <div class="container">
+            <div class="section-A">
+                <a href="./home.html">
+                <img src="../assets/imgs/bannerLog.png" alt="" class="banner">
+                </a>
             </div>
-            <div class="section-B">
-                <div class="container-entrar" style="display:flex;">
-                    <input type="text" placeholder="Email" class="info" id="usuario_email">
-                    <input type="text" placeholder="Senha" class="info" id="usuario_senha">
+             <div class="forms">
+                <div class="nav">
+                    <button class="acess" onclick="exibirEntrar()">Entrar</button>
+                    <button class="acess" onclick="exibirCadastrar()">Cadastrar</button>
                 </div>
+                <div class="section-B">
+                    <div class="container-entrar" style="display:flex;">
+                   <input type="text" placeholder="Email" class="info" id="usuario_email">
+                   <input type="text" placeholder="Senha" class="info" id="usuario_senha">
+                    </div>
 
-                <div class="container-cadastrar" style="display: none;">
-                    <input type="text" placeholder="Nome" class="info" id="cadastro_nome">
-                    <input type="text" placeholder="Email" class="info" id="cadastro_email">
-                    <input type="text" placeholder="Senha" class="info" id="cadastro_senha">
-                    <input type="text" placeholder="Confirme a Senha" class="info" id="cadastro_senha_confirmacao">
+                    <div class="container-cadastrar" style="display: none;">
+                   <input type="text" placeholder="Nome" class="info" id="usuario_nome">
+                   <input type="text" placeholder="Email" class="info" id="usuario_email">
+                   <input type="text" placeholder="Senha" class="info" id="usuario_senha">
+                   <input type="text" placeholder="Confirme a Senha" class="info" id="usuario_senha_confirmacao">
                 </div>
 
                 <div class="section-C" style="display: flex;">
-                    <button class="singin" onclick="entrar()" >Entrar</button>
+                    <button class="singin" onclick="LoginAdimin()" >Entrar</button>
                     <a href="" class="link">Esqueceu a senha?</a>
                 </div>
 
                 <div class="section-D" style="display: none;">
                     <div class="manter">
                         <input type="checkbox" id="manter" checked class="check">
-                        <label for="manter" class="link">Manter-me conectado</label>
+                        <label for="manter" class="link">Manter-me conectado</label>  
                     </div>
 
-                    <button class="singout" onclick="cadastrar()">Cadastrar</button>
+                    <button class="singout">Cadastrar</button>
                 </div>
 
             </div>
         </div>
-</main>
+    </main>
 </body>
 </html>
 <script>
@@ -73,68 +73,15 @@
         document.querySelector(".section-C").style.display = "none";
     }
 
-    function entrar(){
-        var emailVar = document.getElementById("usuario_email").value;
-        var senhaVar = document.getElementById("usuario_senha").value;
-
-        if (emailVar == "admin" && senhaVar == "admin") {
+    if (window.location.hash === "#cadastro") {
+        exibirCadastrar();
+    }
+    
+    function LoginAdimin(){
+        if (document.getElementById("usuario_email").value == "admin" && document.getElementById("usuario_senha").value == "admin") {
             window.location.href = "area-usuario.html";
-            return;
-        }
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(json => {
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    window.location = "area-usuario.html";
-                });
-            } else {
-                resposta.text().then(texto => {
-                    alert(texto);
-                });
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        });
+    } else {
+        alert("Email ou senha incorretos!");
     }
-
-    function cadastrar() {
-        var nomeVar = document.getElementById("cadastro_nome").value;
-        var emailVar = document.getElementById("cadastro_email").value;
-        var senhaVar = document.getElementById("cadastro_senha").value;
-
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            if (resposta.ok) {
-                alert("Cadastro realizado com sucesso!");
-                exibirEntrar();
-            } else {
-                resposta.text().then(texto => {
-                    alert(texto);
-                });
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        });
-    }
+}
 </script>

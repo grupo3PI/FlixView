@@ -47,7 +47,7 @@ header {
 
 .navbar {
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 10vh;
     align-items: center;
     justify-content: space-between;
@@ -91,7 +91,7 @@ header {
 .faixa {
     background-color: var(--cinza-escuro);
     border-bottom: 2px var(--vermelho-secundario) solid;
-    width: 100vw;
+    width: 100%;
     height: 20vh;
     display: flex;
     align-items: center;
@@ -110,8 +110,9 @@ header {
 }
 
 .caixa-icone img {
-    width: 500px;
-    height: 70px;
+    width: 100%;
+    max-width: 48px;
+    height: auto;
 }
 
 .intro {
@@ -204,11 +205,11 @@ header {
 
     .navbar {
         display: flex;
-        width: 100vw;
-        height: 10vh;
+        width: 100%;
+        height: 64px;
         align-items: center;
         justify-content: space-between;
-        padding: 30 px;
+        padding: 0 16px;
 
         position: fixed;
         z-index: 10;
@@ -268,5 +269,118 @@ header {
     .container-texto-hover .text {
         font-size: 20px;
         padding: 0 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        width: 100%;
+        height: auto;
+        min-height: 64px;
+        padding: 10px 20px;
+    }
+
+    .navbar .left {
+        width: auto;
+        height: auto;
+        gap: 10px;
+    }
+
+    .navbar .left .logo {
+        width: 82px;
+        height: auto;
+    }
+
+    .navbar .left .logo img {
+        width: 100%;
+    }
+
+    .navbar .link {
+        margin-left: 0;
+        font-size: 15px;
+    }
+
+    .faixa {
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+        padding: 24px 16px;
+        gap: 16px;
+    }
+
+    .intro {
+        margin-right: 0;
+        font-size: clamp(28px, 5vw, 42px);
+        text-align: center;
+    }
+
+    .container-cards {
+        flex-wrap: wrap;
+        gap: 24px;
+        margin: 48px 20px 0;
+    }
+
+    .container-texto {
+        margin-top: 16px;
+        padding: 16px 24px;
+    }
+
+    .container-texto .texto {
+        margin-top: 24px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        height: 72px;
+    }
+
+    .navbar {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        min-height: 72px;
+        padding: 10px 14px;
+    }
+
+    .navbar .left {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+    }
+
+    .navbar .left .logo {
+        width: 70px;
+        margin-right: 4px;
+    }
+
+    .navbar .link {
+        font-size: 13px;
+    }
+
+    .faixa {
+        padding: 20px 14px;
+    }
+
+    .caixa-icone {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+    }
+
+    .container-cards {
+        flex-direction: column;
+        gap: 16px;
+        margin: 32px 16px 0;
+    }
+
+    .card {
+        width: min(100%, 360px);
+        height: 150px;
+    }
+
+    .container-texto .texto {
+        font-size: 16px;
     }
 }

@@ -274,3 +274,47 @@ main {
         gap: 18px 14px;
     }
 }
+
+@media (max-width: 760px) {
+    header.top {
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    nav.primary {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    main {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .filters select {
+        max-width: 100%;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr));
+    }
+}
+
+@media (max-width: 380px) {
+    .section-title {
+        font-size: 29px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 10px;
+    }
+
+    .filters {
+        gap: 8px;
+    }
+
+    .filters select {
+        flex: 1 1 100%;
+    }
+}
