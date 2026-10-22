@@ -8,8 +8,8 @@ CREATE TABLE usuario (
     email VARCHAR(150) NULL,
     senha VARCHAR(50) NULL,
     cargo VARCHAR(100) NULL,
-    tipoUsuario TINYINT,
-    logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    tipoUsuario TINYINT NULL DEFAULT NULL,
+    logCadastro TIMESTAMP NULL DEFAULT NULL
 );
 
 CREATE TABLE titulo (
