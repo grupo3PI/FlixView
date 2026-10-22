@@ -366,6 +366,36 @@ body {
     font-size: 20px;
 }
 
+.sidebar.collapsed {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar.collapsed .logo,
+.sidebar.collapsed .search-box,
+.sidebar.collapsed .menu {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.main-content.expanded {
+    margin-left: 3vw;
+}
+
+.main-content.expanded .dashboard-grid {
+    justify-content: flex-start;
+}
+
+.main-content.expanded .table-container {
+    width: 55vw;
+}
+
+.main-content.expanded .chart-container {
+    width: 35vw;
+}
+
 
 
 
