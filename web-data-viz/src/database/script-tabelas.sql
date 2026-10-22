@@ -10,14 +10,13 @@ CREATE TABLE cargo (
     nomeCargo VARCHAR(50)
 );
 
-CREATE TABLE usuario (
-    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NULL,
-    senha VARCHAR(50) NULL,
-    cargo VARCHAR(100) NULL,
-    tipoUsuario TINYINT NULL DEFAULT NULL,
-    logCadastro TIMESTAMP NULL DEFAULT NULL
+CREATE TABLE usuario ( 
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT, 
+    nome VARCHAR(100) NOT NULL, 
+    email VARCHAR(150) NULL, 
+    senha VARCHAR(50) NULL, 
+    cargo VARCHAR(100) NULL, 
+    logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE titulo (
