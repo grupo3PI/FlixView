@@ -2,19 +2,30 @@ CREATE DATABASE flixview;
 
 USE flixview;
 
+CREATE DATABASE flixview;
+USE flixview;
+
+CREATE TABLE cargo (
+    idCargo CHAR(8) PRIMARY KEY,
+    nomeCargo VARCHAR(50)
+);
+
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(150) NULL,
     senha VARCHAR(50) NULL,
-    cargo VARCHAR(100) NULL,
     tipoUsuario TINYINT,
-    logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    fkCargo CHAR(8),
+    CONSTRAINT fk_Cargo_Usuario
+        FOREIGN KEY (fkCargo)
+        REFERENCES cargo(idCargo)
 );
 
 CREATE TABLE titulo (
     idTitulo INT PRIMARY KEY AUTO_INCREMENT,
-    idTMDB VARCHAR(200),
     title VARCHAR(200),
     original_title VARCHAR(200),
     original_language VARCHAR(200),
@@ -33,9 +44,10 @@ CREATE TABLE genero (
 
 CREATE TABLE review (
     idReview INT PRIMARY KEY AUTO_INCREMENT,
-    descricao VARCHAR(600),
-    nota VARCHAR(45),
-    logReview TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    author VARCHAR(100),
+    content VARCHAR(600),
+    rating VARCHAR(45),
+    created_at TIMESTAMP,
     fkUsuario INT,
     fkTitulo INT,
 

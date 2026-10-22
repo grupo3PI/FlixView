@@ -50,7 +50,7 @@ header {
     height: 9vh;
     align-items: center;
     justify-content: space-around;
-    gap: clamp(16px, 8vw, 160px);
+    gap: 60vw;
 
     position: fixed;
     z-index: 10;
@@ -381,6 +381,7 @@ footer {
 @media (min-width: 1800px) {
 
     .navbar {
+        
 
         .left {
 
@@ -782,40 +783,5 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .navbar {
-        height: auto;
-        min-height: 64px;
-        padding: 8px 12px;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .navbar .left {
-        width: 100%;
-        flex: 1 1 100%;
-        flex-wrap: wrap;
-        gap: 6px 14px;
-    }
-
-    .navbar .left .logo,
-    .navbar .left .logo img {
-        width: 72px;
-        flex-shrink: 0;
-    }
-
-    .navbar .left .link {
-        margin-left: 0;
-        font-size: 13px;
-    }
-
-    .navbar .right {
-        width: 100%;
-        justify-content: flex-start;
-    }
-
-    .navbar .right button {
-        min-width: 90px;
-        padding: 0 12px;
-    }
+   
 }
