@@ -15,13 +15,9 @@ CREATE TABLE usuario (
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(150) NULL,
     senha VARCHAR(50) NULL,
-    tipoUsuario TINYINT,
-    logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    fkCargo CHAR(8),
-    CONSTRAINT fk_Cargo_Usuario
-        FOREIGN KEY (fkCargo)
-        REFERENCES cargo(idCargo)
+    cargo VARCHAR(100) NULL,
+    tipoUsuario TINYINT NULL DEFAULT NULL,
+    logCadastro TIMESTAMP NULL DEFAULT NULL
 );
 
 CREATE TABLE titulo (
