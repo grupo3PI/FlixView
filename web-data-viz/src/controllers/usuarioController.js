@@ -1,87 +1,64 @@
 var usuarioModel = require("../models/usuarioModel");
 
 function autenticar(req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+    var dados = req.body || {};
+    var email = typeof dados.emailServer === "string" ? dados.emailServer.trim() : "";
+    var senha = typeof dados.senhaServer === "string" ? dados.senhaServer : "";
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
-    } else {
-
-        usuarioModel.autenticar(email, senha)
-            .then(
-                function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
-                    if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
-
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        idUsuario: resultadoAutenticar[0].idUsuario,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        cargo: resultadoAutenticar[0].cargo,
-                                        tipoUsuario: resultadoAutenticar[0].tipoUsuario
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
-                    } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
-                    } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-                    }
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+    if (!email || !senha) {
+        return res.status(400).json({ erro: "Email e senha são obrigatórios." });
     }
+
+    usuarioModel.autenticar(email, senha)
+        .then(function (usuarios) {
+            if (usuarios.length === 0) {
+                return res.status(401).json({ erro: "Email ou senha incorretos." });
+            }
+
+            res.status(200).json({
+                idUsuario: usuarios[0].idUsuario,
+                nome: usuarios[0].nome,
+                email: usuarios[0].email,
+                cargo: usuarios[0].cargo,
+                tipoUsuario: usuarios[0].tipoUsuario
+            });
+        })
+        .catch(function (erro) {
+            console.error("Houve um erro ao autenticar o usuário:", erro);
+            res.status(500).json({ erro: "Não foi possível verificar o login no banco de dados." });
+        });
 
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var cargo = req.body.cargoServer;
-    var tipoUsuario = req.body.tipoUsuarioServer;
+    var dados = req.body || {};
+    var nome = typeof dados.nomeServer === "string" ? dados.nomeServer.trim() : "";
+    var email = typeof dados.emailServer === "string" ? dados.emailServer.trim() : "";
+    var senha = typeof dados.senhaServer === "string" ? dados.senhaServer : "";
 
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Seu senha está undefined!");
-    } else {
-        if (cargo == undefined) cargo = "Analista de Dados";
-        if (tipoUsuario == undefined) tipoUsuario = 1; // Pessoal, aq está 1, pq na modelagem consta TINYT, mas depois definimos melhor oq será cada um, fica apenas de teste esse valor.
-
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, fkEmpresa)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+    if (!nome || !email || !senha) {
+        return res.status(400).json({ erro: "Nome, email e senha são obrigatórios." });
     }
+
+    if (nome.length > 100 || email.length > 150 || senha.length > 50) {
+        return res.status(400).json({ erro: "Um ou mais campos excedem o tamanho permitido." });
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return res.status(400).json({ erro: "Informe um email válido." });
+    }
+
+    usuarioModel.cadastrar(nome, email, senha)
+        .then(function (resultado) {
+            res.status(201).json({
+                idUsuario: resultado.insertId,
+                mensagem: "Cadastro realizado com sucesso."
+            });
+        })
+        .catch(function (erro) {
+            console.error("Houve um erro ao realizar o cadastro:", erro);
+            res.status(500).json({ erro: "Não foi possível salvar o cadastro no banco de dados." });
+        });
 }
 
 module.exports = {

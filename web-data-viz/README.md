@@ -11,15 +11,12 @@ _Implementação de Referência para o seu Projeto de Primeiro Semestre_
 1. Clone este repositório em sua máquina.
 
 
-1. Crie, no Banco de Dados, as tabelas necessárias para o funcionamento deste projeto.
-- Siga as instruções no arquivo **/src/database/script-tabelas.sql**
+2. Em uma instalação nova, crie o banco e as tabelas conforme **/src/database/script-tabelas.sql**. Se o banco `flixview` e as tabelas já existirem, não execute o script novamente.
 
 
-3. Acesse o arquivo **app.js** e parametrize o ambiente.
-- Se você estiver utilizando o Ambiente de Produção (remoto), comente a linha 2 e deixe habilitada a linha 1 onde está o valor **var ambiente_processo = 'producao';**
-- Se você estiver utilizando o Ambiente de Desenvolvimento (local), comente a linha 1 e deixe habilitada a linha 2 onde está o valor **var ambiente_processo = 'desenvolvimento';**
+3. Configure `AMBIENTE_PROCESSO` no arquivo **.env** como `desenvolvimento` ou `producao`.
 
-4. Adicione as credenciais de Banco de Dados no arquivo **.env** ou em **.env.dev**, seguindo as instruções neste.
+4. Configure as credenciais do MySQL no arquivo **.env**, com `DB_DATABASE=flixview`.
 
 5. Acesse este repositório no seu terminal (GitBash ou VSCode) e execute os comandos abaixo:
 
@@ -103,3 +100,19 @@ Abaixo, uma figura que ajuda a compreender o caminho percorrido para, por exempl
 
 [1] https://datatracker.ietf.org/doc/html/rfc2396  
 [2] https://datatracker.ietf.org/doc/html/rfc7231
+
+## Integração com a TMDB API
+
+O servidor carrega as configurações de `web-data-viz/.env`. Configure nele `DB_HOST`, `DB_PORT`, `DB_USER` e `DB_PASSWORD` para o MySQL existente, mantenha `DB_DATABASE=flixview` e informe em `TMDB_API_READ_ACCESS_TOKEN` o Bearer token da sua conta TMDB. O `.env` não deve ser versionado.
+
+Para importar ou atualizar os filmes populares da TMDB, inicie o servidor e envie uma requisição:
+
+```bash
+curl -X POST http://localhost:8080/titulos/sincronizar \
+  -H "Content-Type: application/json" \
+  -d "{\"page\":1}"
+```
+
+O exemplo usa a porta `8080` configurada atualmente em `.env`; ajuste-a se `APP_PORT` tiver outro valor. O campo `page` é opcional (padrão `1`). O backend consulta os endpoints documentados [`/3/movie/popular`](https://developer.themoviedb.org/reference/movie-popular-list) e [`/3/genre/movie/list`](https://developer.themoviedb.org/reference/genre-movie-list), autentica com o Bearer token e sincroniza `titulo`, `genero` e `titulo_genero` com consultas parametrizadas. Títulos já existentes são atualizados pelo `idTMDB` e as relações de gênero são substituídas pelas retornadas pela API. Nenhuma tabela precisa ser criada ou alterada.
+
+O endpoint responde com a página e as quantidades processadas; erros de configuração, da API ou do banco são retornados como JSON. A API exige um Read Access Token da TMDB e o MySQL precisa estar acessível com credenciais válidas para testar a persistência.
