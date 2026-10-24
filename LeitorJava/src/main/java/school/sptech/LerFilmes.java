@@ -72,23 +72,6 @@ public class LerFilmes {
                     System.out.println("Poster: " + filme.getCamPoster());
                     System.out.println();
 
-//                    System.out.println("ID: " + celulas[0]);
-//                    System.out.println("Tipo: " + celulas[1]);
-//                    System.out.println("Título: " + celulas[2]);
-//                    System.out.println("Título original: " + celulas[3]);
-//                    System.out.println("Sinopse: " + celulas[4]);
-//                    System.out.println("Data de lançamento: " + celulas[5]);
-//                    System.out.println("Nota: " + celulas[7]);
-//                    System.out.println("Quantidade de votos: " + celulas[8]);
-//                    System.out.println("Popularidade: " + celulas[9]);
-//                    System.out.println("Gêneros: " + celulas[10]);
-//                    System.out.println("Classificação indicativa: " + celulas[14]);
-//                    System.out.println("Duração: " + celulas[15]);
-//                    System.out.println("Diretores: " + celulas[19]);
-//                    System.out.println("Roteiristas: " + celulas[20]);
-//                    System.out.println("Elenco: " + celulas[21]);
-//                    System.out.println();
-
                     jdbc.inserir(filme);
 ;                }
 
@@ -107,36 +90,3 @@ public class LerFilmes {
     }
 
 }
-
-
-// Index de cada coluna do excel:
-//
-//    Index 0 = ID
-//    Index 1 = Tipo
-//    Index 2 = Titulo
-//    Index 3 = Titulo Original
-//    Index 4 = Sinopse
-//    Index 5 = Data de lançamento
-//    Index 6 = Situação
-//    Index 7 = Nota
-//    Index 8 = Quantidade de Votos
-//    Index 9 = Popularidade
-//    Index 10 = Generos
-//    Index 11 = Idioma Original
-//    Index 12 = Idiomas Disponiveis
-//    Index 13 = Paises de origem
-//    Index 14 = Classificação
-//    Index 15 = Duracao (filme ou ep, tanto faz)
-//    Index 16 = Quantidade de temporadas
-//    Index 17 = Quantidade de episodios (total)
-//    Index 18 = Criadores
-//    Index 19 = Diretores
-//    Index 20 = Roteiristas
-//    Index 21 = Elenco principal
-//    Index 22 = Palavras-chave
-//    Index 23 = Orçamento
-//    Index 24 = Receita
-//    Index 25 = Temporada mais recente
-//    Index 26 = URL do poster
-//    Index 27 = URL da imagem de fundo
-//    Index 28 = Trailer

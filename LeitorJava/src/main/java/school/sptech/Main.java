@@ -6,8 +6,7 @@ public class Main {
 
         DBConnectionProvider banco = new DBConnectionProvider();
 
-        InserirTituloJDBC jdbc =
-                new InserirTituloJDBC(banco.getConnection());
+        InserirTituloJDBC jdbc = new InserirTituloJDBC(banco.getConnection());
 
         LerFilmes.ler(jdbc);
         LerSeries.ler(jdbc);
