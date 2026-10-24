@@ -33,14 +33,15 @@ public class InserirTituloJDBC {
 //        falta implementar o split e o insert dos generos
 //        recomendação do que fazer:
 //
-//        1. fazer o split (separar a cada ",") da string de Generos que o leitor trouxe e colocar em um array (para pegar os generos titulos.getGeneros())
+//        1. fazer o split (separar a cada ",") da string de Generos que o leitor trouxe e colocar em um array (para pegar os generos titulos.getGeneros() trazidos pelo leitor)
 //        2. se estiver certinho, faz um for lendo o array
 //        3. dentro do for, faz um select no banco procurando o genero com aquele nome na tabela Generos ( WHERE nome LIKE...)
-//        4. se o select tiver dado certo (é bom fazer uma validação pra garantir) pegue o id do genero que o select retornou e faz o insert na tabela de relacionamento titulo_genero, passando o id do genero e o id do filme (titulo.getId() pra pegar)
-//        5. daqui pra frente é sucesso
+//        4. se o select tiver dado certo (é bom fazer uma validação pra garantir) pega o id do genero que o select retornou
+//        5. faz o insert na tabela de relacionamento titulo_genero, passando o id do genero e o id do filme (titulo.getId() pra pegar do id titulo que o leitor trouxe)
+//        6. daqui pra frente é sucesso
 //
 //        OBS:
-//              se você ver alguma coisa que possa travar a leitura ou na hora que você foz testar der erro, se faltou alguma validação pra evitar isso
+//              se você ver alguma coisa que possa travar a leitura ou na hora que você foz testar der erro, ve se faltou alguma validação pra evitar isso
 //              eu ja deixei feita uma validação no insert de cima pra evitar ficar dando erro caso o titulo ja tenha sido inserido antes, qlq coisa faz
 //              algo na msm linha de raciocionio, ou so faz uma validação simples msm, tipo sla, se cair no else do titulo ja cadastrado coloca uma variavel
 //              de muda o valor de uma variavel pra true (ou usa int sla) e se for diferente de um valor especifico ele nao executa esse bloco dos generos.
