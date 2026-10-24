@@ -1,8 +1,5 @@
-CREATE DATABASE flixview;
+CREATE DATABASE IF NOT EXISTS flixview;
 
-USE flixview;
-
-CREATE DATABASE flixview;
 USE flixview;
 
 CREATE TABLE cargo (
