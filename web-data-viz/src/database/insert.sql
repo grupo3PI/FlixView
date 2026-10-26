@@ -1,6 +1,6 @@
 USE FlixView;
 
-INSERT INTO usuario (nome, email, senha, dtCadastro) VALUES
+INSERT INTO usuario (nome, email, senha, logCadastro) VALUES
 ('Gustavo Souza', 'gustavo@email.com', '123456', '2026-09-17 10:00:00'),
 ('João Silva', 'joao@email.com', '123456','2026-09-17 10:15:00'),
 ('Maria Oliveira', 'maria@email.com', '123456', '2026-09-17 10:30:00'),
