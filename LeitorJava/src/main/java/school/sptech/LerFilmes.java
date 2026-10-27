@@ -55,7 +55,7 @@ public class LerFilmes {
                         return;
                     }
 
-                    if (numeroLinha > 2) {
+                    if (numeroLinha > 5) {
                         return;
                     } // tirar dps, apenas pra teste
 
@@ -63,14 +63,6 @@ public class LerFilmes {
                             Integer.valueOf(celulas[0]), celulas[1], celulas[2], celulas[3], celulas[4], celulas[5], converterDouble(celulas[7]),
                             Integer.valueOf(celulas[8]), converterDouble(celulas[9]), celulas[10], celulas[14], celulas[15], celulas[16],
                             celulas[17], celulas[19], celulas[20], celulas[21], celulas[26], celulas[11]);
-
-                    System.out.println("ID: " + filme.getId());
-                    System.out.println("Título: "+filme.getTitulo());
-                    System.out.println("Generos:" +filme.getGeneros());
-                    System.out.println("Duração: " + filme.getDuracao());
-                    System.out.println("Nota: " + filme.getNota());
-                    System.out.println("Poster: " + filme.getCamPoster());
-                    System.out.println();
 
                     jdbc.inserir(filme);
 ;                }
@@ -85,7 +77,8 @@ public class LerFilmes {
             }
 
         } catch (Exception e) {
-            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+            System.err.println("[ERRO] Falha ao ler a planilha: " + e.getMessage());
+            throw new RuntimeException("Erro durante a leitura do catálogo.", e);
         }
     }
 

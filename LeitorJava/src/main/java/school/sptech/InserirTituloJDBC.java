@@ -7,6 +7,9 @@ import java.sql.Date;
 
 public class InserirTituloJDBC {
 
+    private int filmesInseridos = 0;
+    private int seriesInseridas = 0;
+
     private JdbcTemplate connection;
 
     public InserirTituloJDBC(JdbcTemplate connection) {
@@ -25,9 +28,50 @@ public class InserirTituloJDBC {
         }
 
         if (quantidade == 0) {
+<<<<<<< Updated upstream
 //            connection.update(); // maqui vc passa a variável do select e colocar os gets das variáveis dentro da chave. Ex: ...(sqlTitulo, get.Titulo()...) na ordem certa.
+=======
+            connection.update(sqlTitulo,
+                    titulo.getId(),
+                    titulo.getTitulo(),
+                    titulo.getTituloOrig(),
+                    titulo.getLinguagemOrig(),
+                    titulo.getSinopse(),
+                    titulo.getPopularidade(),
+                    titulo.getCamPoster(),
+                    data,
+                    titulo.getNota(),
+                    titulo.getQtdVotos());
+
+            if (titulo.getGeneros() != null && !titulo.getGeneros().isBlank()) {
+                String[] generos = titulo.getGeneros().split(",");
+
+                for (int i = 0; i < generos.length; i++) {
+                    String nomeGenero = generos[i].trim();
+                    String sqlGenero = "SELECT idGenero FROM genero WHERE nome = ?";
+                    List<Integer> ids = connection.queryForList(sqlGenero, Integer.class, nomeGenero);
+                    if (ids.isEmpty()) {
+                        System.err.println("[AVISO] Gênero não encontrado no banco: " + nomeGenero);
+                    } else {
+                        Integer idGenero = ids.get(0);
+                        String sqlRelacao = "INSERT INTO titulo_genero (fkTitulo, fkGenero) VALUES (?, ?)";
+                        connection.update(sqlRelacao, titulo.getId(), idGenero);
+                    }
+                }
+            }
+
+            if (titulo.getTipo().equalsIgnoreCase("Filme")) {
+                filmesInseridos++;
+                System.out.print("\r[INFO] Filmes inseridos: " + filmesInseridos);
+            } else {
+                seriesInseridas++;
+                System.out.print("\r[INFO] Séries inseridas: " + seriesInseridas);
+            }
+
+            System.out.flush();
+>>>>>>> Stashed changes
         } else {
-            System.out.println("título ja ta no banco: " + titulo.getTitulo());
+            System.out.println("[INFO] Título já existe no banco de dados " + titulo.getTitulo() + " (ID: " + titulo.getId() + ")");
         }
 
 //        falta implementar o split e o insert dos generos
