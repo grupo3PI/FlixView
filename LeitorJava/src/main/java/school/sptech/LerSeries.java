@@ -57,7 +57,7 @@ public class LerSeries {
                         return;
                     }
 
-                    if (numeroLinha > 2) {
+                    if (numeroLinha > 5) {
                         return;
                     } // tirar dps, apenas pra teste
 
@@ -84,7 +84,8 @@ public class LerSeries {
             }
 
         } catch (Exception e) {
-            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+            System.err.println("[ERRO] Falha ao ler a planilha: " + e.getMessage());
+            throw new RuntimeException("Erro durante a leitura do catálogo.", e);
         }
     }
 }

@@ -11,9 +11,10 @@ public class DBConnectionProvider {
 
     public DBConnectionProvider() {
         BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         basicDataSource.setUrl("jdbc:mysql://localhost:3306/flixview");
         basicDataSource.setUsername("root");
-        basicDataSource.setPassword("senha");
+        basicDataSource.setPassword("978v213dRr_23");
 
         this.dataSource = basicDataSource;
     }
