@@ -35,6 +35,7 @@ function cadastrar(req, res) {
     var nome = typeof dados.nomeServer === "string" ? dados.nomeServer.trim() : "";
     var email = typeof dados.emailServer === "string" ? dados.emailServer.trim() : "";
     var senha = typeof dados.senhaServer === "string" ? dados.senhaServer : "";
+    var codigo = typeof dados.codigoServer == "string" ? dados.codigoServer : "";
 
     if (!nome || !email || !senha) {
         return res.status(400).json({ erro: "Nome, email e senha são obrigatórios." });
@@ -48,7 +49,7 @@ function cadastrar(req, res) {
         return res.status(400).json({ erro: "Informe um email válido." });
     }
 
-    usuarioModel.cadastrar(nome, email, senha)
+    usuarioModel.cadastrar(nome, email, senha, codigo)
         .then(function (resultado) {
             res.status(201).json({
                 idUsuario: resultado.insertId,
