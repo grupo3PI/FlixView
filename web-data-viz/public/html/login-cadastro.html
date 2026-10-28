@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,37 +9,36 @@
 <body>
     <header>
         <div class="logo">
-            <a href="./index.html">
             <img src="../assets/imgs/Logo FlixView.png" alt="" class="logo">
-            </a>
         </div>
     </header>
     <main>
         <div class="container">
             <div class="section-A">
+                <a href="./home.html">
                 <img src="../assets/imgs/bannerLog.png" alt="" class="banner">
+                </a>
             </div>
-            <div class="forms">
+             <div class="forms">
                 <div class="nav">
                     <button class="acess" onclick="exibirEntrar()">Entrar</button>
                     <button class="acess" onclick="exibirCadastrar()">Cadastrar</button>
                 </div>
                 <div class="section-B">
                     <div class="container-entrar" style="display:flex;">
-                   <input type="text" placeholder="Email" class="info" id="usuario_email">
-                   <input type="text" placeholder="Senha" class="info" id="usuario_senha">
+                   <input type="email" placeholder="Email" class="info" id="login_email">
+                   <input type="password" placeholder="Senha" class="info" id="login_senha">
                     </div>
 
-                    <div class="container-cadastrar" style="display: none;">
-                   <input type="text" placeholder="Nome" class="info" id="usuario_nome">
-                   <input type="text" placeholder="Email" class="info" id="usuario_email">
-                   <input type="text" placeholder="Senha" class="info" id="usuario_senha">
-                   <input type="text" placeholder="Confirme a Senha" class="info" id="usuario_senha_confirmacao">
-                   <input type="text" placeholder="Código de Acesso" class="info" id="usuario_codigo"> 
-                </div>
+                    <form class="container-cadastrar" id="form-cadastrar" style="display: none;" onsubmit="cadastrarUsuario(event)">
+                   <input type="text" placeholder="Nome" class="info" id="usuario_nome" autocomplete="name" required>
+                   <input type="email" placeholder="Email" class="info" id="cadastro_email" autocomplete="email" required>
+                   <input type="password" placeholder="Senha" class="info" id="cadastro_senha" autocomplete="new-password" required>
+                   <input type="password" placeholder="Confirme a Senha" class="info" id="usuario_senha_confirmacao" autocomplete="new-password" required>
+                    </form>
 
                 <div class="section-C" style="display: flex;">
-                    <button class="singin">Entrar</button>
+                    <button class="singin" onclick="autenticarUsuario()" type="button">Entrar</button>
                     <a href="" class="link">Esqueceu a senha?</a>
                 </div>
 
@@ -49,7 +48,7 @@
                         <label for="manter" class="link">Manter-me conectado</label>  
                     </div>
 
-                    <button class="singout">Cadastrar</button>
+                    <button class="singout" type="submit" form="form-cadastrar">Cadastrar</button>
                 </div>
 
             </div>
@@ -72,5 +71,80 @@
 
         document.querySelector(".container-entrar").style.display = "none";
         document.querySelector(".section-C").style.display = "none";
+    }
+
+    if (window.location.hash === "#cadastro") {
+        exibirCadastrar();
+    }
+    
+    async function autenticarUsuario() {
+        const email = document.getElementById("login_email").value.trim();
+        const senha = document.getElementById("login_senha").value;
+
+        if (!email || !senha) {
+            alert("Informe seu email e senha.");
+            return;
+        }
+
+        try {
+            const resposta = await fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            });
+            const resultado = await resposta.json();
+
+            if (!resposta.ok) {
+                throw new Error(resultado.erro || "Email ou senha incorretos.");
+            }
+
+            window.location.href = "area-usuario.html";
+        } catch (erro) {
+            alert(erro.message || "Não foi possível conectar ao servidor.");
+        }
+    }
+
+    async function cadastrarUsuario(event) {
+        event.preventDefault();
+        const nome = document.getElementById("usuario_nome").value.trim();
+        const email = document.getElementById("cadastro_email").value.trim();
+        const senha = document.getElementById("cadastro_senha").value;
+        const confirmacaoSenha = document.getElementById("usuario_senha_confirmacao").value;
+
+        if (!nome || !email || !senha) {
+            alert("Preencha todos os campos.");
+            return;
+        }
+
+        if (senha !== confirmacaoSenha) {
+            alert("As senhas não coincidem.");
+            return;
+        }
+
+        try {
+            const resposta = await fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    nomeServer: nome,
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            });
+
+            const resultado = await resposta.json();
+            if (!resposta.ok) {
+                throw new Error(resultado.erro || "Não foi possível realizar o cadastro.");
+            }
+
+            alert("Cadastro realizado com sucesso!");
+            document.getElementById("form-cadastrar").reset();
+            exibirEntrar();
+        } catch (erro) {
+            alert(erro.message || "Não foi possível conectar ao servidor.");
+        }
     }
 </script>
