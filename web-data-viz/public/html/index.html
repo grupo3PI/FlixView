@@ -21,8 +21,9 @@
             </div>
 
             <div class="right">
-                <a href="./login-cadastro.html" ><button class="signup">Cadastrar</button></a>
-                <a href="./login-cadastro.html" ><button class="login">Entrar</button></a>
+                <a href="./login-cadastro.html" id="botaoCadastrar"><button class="signup">Cadastrar</button></a>
+                <a href="./login-cadastro.html" id="botaoEntrar"><button class="login">Entrar</button></a>
+                <button class="login" id="botaoSair" onclick="limparSessao()">Sair</button>
             </div>
         </nav>
         <div class="banner">
@@ -70,7 +71,7 @@
                     </div>
 
                     <div class="desc">
-                        Analise as avaliações dos usuários e transforme dados em insights.
+                        Transforme dados em insights.
                     </div>
 
                     <div class="link">
@@ -128,7 +129,7 @@
             <span class="efeito">Sua próxima história começa aqui.</span>
         </div>
         <div class="mid">
-            <a href="./catalogo.html" class="link">EXPLORE</a>
+            <a href="./login-cadastro.html" class="link">EXPLORE</a>
             <a href="./sobre.html" class="link">SOBRE NÓS</a>
             <a href="./area-usuario.html" class="link">SUPORTE</a>
         </div>
@@ -138,3 +139,22 @@
     </footer>
 </body>
 </html>
+<script src="../js/sessao.js"></script>
+<script>
+        window.onload = function () {
+        controlarBotoes();
+    };
+
+    function controlarBotoes() {
+    if (validarSessao()) {
+        document.getElementById("botaoCadastrar").style.display = "none";
+        document.getElementById("botaoEntrar").style.display = "none";
+        document.getElementById("botaoSair").style.display = "block";
+    } else {
+        document.getElementById("botaoCadastrar").style.display = "block";
+        document.getElementById("botaoEntrar").style.display = "block";
+        document.getElementById("botaoSair").style.display = "none";
+    }
+} 
+
+</script>
