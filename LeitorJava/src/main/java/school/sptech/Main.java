@@ -1,5 +1,8 @@
 package school.sptech;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,27 +11,46 @@ public class Main {
 
         try {
 
-            System.out.println("[INFO] Iniciando conexão com o banco de dados...");
+            log("[INFO] Iniciando conexão com o banco de dados...");
             DBConnectionProvider banco = new DBConnectionProvider();
 
             InserirTituloJDBC jdbc = new InserirTituloJDBC(banco.getConnection());
 
-            System.out.println("[INFO] Iniciando importação do catálogo de Filmes...");
+            log("[INFO] Iniciando importação do catálogo de Filmes...");
             LerFilmes.ler(jdbc);
-            System.out.println("[INFO] Importação do catálogo de Filmes finalizada.");
-
-
-            System.out.println("[INFO] Iniciando importação do catálogo de Séries...");
-            LerSeries.ler(jdbc);
-            System.out.println("[INFO] Importação do catálogo de Séries finalizada.");
-
             System.out.println();
-            System.out.println("[INFO] Processo finalizado com sucesso!");
+            log("[INFO] Importação do catálogo de Filmes finalizada.");
+
+
+            log("[INFO] Iniciando importação do catálogo de Séries...");
+            LerSeries.ler(jdbc);
+            System.out.println();
+            log("[INFO] Importação do catálogo de Séries finalizada.");
+
+            log("[INFO] Processo finalizado com sucesso!");
         } catch (Exception e) {
-        System.err.println("[ERRO] Falha na importação do catálogo. Operação Finalizada!");
+        logErro("[ERRO] Falha na importação do catálogo. Operação Finalizada!");
         e.printStackTrace();
         System.exit(1);
         }
 
+    }
+
+    public static void log(String mensagem) {
+
+        if (!mensagem.isBlank()) {
+            System.out.println(getDataHora() + " " + mensagem);
+        }
+    }
+
+    public static void logErro(String mensagem) {
+
+        System.err.println(getDataHora() + " " + mensagem);
+    }
+
+    public static String getDataHora() {
+        LocalDateTime dtAv = LocalDateTime.now();
+        DateTimeFormatter formatado = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
+        return dtAv.format(formatado);
     }
 }
