@@ -19,8 +19,7 @@ function autenticar(req, res) {
                 idUsuario: usuarios[0].idUsuario,
                 nome: usuarios[0].nome,
                 email: usuarios[0].email,
-                cargo: usuarios[0].cargo,
-                tipoUsuario: usuarios[0].tipoUsuario
+                idCargo: usuarios[0].idCargo
             });
         })
         .catch(function (erro) {

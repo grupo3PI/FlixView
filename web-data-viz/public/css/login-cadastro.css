@@ -235,7 +235,7 @@ main {
                     margin-bottom: 12px;
 
                     .link {
-                    color: var(--cinza-borda);
+                    color: var(--cinza-claro);
                     font-family: 'Poppins';
                     font-size: 18px;
                     text-decoration: underline;

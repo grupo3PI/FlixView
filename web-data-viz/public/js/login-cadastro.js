@@ -21,12 +21,20 @@ if (window.location.hash === "#cadastro") {
                 })
             });
             const resultado = await resposta.json();
-
             if (!resposta.ok) {
                 throw new Error(resultado.erro || "Email ou senha incorretos.");
             }
 
-            window.location.href = "area-usuario.html";
+            sessionStorage.setItem("ID_USUARIO", resultado.idUsuario);
+            sessionStorage.setItem("NOME_USUARIO", resultado.nome);
+            sessionStorage.setItem("EMAIL_USUARIO", resultado.email);
+            sessionStorage.setItem("ID_CARGO", resultado.idCargo);
+
+            if (resultado.idCargo === "USER0001") {
+                window.location.href = "index.html";
+            } else {
+                window.location.href = "area-usuario.html";
+            }
         } catch (erro) {
             alert(erro.message || "Não foi possível conectar ao servidor.");
         }
