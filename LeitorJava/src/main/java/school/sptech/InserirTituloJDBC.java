@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.Date;
 import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class InserirTituloJDBC {
 
@@ -47,7 +49,7 @@ public class InserirTituloJDBC {
                     String sqlGenero = "SELECT idGenero FROM genero WHERE nome = ?";
                     List<Integer> ids = connection.queryForList(sqlGenero, Integer.class, nomeGenero);
                     if (ids.isEmpty()) {
-                        System.out.println("Gênero não encontrado no banco: " + nomeGenero);
+                        Main.logErro("Gênero não encontrado no banco: " + nomeGenero);
                     } else {
                         Integer idGenero = ids.get(0);
                         String sqlRelacao = "INSERT INTO titulo_genero (fkTitulo, fkGenero) VALUES (?, ?)";
@@ -57,15 +59,14 @@ public class InserirTituloJDBC {
             }
             if (titulo.getTipo().equalsIgnoreCase("Filme")) {
                 filmesInseridos++;
-                System.out.print("\r[INFO] Filmes inseridos: " + filmesInseridos);
+                System.out.print("\r" + Main.getDataHora() + " [INFO] Filmes inseridos: " + filmesInseridos);
             } else {
                 seriesInseridas++;
-                System.out.print("\r[INFO] Séries inseridas: " + seriesInseridas);
+                System.out.print("\r" + Main.getDataHora() + " [INFO] Séries inseridas: " + seriesInseridas);
             }
-
-            System.out.flush();
         } else {
-            System.out.println("título ja ta no banco: " + titulo.getTitulo());
+            Main.log("[INFO] Título " + titulo.getTitulo() + " já cadastrado no Banco de Dados...");
+
         }
     }
 }

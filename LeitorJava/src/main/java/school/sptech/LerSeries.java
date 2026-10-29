@@ -12,11 +12,16 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import java.io.InputStream;
 import static school.sptech.Titulos.converterDouble;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class LerSeries {
 
     public static void ler(InserirTituloJDBC jdbc) {
+
+        LocalDateTime dtAv = LocalDateTime.now();
+        DateTimeFormatter formatado = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
 
         DBConnectionProvider dbConnectionProvider =
                 new DBConnectionProvider();
@@ -57,7 +62,7 @@ public class LerSeries {
                         return;
                     }
 
-                    if (numeroLinha > 5) {
+                    if (numeroLinha > 10) {
                         return;
                     } // tirar dps, apenas pra teste
 
@@ -71,9 +76,7 @@ public class LerSeries {
 
             };
 
-            leitorXml.setContentHandler(
-                    new XSSFSheetXMLHandler(null, strings, dados, new DataFormatter(), false)
-            );
+            leitorXml.setContentHandler(new XSSFSheetXMLHandler(null, strings, dados, new DataFormatter(), false));
 
             var planilhas = leitor.getSheetsData();
 
@@ -84,8 +87,8 @@ public class LerSeries {
             }
 
         } catch (Exception e) {
-            System.err.println("[ERRO] Falha ao ler a planilha: " + e.getMessage());
-            throw new RuntimeException("Erro durante a leitura do catálogo.", e);
+            Main.logErro("[ERRO] Falha ao ler a planilha: " + e.getMessage());
+            throw new RuntimeException(dtAv.format(formatado) + "[ERRO] Falha durante a leitura do catálogo.", e);
         }
     }
 }
