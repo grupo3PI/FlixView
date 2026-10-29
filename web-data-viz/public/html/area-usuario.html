@@ -16,9 +16,9 @@
                     <img src="../assets/imgs/Logo FlixView.png" alt="" class="img_logo">
                 </div>
 
-                <a href="./home.html" class="link">Início</a>
-                <a href="./reviews.html" class="link">Reviews</a>
+                <a href="./index.html" class="link">Início</a>
                 <a href="./sobre.html" class="link">Sobre</a>
+                <a href="./area-usuario.html" class="link">Painel</a>
             </div>
         </nav>
     </header>
@@ -26,35 +26,50 @@
 
     <section class="faixa">
         <div class="caixa-icone">
-            <img src="../assets/icon/Boneco Perfil.png" alt="icone de Usuario">
+            <img src="../assets/icon/user.png" alt="icone de Usuario">
         </div>
-        <span class="intro">
-            Olá, usuário
+        <span class="intro" id="nomeUsuario">
+            Olá, Usuário
         </span>
     </section>
 
     <section class="container-cards">
-        <a href="./dashboard _inicio.html" class="card">
+        <a href="./dashboard _inicio.html" class="card card1">
             <img src="../assets/icon/dash_branca.png" alt="Dashboard">
             <Span><b>DASHBOARD</b></Span>
         </a>
 
-        <a href="." class="card">
+        <a href="." class="card card2">
             <img src="../assets/icon/search.png" alt="icone Reviews">
             <span><b>REVIEWS</b></span>
         </a>
 
-        <a href="./suporte.html" class="card">
+        <a href="./suporte.html" class="card card3">
             <img src="../assets/icon/icon-suporte.png" alt="icone Suporte">
             <span><b>SUPORTE</b></span>
         </a>
     </section>
 
     <section class="container-texto">
-        <span class="texto">
+        <span class="texto texto1">
             Acompanhe indicadores, avaliações e interesses para obter uma visão mais completa do desempenho do catálogo.
+        </span>
+
+        <span class="texto texto2">
+            Explore o catálogo, encontre conteúdos e descubra informações relevantes sobre os títulos.
+        </span>
+
+        <span class="texto texto3">
+            Encontre ajuda para utilizar a plataforma, esclarecer dúvidas e solucionar problemas.
         </span>
     </section>
 </body>
 
 </html>
+<script>
+    var nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+
+    if (nomeUsuario) {
+        document.getElementById("nomeUsuario").textContent = "Olá, " + nomeUsuario;
+    }
+</script>
