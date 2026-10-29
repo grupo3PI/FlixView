@@ -12,16 +12,11 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import java.io.InputStream;
 import static school.sptech.Titulos.converterDouble;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 public class LerSeries {
 
     public static void ler(InserirTituloJDBC jdbc) {
-
-        LocalDateTime dtAv = LocalDateTime.now();
-        DateTimeFormatter formatado = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
 
         DBConnectionProvider dbConnectionProvider =
                 new DBConnectionProvider();
@@ -88,7 +83,7 @@ public class LerSeries {
 
         } catch (Exception e) {
             Main.logErro("[ERRO] Falha ao ler a planilha: " + e.getMessage());
-            throw new RuntimeException(dtAv.format(formatado) + "[ERRO] Falha durante a leitura do catálogo.", e);
+            throw new RuntimeException(Main.getDataHora() + "[ERRO] Falha durante a leitura do catálogo.", e);
         }
     }
 }

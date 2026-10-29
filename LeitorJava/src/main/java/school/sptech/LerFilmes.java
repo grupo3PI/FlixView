@@ -81,7 +81,7 @@ public class LerFilmes {
 
         } catch (Exception e) {
             Main.logErro("[ERRO] Falha ao ler a planilha: " + e.getMessage());
-            throw new RuntimeException(dtAv.format(formatado) + "[ERRO] Erro durante a leitura do catálogo.", e);
+            throw new RuntimeException(Main.getDataHora() + "[ERRO] Erro durante a leitura do catálogo.", e);
         }
     }
 
