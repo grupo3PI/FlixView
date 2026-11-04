@@ -41,21 +41,25 @@ a {
     text-decoration: none;
 }
 
+/* =========================================================
+   BASE: DESKTOP 1920x1080
+   ========================================================= */
+
 .navbar {
     display: flex;
     width: 100%;
-    height: 9vh;
+    height: 97px;
     align-items: center;
     justify-content: space-between;
 
     .left {
         margin-left: 50px;
-        height: 5.4vh;
+        height: 58px;
         display: flex;
         align-items: center;
 
         .logo {
-            width: clamp(76px, 6.3vw, 112px);
+            width: 112px;
 
             img {
                 width: 100%;
@@ -78,16 +82,16 @@ a {
     .right {
         display: flex;
         justify-content: space-between;
-        gap: 1vw;
+        gap: 19px;
         margin-right: 50px;
-        
+
         #botaoSair {
             display: none;
         }
 
         button {
             cursor: pointer;
-            height: 3vh;
+            height: 32px;
             border: none;
             border-radius: 14px;
             font-family: 'Poppins';
@@ -99,7 +103,7 @@ a {
             background-color: var(--vermelho-padrao);
             color: white;
             transition: 0.2s;
-            width: 6vw;
+            width: 115px;
         }
 
         .login:hover {
@@ -110,7 +114,7 @@ a {
             background-color: white;
             color: black;
             transition: 0.2s;
-            width: 6vw;
+            width: 115px;
         }
 
         .signup:hover {
@@ -287,7 +291,115 @@ main {
     margin: 0;
 }
 
+/* =========================================================
+   NOTEBOOK 1366x768 (cobre de 901px até 1440px)
+   ========================================================= */
+
+@media (min-width: 901px) and (max-width: 1440px) {
+    .navbar {
+        height: 69px;
+
+        .left {
+            margin-left: 36px;
+            height: 41px;
+
+            .logo {
+                width: 86px;
+            }
+
+            .link {
+                margin-left: 14px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .right {
+            gap: 14px;
+            margin-right: 36px;
+
+            button {
+                height: 28px;
+                border-radius: 12px;
+                font-size: 13px;
+            }
+
+            .login,
+            .signup {
+                width: 82px;
+            }
+        }
+    }
+
+    main {
+        width: 88%;
+        padding: 32px 34px 64px;
+    }
+
+    .section-title {
+        font-size: 2.4rem;
+        margin-bottom: 18px;
+    }
+
+    .search-row {
+        margin-bottom: 14px;
+    }
+
+    .search-row input {
+        padding: 11px 40px 11px 14px;
+        font-size: 1rem;
+    }
+
+    .search-row .icon-search {
+        right: 14px;
+    }
+
+    .filters {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .filters select {
+        font-size: 0.95rem;
+        padding: 7px 28px 7px 14px;
+        background-position: right 12px center;
+    }
+
+    #contador {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 22px 14px;
+    }
+
+    .card-title {
+        left: 6px;
+        right: 6px;
+        bottom: 8px;
+        font-size: 10.5px;
+        padding: 3px 5px;
+    }
+
+    .vazio {
+        padding: 78px 0 14px;
+    }
+
+    .vazio p {
+        font-size: 15px;
+    }
+}
+
+/* =========================================================
+   TABLET / MOBILE (mantidos como no original)
+   ========================================================= */
+
 @media (max-width: 900px) {
+    .navbar {
+        height: 9vh;
+    }
+
     main {
         width: 92%;
         padding: 32px 20px 70px;

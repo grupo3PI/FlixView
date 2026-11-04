@@ -1,10 +1,10 @@
 :root {
     --cor-fundo: #141414;
-    --vermelho-padrao:#E50914;
+    --vermelho-padrao: #E50914;
     --vermelho-secundario: #B20710;
     --cinza-claro: #B3B3B3;
     --cinza-escuro: #272727;
-    --cinza-borda: #505050;;
+    --cinza-borda: #505050;
 }
 
 @font-face {
@@ -29,8 +29,8 @@
     box-sizing: border-box;
 
     a {
-    text-decoration: none;
-    color: inherit;
+        text-decoration: none;
+        color: inherit;
     }
 }
 
@@ -38,17 +38,21 @@ body {
     background-color: var(--cor-fundo);
 }
 
+/* =========================================================
+   BASE: DESKTOP 1920x1080
+   ========================================================= */
+
 header {
-        position: relative;
-        height: 75vh;
-        background-color: black;
-    }
-    
-    .navbar {
+    position: relative;
+    height: 810px;
+    background-color: black;
+}
+
+.navbar {
     background-color: rgba(0, 0, 0, 0.267);
     display: flex;
     width: 100%;
-    height: 9vh;
+    height: 97px;
     align-items: center;
     justify-content: space-between;
 
@@ -57,12 +61,12 @@ header {
 
     .left {
         margin-left: 50px;
-        height: 5.4vh;
+        height: 58px;
         display: flex;
         align-items: center;
 
         .logo {
-            width: clamp(76px, 6.3vw, 112px);
+            width: 112px;
 
             img {
                 width: 100%;
@@ -85,16 +89,16 @@ header {
     .right {
         display: flex;
         justify-content: space-between;
-        gap: 1vw;
+        gap: 19px;
         margin-right: 50px;
-        
+
         #botaoSair {
             display: none;
         }
 
         button {
             cursor: pointer;
-            height: 3vh;
+            height: 32px;
             border: none;
             border-radius: 14px;
             font-family: 'Poppins';
@@ -106,7 +110,7 @@ header {
             background-color: var(--vermelho-padrao);
             color: white;
             transition: 0.2s;
-            width: 6vw;
+            width: 115px;
         }
 
         .login:hover {
@@ -117,7 +121,7 @@ header {
             background-color: white;
             color: black;
             transition: 0.2s;
-            width: 6vw;
+            width: 115px;
         }
 
         .signup:hover {
@@ -126,40 +130,39 @@ header {
     }
 }
 
-    .banner {
-        width: 100%;
-        height: 75vh;
-        background-image: 
+.banner {
+    width: 100%;
+    height: 810px;
+    background-image:
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url(../assets/imgs/banner.jpg);
-        background-size: cover;
-        background-position: center;
+    background-size: cover;
+    background-position: center;
 
-        position: relative;
-        z-index: 1;
-    }
+    position: relative;
+    z-index: 1;
+}
 
-    .title-banner {
-            text-align: center;
-            background-color: var(--cor-fundo);
-            color: white;
-            font-size: 8rem;
-            font-family: 'Bebas';
-            cursor: default;
-            line-height: 1;
-            padding: 5vw 5vw 3vw;
-            }
+.title-banner {
+    text-align: center;
+    background-color: var(--cor-fundo);
+    color: white;
+    font-size: 8rem;
+    font-family: 'Bebas';
+    cursor: default;
+    line-height: 1;
+    padding: 96px 96px 58px;
+}
 
-    .title-banner {
-            border-radius: 50px 50px 0px 0px;
-            position: absolute;
-            top: auto;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            
-        }
+.title-banner {
+    border-radius: 50px 50px 0px 0px;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
 
 main {
     display: flex;
@@ -170,17 +173,17 @@ main {
     .container-A {
         width: 100%;
         height: auto;
-        min-height: 25vh;
+        min-height: 270px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: 5vh;
+        margin-top: 54px;
 
         .about {
             width: min(75%, 1000px);
             color: white;
-            margin-top: clamp(20px, 3vh, 36px);
+            margin-top: 32px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -200,14 +203,14 @@ main {
                 line-height: 1.6;
                 text-align: center;
             }
-            
+
         }
     }
 
     .container-C {
         width: 100%;
         height: auto;
-        min-height: 55vh;
+        min-height: 594px;
         color: white;
         display: flex;
         justify-content: center;
@@ -232,7 +235,7 @@ main {
         .cont {
             width: 80%;
             height: auto;
-            min-height: 35vh;
+            min-height: 378px;
             display: flex;
             justify-content: space-evenly;
             gap: 24px;
@@ -256,7 +259,7 @@ main {
                 gap: 14px;
                 color: white;
                 font-family: 'Poppins';
-                margin-top: 5vh;
+                margin-top: 54px;
 
                 .title {
                     font-size: 2rem;
@@ -271,7 +274,7 @@ main {
                     font-family: 'Inter';
                     margin-top: 0;
                 }
-                
+
                 .subtitulo {
                     color: var(--cinza-claro);
                     font-size: 1.5rem;
@@ -281,9 +284,9 @@ main {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    
+
                 }
-                
+
                 .list {
                     font-size: 1.4rem;
                     width: 100%;
@@ -299,146 +302,346 @@ main {
         }
     }
 
-    
-.container-F {
-    padding: 80px 10%;
-    background-color: #141414;
-    text-align: center;
-}
 
-.titulo-equipe {
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-family: 'Poppins';
-}
+    .container-F {
+        padding: 80px 10%;
+        background-color: #141414;
+        text-align: center;
+    }
 
-.subtitulo-equipe {
-    color: #b3b3b3;
-    font-size: 1.8rem;
-    margin-bottom: 50px;
-    font-family: 'Poppins';
-}
+    .titulo-equipe {
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-family: 'Poppins';
+    }
 
-.equipe {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-}
+    .subtitulo-equipe {
+        color: #b3b3b3;
+        font-size: 1.8rem;
+        margin-bottom: 50px;
+        font-family: 'Poppins';
+    }
 
-.card-equipe {
-    background-color: #272727;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    text-align: center;
-}
+    .equipe {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+    }
 
-.card-equipe:hover {
-    transform: translateY(-8px);
-}
+    .card-equipe {
+        background-color: #272727;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
 
-.card-equipe img {
-    width: 50%;
-    height: 250px;
-    object-position: center;
-    margin-top: 5vh;
-}
+    .card-equipe:hover {
+        transform: translateY(-8px);
+    }
 
-.info-equipe {
-    padding: 20px;
-}
+    .card-equipe img {
+        width: 50%;
+        height: 250px;
+        object-position: center;
+        margin-top: 54px;
+    }
 
-.nome {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-family: 'Poppins';
-}
+    .info-equipe {
+        padding: 20px;
+    }
 
-.empresa {
-    color: #e50914;
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-    font-family: 'Poppins';
-}
+    .nome {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-family: 'Poppins';
+    }
 
-.area {
-    color: #b3b3b3;
-    font-size: 1.2rem;
-    margin-bottom: 18px;
-    font-family: 'Poppins';
-}
+    .empresa {
+        color: #e50914;
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        font-family: 'Poppins';
+    }
 
-.linkedin {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    border: 1px solid #e50914;
-    border-radius: 20px;
-    padding: 8px 20px;
-    font-size: 14px;
-    transition: 0.3s;
-    font-family: 'Poppins';
-}
+    .area {
+        color: #b3b3b3;
+        font-size: 1.2rem;
+        margin-bottom: 18px;
+        font-family: 'Poppins';
+    }
 
-.linkedin:hover {
-    background-color: #e50914;
-}
+    .linkedin {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        border: 1px solid #e50914;
+        border-radius: 20px;
+        padding: 8px 20px;
+        font-size: 14px;
+        transition: 0.3s;
+        font-family: 'Poppins';
+    }
+
+    .linkedin:hover {
+        background-color: #e50914;
+    }
 
 }
 
 footer {
-        width: 100%;
+    width: 100%;
     height: auto;
-    min-height: 25vh;
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-top: 1px solid black;
+
+    .top {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        color: white;
-        border-top: 1px solid black;
+        gap: 8px;
+        font-family: 'Poppins';
+        font-size: 1.5rem;
+        margin-bottom: 18px;
 
-        .top {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Poppins';
-            font-size: 1.5rem;
-            margin-bottom: 18px;
-
-            img {
-                width: 10%;
-            }
-        }
-
-        .mid {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            width: min(100%, 680px);
-            font-family: 'Inter';
-            font-weight: bolder;
-            font-size: 20px;
-            
-            a{
-                cursor: pointer;
-            }
-        }
-
-        .end {
-            text-align: center;
-            width: min(90%, 1000px);
-            margin-top: 16px;
-            font-size: 1.2rem;
-            line-height: 1.5;
+        img {
+            width: 10%;
         }
     }
 
+    .mid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: min(100%, 680px);
+        font-family: 'Inter';
+        font-weight: bolder;
+        font-size: 20px;
+
+        a {
+            cursor: pointer;
+        }
+    }
+
+    .end {
+        text-align: center;
+        width: min(90%, 1000px);
+        margin-top: 16px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+}
+
+/* =========================================================
+   NOTEBOOK 1366x768 (cobre de 901px até 1440px)
+   ========================================================= */
+
+@media (min-width: 901px) and (max-width: 1440px) {
+    header {
+        height: 576px;
+    }
+
+    .navbar {
+        height: 69px;
+
+        .left {
+            margin-left: 36px;
+            height: 41px;
+
+            .logo {
+                width: 86px;
+            }
+
+            .link {
+                margin-left: 14px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .right {
+            gap: 14px;
+            margin-right: 36px;
+
+            button {
+                height: 28px;
+                border-radius: 12px;
+                font-size: 13px;
+            }
+
+            .login,
+            .signup {
+                width: 82px;
+            }
+        }
+    }
+
+    .banner {
+        height: 576px;
+    }
+
+    .title-banner {
+        font-size: 6rem;
+        padding: 68px 68px 41px;
+        border-radius: 36px 36px 0px 0px;
+    }
+
+    main {
+        .container-A {
+            min-height: 192px;
+            margin-top: 38px;
+
+            .about {
+                width: min(75%, 780px);
+                margin-top: 24px;
+                gap: 10px;
+
+                .titulo {
+                    font-size: 3rem;
+                }
+
+                .desc {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+
+        .container-C {
+            min-height: 422px;
+
+            .titulo {
+                font-size: 2.3rem;
+                padding: 10px 20px;
+                border-radius: 8px;
+            }
+
+            .cont {
+                min-height: 270px;
+                gap: 18px;
+                padding: 12px clamp(16px, 4vw, 56px) 18px;
+
+                .card {
+                    border-radius: 14px;
+                    min-height: 213px;
+                    padding: 18px;
+                    gap: 10px;
+                    margin-top: 38px;
+
+                    .title {
+                        font-size: 1.5rem;
+                    }
+
+                    .subtitulo {
+                        font-size: 1.15rem;
+                    }
+
+                    .list {
+                        font-size: 1.05rem;
+                    }
+                }
+            }
+        }
+
+        .container-F {
+            padding: 56px 10%;
+        }
+
+        .titulo-equipe {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+        }
+
+        .subtitulo-equipe {
+            font-size: 1.35rem;
+            margin-bottom: 36px;
+        }
+
+        .equipe {
+            gap: 25px;
+        }
+
+        .card-equipe {
+            border-radius: 13px;
+        }
+
+        .card-equipe:hover {
+            transform: translateY(-6px);
+        }
+
+        .card-equipe img {
+            height: 178px;
+            margin-top: 38px;
+        }
+
+        .info-equipe {
+            padding: 15px;
+        }
+
+        .nome {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .empresa {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .area {
+            font-size: 0.95rem;
+            margin-bottom: 13px;
+        }
+
+        .linkedin {
+            font-size: 12px;
+            padding: 6px 16px;
+        }
+    }
+
+    footer {
+        min-height: 192px;
+
+        .top {
+            gap: 6px;
+            font-size: 1.15rem;
+            margin-bottom: 13px;
+        }
+
+        .mid {
+            width: min(100%, 520px);
+            font-size: 16px;
+        }
+
+        .end {
+            width: min(90%, 780px);
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+    }
+}
+
+/* =========================================================
+   TABLET / MOBILE (mantidos como no original)
+   ========================================================= */
+
 @media (max-width: 900px) {
+    header,
+    .banner {
+        height: 75vh;
+    }
+
+    .navbar {
+        height: 9vh;
+    }
+
     main .container-F .equipe {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
@@ -446,6 +649,7 @@ footer {
 
     .title-banner {
         font-size: 5rem;
+        padding: 5vw 5vw 3vw;
     }
 }
 
@@ -658,8 +862,3 @@ footer {
         font-size: 2rem;
     }
 }
-
-
-    
-
-    

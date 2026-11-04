@@ -37,9 +37,13 @@ body {
     background-color: var(--cor-fundo);
 }
 
+/* =========================================================
+   BASE: DESKTOP 1920x1080
+   ========================================================= */
+
 header {
     position: relative;
-    height: 67.5vh;
+    height: 729px;
     background-color: black;
 }
 
@@ -47,7 +51,7 @@ header {
     background-color: rgba(0, 0, 0, 0.267);
     display: flex;
     width: 100%;
-    height: 9vh;
+    height: 97px;
     align-items: center;
     justify-content: space-between;
 
@@ -56,12 +60,12 @@ header {
 
     .left {
         margin-left: 50px;
-        height: 5.4vh;
+        height: 58px;
         display: flex;
         align-items: center;
 
         .logo {
-            width: clamp(76px, 6.3vw, 112px);
+            width: 112px;
 
             img {
                 width: 100%;
@@ -84,16 +88,16 @@ header {
     .right {
         display: flex;
         justify-content: space-between;
-        gap: 1vw;
+        gap: 19px;
         margin-right: 50px;
-        
+
         #botaoSair {
             display: none;
         }
 
         button {
             cursor: pointer;
-            height: 3vh;
+            height: 32px;
             border: none;
             border-radius: 14px;
             font-family: 'Poppins';
@@ -105,7 +109,7 @@ header {
             background-color: var(--vermelho-padrao);
             color: white;
             transition: 0.2s;
-            width: 6vw;
+            width: 115px;
         }
 
         .login:hover {
@@ -116,7 +120,7 @@ header {
             background-color: white;
             color: black;
             transition: 0.2s;
-            width: 6vw;
+            width: 115px;
         }
 
         .signup:hover {
@@ -127,7 +131,7 @@ header {
 
 .banner {
     width: 100%;
-    height: 67.5vh;
+    height: 729px;
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('../assets/imgs/banner.jpg');
@@ -172,7 +176,7 @@ main {
     .container-A {
         width: 100%;
         height: auto;
-        min-height: 63vh;
+        min-height: 680px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -195,10 +199,10 @@ main {
 
             .card {
                 background-color: var(--cinza-escuro);
-                margin-top: 7.2vh;
-                width: 22.5vw;
+                margin-top: 78px;
+                width: 432px;
                 height: auto;
-                min-height: 31.5vh;
+                min-height: 340px;
                 border-radius: 14px;
                 display: flex;
                 flex-direction: column;
@@ -208,7 +212,7 @@ main {
                 transition: 0.2s ease;
 
                 img {
-                    width: 3.6vw;
+                    width: 69px;
                 }
 
                 .titulo {
@@ -244,7 +248,7 @@ main {
     .container-B {
         width: 100%;
         height: auto;
-        min-height: 45vh;
+        min-height: 486px;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -261,22 +265,22 @@ main {
         .section {
             width: 70%;
             height: auto;
-            min-height: 36vh;
+            min-height: 389px;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             .conteudo {
-                width: 18vw;
+                width: 346px;
                 height: auto;
-                min-height: 28vh;
+                min-height: 302px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
 
                 .icone {
-                    width: 5vw;
+                    width: 96px;
                 }
 
                 .titulo {
@@ -302,14 +306,14 @@ main {
     .container-C {
         width: 100%;
         height: auto;
-        min-height: 63vh;
+        min-height: 680px;
         display: flex;
         align-items: center;
         justify-content: center;
 
         .mockup {
-            width: 41vw;
-            margin-right: 2.7vw;
+            width: 787px;
+            margin-right: 52px;
             box-shadow: -45px -34px 0px 6px var(--vermelho-secundario);
 
             transition: 0.2s ease;
@@ -323,7 +327,7 @@ main {
             color: white;
             font-family: 'Bebas';
             font-size: 45px;
-            height: 6.3vh;
+            height: 68px;
             cursor: default;
         }
 
@@ -339,7 +343,7 @@ main {
 footer {
     width: 100%;
     height: auto;
-    min-height: 22.5vh;
+    min-height: 243px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -353,7 +357,7 @@ footer {
         align-items: center;
         font-family: 'Poppins';
         font-size: 20px;
-        margin-bottom: 1.8vh;
+        margin-bottom: 19px;
 
         img {
             width: 10%;
@@ -377,12 +381,182 @@ footer {
     .end {
         text-align: center;
         width: 30%;
-        margin-top: 1.8vh;
+        margin-top: 19px;
         font-size: 18px;
     }
 }
 
+@media (min-width: 901px) and (max-width: 1440px) {
+    header {
+        height: 520px;
+    }
+
+    .navbar {
+        height: 69px;
+
+        .left {
+            margin-left: 36px;
+            height: 41px;
+
+            .logo {
+                width: 86px;
+            }
+
+            .link {
+                margin-left: 14px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .right {
+            gap: 14px;
+            margin-right: 36px;
+
+            button {
+                height: 28px;
+                border-radius: 12px;
+                font-size: 13px;
+            }
+
+            .login,
+            .signup {
+                width: 82px;
+            }
+        }
+    }
+
+    .banner {
+        height: 520px;
+    }
+
+    .title-banner {
+        font-size: 48px;
+    }
+
+    .subtitle-banner {
+        font-size: 21px;
+    }
+
+    main {
+        .container-A {
+            min-height: 484px;
+
+            .title {
+                font-size: 44px;
+            }
+
+            .section {
+                .card {
+                    margin-top: 55px;
+                    width: 307px;
+                    min-height: 242px;
+                    border-radius: 12px;
+
+                    img {
+                        width: 50px;
+                    }
+
+                    .titulo {
+                        font-size: 38px;
+                    }
+
+                    .desc {
+                        font-size: 16px;
+                        width: 80%;
+                    }
+
+                    .link {
+                        font-size: 15px;
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+
+        .container-B {
+            min-height: 345px;
+
+            .title {
+                font-size: 44px;
+            }
+
+            .section {
+                min-height: 276px;
+
+                .conteudo {
+                    width: 246px;
+                    min-height: 215px;
+
+                    .icone {
+                        width: 68px;
+                    }
+
+                    .titulo {
+                        font-size: 18px;
+                        margin-top: 10px;
+                    }
+
+                    .desc {
+                        font-size: 15px;
+                        width: 88%;
+                    }
+                }
+            }
+        }
+
+        .container-C {
+            min-height: 484px;
+
+            .mockup {
+                width: 560px;
+                margin-right: 37px;
+                box-shadow: -32px -24px 0px 4px var(--vermelho-secundario);
+            }
+
+            .title {
+                font-size: 34px;
+                height: 48px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+        }
+    }
+
+    footer {
+        min-height: 173px;
+
+        .top {
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        .mid {
+            font-size: 16px;
+        }
+
+        .end {
+            margin-top: 13px;
+            font-size: 14px;
+        }
+    }
+}
+
+/* =========================================================
+   TABLET / MOBILE (mantidos como no original)
+   ========================================================= */
+
 @media (max-width: 900px) {
+    header,
+    .banner {
+        height: 67.5vh;
+    }
+
+    .navbar {
+        height: 9vh;
+    }
+
     .title-banner {
         font-size: 52px;
         left: 50%;
