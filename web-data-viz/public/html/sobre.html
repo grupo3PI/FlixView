@@ -10,18 +10,19 @@
     <header>
         <nav class="navbar">
             <div class="left">
-                <a href="./index.html">
-                <img src="../assets/imgs/Logo FlixView.png" alt="FlixView" class="logo">
+                <a href="" >
+                <img src="../assets/imgs/Logo FlixView.png" alt="" class="logo">
                 </a>
 
-                <a href="./index.html" class="link">Início</a>
-                <a href="./reviews.html" class="link">Reviews</a>
-                <a href="./catalogo.html" class="link">Títulos</a>
+                <a href="index.html" class="link">Início</a>
+                <a href="./catalogo.html" class="link">Titulos</a>
+                <a href="./sobre.html" class="link">Sobre</a>
             </div>
 
             <div class="right">
-                <a href="./login-cadastro.html" class="login">Entrar</a>
-                <a href="./login-cadastro.html#cadastro" class="signup">Cadastrar</a>
+                <a href="./login-cadastro.html" id="botaoCadastrar"><button class="signup">Cadastrar</button></a>
+                <a href="./login-cadastro.html" id="botaoEntrar"><button class="login">Entrar</button></a>
+                <button class="login" id="botaoSair" onclick="limparSessao()">Sair</button>
             </div>
         </nav>
         <div class="banner">
@@ -39,15 +40,6 @@
                     com seus interesses e transforma suas escolhas em informações relevantes sobre o catálogo.
                 </div>
             </div>
-        </div>
-        
-        <div class="container-B">
-            <div class="desc">
-                <span class="titulo">Por que o flixview existe?</span>
-                Com milhares de filmes e séries disponíveis, escolher o próximo conteúdo pode se transformar em uma busca demorada. 
-                O FlixView nasceu para tornar essa descoberta mais simples, reunindo informações, avaliações e preferências em um único ambiente.
-            </div>
-            <img src="../assets/imgs/imgSob.jpg" alt="Conteúdos e catálogos de filmes e séries">
         </div>
 
         <div class="container-C">
@@ -78,61 +70,91 @@
                 </div>
             </div>
         </div>
+    
+<div class="container-F">
+    <div class="titulo-equipe">QUEM ESTÁ POR TRÁS DO FLIXVIEW?</div>
 
-        <div class="container-D">
-            <img src="../assets/imgs/diagramaSob.png" alt="Fluxo do catálogo à exploração, interação, dados e insights">
-            <div class="titulos">
-                <div class="nome"> CATÁLOGO </div>
-                <div class="nome"> EXPLORAÇÃO </div>
-                <div class="nomeA"> INTERAÇÃO </div>
-                <div class="nome"> DADOS </div>
-                <div class="nome"> INSIGHTS </div>
-            </div>
+    <div class="subtitulo-equipe">
+        Conheça as pessoas que idealizaram e deram vida a este projeto.
+    </div>
 
-            <div class="descs">
-                <div class="textoA">
-                    Filmes e séries são organizados em um único ambiente.
-                </div>
-                <div class="textoB">
-                    Usuários pesquisam e descobrem novos títulos.
-                </div>
-                <div class="textoC">
-                    Avaliações, preferências e interesses são registrados.
-                </div>
-                <div class="textoD">
-                    As interações são transformadas em informações.
-                </div>
-                <div class="textoE">
-                    Indicadores ajudam na compreensão do comportamento do público.
-                </div>
+    <div class="equipe">
+
+        <div class="card-equipe">
+            <img src="../assets/imgs/pessoa1.jpg" alt="Foto de integrante">
+            <div class="info-equipe">
+                <div class="nome">Beatriz Reis</div>
+                <div class="empresa">Sem Parar Corpay</div>
+                <div class="area">Engenharia de Software</div>
+                <a href="https://www.linkedin.com/in/beatriz-reis-398168211/" target="_blank" class="linkedin">
+                    LinkedIn ↗
+                </a>
             </div>
         </div>
 
-        <div class="container-E">
-            <div class="titul">SOBRE A FERRAMENTA</div>
-            <div class="contt">
-                <div class="card-info">
-                    <div class="textinho">
-                    Lista de desejos. <br>
-                    Guarde títulos para assistir depois e nunca mais esqueça um nome.
-                    </div>
-                </div>
-
-                <div class="card-info">
-                    <div class="textinho">
-                    Informações completas. <br>
-                    Elenco, direção, duração e classificação num único lugar.
-                    </div>  
-                </div>
-
-                <div class="card-info">
-                    <div class="textinho">
-                    Avaliações da comunidade. <br>
-                    Notas e resenhas reais para decidir com mais segurança.
-                    </div>
-                </div>
+        <div class="card-equipe">
+            <img src="../assets/imgs/equipe/pessoa2.png" alt="Foto de integrante">
+            <div class="info-equipe">
+                <div class="nome">Sabrina Toledo</div>
+                <div class="empresa">Empresa</div>
+                <div class="area">Área de atuação</div>
+                <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+                    LinkedIn ↗
+                </a>
             </div>
         </div>
+
+        <div class="card-equipe">
+            <img src="../assets/imgs/equipe/pessoa3.png" alt="Foto de integrante">
+            <div class="info-equipe">
+                <div class="nome">Nome do Integrante</div>
+                <div class="empresa">Empresa</div>
+                <div class="area">Área de atuação</div>
+                <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+                    LinkedIn ↗
+                </a>
+            </div>
+        </div>
+
+        <div class="card-equipe">
+            <img src="../assets/imgs/equipe/pessoa4.png" alt="Foto de integrante">
+            <div class="info-equipe">
+                <div class="nome">Nome do Integrante</div>
+                <div class="empresa">Empresa</div>
+                <div class="area">Área de atuação</div>
+                <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+                    LinkedIn ↗
+                </a>
+            </div>
+        </div>
+
+        <div class="card-equipe">
+            <img src="../assets/imgs/equipe/pessoa5.png" alt="Foto de integrante">
+            <div class="info-equipe">
+                <div class="nome">Nome do Integrante</div>
+                <div class="empresa">Empresa</div>
+                <div class="area">Área de atuação</div>
+                <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+                    LinkedIn ↗
+                </a>
+            </div>
+        </div>
+
+        <div class="card-equipe">
+            <img src="../assets/imgs/equipe/pessoa6.png" alt="Foto de integrante">
+            <div class="info-equipe">
+                <div class="nome">Nome do Integrante</div>
+                <div class="empresa">Empresa</div>
+                <div class="area">Área de atuação</div>
+                <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+                    LinkedIn ↗
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
     </main>
 
     <footer>
@@ -141,10 +163,9 @@
             <span class="efeito">Sua próxima história começa aqui.</span>
         </div>
         <div class="mid">
-            <a href="./catalogo.html" class="link">EXPLORE</a>
-            <a href="./perfil.html" class="link">MINHA LISTA</a>
+            <a href="./login-cadastro.html" class="link">EXPLORE</a>
             <a href="./sobre.html" class="link">SOBRE NÓS</a>
-            <a href="./" class="link">CONTATO</a>
+            <a href="./area-usuario.html" class="link">SUPORTE</a>
         </div>
         <div class="end">
             <span class="creditos">© 2026 FlixView. Todos os direitos reservados.  Este produto utiliza a TMDB API, mas não é endossado ou certificado pela TMDB.</span>
