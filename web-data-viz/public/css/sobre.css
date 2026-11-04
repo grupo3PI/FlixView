@@ -44,107 +44,87 @@ header {
         background-color: black;
     }
     
-    .navbar{
-        background-color: rgba(0, 0, 0, 0.267);
+    .navbar {
+    background-color: rgba(0, 0, 0, 0.267);
+    display: flex;
+    width: 100%;
+    height: 9vh;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    z-index: 10;
+
+    .left {
+        margin-left: 50px;
+        height: 5.4vh;
         display: flex;
-        width: 100%;
-        height: 72px;
         align-items: center;
-        justify-content: space-between;
-        gap: clamp(16px, 3vw, 40px);
-        padding: 0 clamp(20px, 4vw, 56px);
 
-        position: fixed;
-        z-index: 10;
-       
-        .left {
-            width: auto;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            gap: clamp(12px, 2vw, 26px);
+        .logo {
+            width: clamp(76px, 6.3vw, 112px);
 
-            .logo {
-                width: clamp(78px, 7vw, 110px);
+            img {
+                width: 100%;
                 height: auto;
-                margin-right: 0;
-                object-fit: contain;
             }
-
-            .link{
-                color: white;
-                font-family: 'Poppins';
-                margin-left: 0;
-                padding: 8px 0;
-                font-size: clamp(14px, 1.1vw, 16px);
-                line-height: 1.2;
-                border-bottom: 2px solid transparent;
-                transition: color 0.2s ease, border-color 0.2s ease;
-            }
-
-            .link:hover,
-            .link:focus-visible {
-                color: var(--cinza-claro);
-                border-bottom-color: var(--vermelho-padrao);
-            }
-
         }
 
-        .right {
-            display: flex;
-            justify-content: space-between;
-            gap: clamp(8px, 1vw, 14px);
-
-            a {
-                cursor: pointer;
-                width: auto;
-                min-width: 100px;
-                min-height: 38px;
-                padding: 8px 16px;
-                border: none;
-                border-radius: 8px;
-                font-family: 'Bebas';
-                font-size: clamp(15px, 1.1vw, 17px);
-                line-height: 1.2;
-                text-decoration: none;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                
-            }
-
-            .login {
-                background-color: var(--vermelho-padrao);
-                color: white;
-                transition: 0.2s;
-            }
-
-            .login:hover {
-                background-color: var(--vermelho-secundario);
-            }
-
-            .signup {
-                background-color: white;
-                color: black;
-                transition: 0.2s;
-            }
-
-            .signup:hover {
-                background-color: var(--cinza-claro);
-            }
-
-            .login:focus-visible,
-            .signup:focus-visible {
-                outline: 2px solid white;
-                outline-offset: 3px;
-            }
-
-            a:focus-visible {
-                outline: 2px solid white;
-                outline-offset: 3px;
-            }
+        .link {
+            color: white;
+            font-family: 'Poppins';
+            margin-left: 18px;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: 0.2s;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
         }
     }
+
+    .right {
+        display: flex;
+        justify-content: space-between;
+        gap: 1vw;
+        margin-right: 50px;
+        
+        #botaoSair {
+            display: none;
+        }
+
+        button {
+            cursor: pointer;
+            height: 3vh;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Poppins';
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .login {
+            background-color: var(--vermelho-padrao);
+            color: white;
+            transition: 0.2s;
+            width: 6vw;
+        }
+
+        .login:hover {
+            background-color: var(--vermelho-secundario);
+        }
+
+        .signup {
+            background-color: white;
+            color: black;
+            transition: 0.2s;
+            width: 6vw;
+        }
+
+        .signup:hover {
+            background-color: var(--cinza-claro);
+        }
+    }
+}
 
     .banner {
         width: 100%;
@@ -163,16 +143,15 @@ header {
             text-align: center;
             background-color: var(--cor-fundo);
             color: white;
-            font-size: clamp(58px, 7vw, 100px);
+            font-size: 8rem;
             font-family: 'Bebas';
             cursor: default;
             line-height: 1;
-            padding: 20px clamp(32px, 7vw, 100px) 24px;
+            padding: 5vw 5vw 3vw;
             }
 
     .title-banner {
             border-radius: 50px 50px 0px 0px;
-
             position: absolute;
             top: auto;
             bottom: 0;
@@ -196,6 +175,7 @@ main {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        margin-top: 5vh;
 
         .about {
             width: min(75%, 1000px);
@@ -209,60 +189,18 @@ main {
 
             .titulo {
                 font-family: 'Bebas';
-                font-size: clamp(38px, 4vw, 50px);
+                font-size: 4rem;
                 line-height: 1.15;
             }
 
             .desc {
                 font-family: 'Poppins';
-                max-width: 860px;
-                font-size: clamp(18px, 1.8vw, 22px);
+                width: 100%;
+                font-size: 1.8rem;
                 line-height: 1.6;
                 text-align: center;
             }
             
-        }
-    }
-
-    .container-B {
-        width: 100%;
-        height: auto;
-        min-height: 50vh;
-        padding: 48px clamp(24px, 7vw, 100px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: clamp(24px, 5vw, 64px);
-
-        .desc {
-            color: white;
-            width: min(48%, 560px);
-            height: auto;
-            min-height: 0;
-
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            
-            font-family: 'Poppins';
-            font-size: clamp(18px, 1.7vw, 22px);
-            line-height: 1.55;
-
-            .titulo {
-                font-family: 'Bebas';
-                font-size: clamp(36px, 4vw, 48px);
-                line-height: 1.15;
-            }  
-        }
-
-        img {
-            background-color: #141414;
-            width: min(42%, 520px);
-            height: auto;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
-            margin-left: 0;
-            border-radius: 8px;
         }
     }
 
@@ -283,7 +221,7 @@ main {
             height: auto;
             min-height: 0;
             font-family: 'Bebas';
-            font-size: clamp(26px, 2.5vw, 36px);
+            font-size: 3rem;
             text-align: center;
             line-height: 1.15;
             padding: 14px 26px;
@@ -292,7 +230,7 @@ main {
         }
 
         .cont {
-            width: 100%;
+            width: 80%;
             height: auto;
             min-height: 35vh;
             display: flex;
@@ -318,13 +256,17 @@ main {
                 gap: 14px;
                 color: white;
                 font-family: 'Poppins';
+                margin-top: 5vh;
 
                 .title {
-                    font-size: clamp(20px, 1.8vw, 24px);
+                    font-size: 2rem;
                     width: 100%;
                     height: auto;
                     line-height: 1.2;
                     text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     font-weight: bold;
                     font-family: 'Inter';
                     margin-top: 0;
@@ -332,140 +274,120 @@ main {
                 
                 .subtitulo {
                     color: var(--cinza-claro);
-                    font-size: clamp(16px, 1.6vw, 20px);
+                    font-size: 1.5rem;
                     width: 100%;
                     height: auto;
                     line-height: 1.4;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     
                 }
                 
                 .list {
-                    font-size: clamp(15px, 1.4vw, 18px);
+                    font-size: 1.4rem;
                     width: 100%;
                     height: auto;
                     line-height: 1.65;
                     margin-top: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
 
         }
     }
 
-    .container-D {
-        width: 100%;
-        height: auto;
-        min-height: 40vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+    
+.container-F {
+    padding: 80px 10%;
+    background-color: #141414;
+    text-align: center;
+}
 
-        img {
-            width: 70%;
-        }
+.titulo-equipe {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: 'Poppins';
+}
 
-        .titulos {
-            margin-top: 18px;
-            width: 100%;
-            color: white;
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: clamp(8px, 1vw, 16px);
-            align-items: start;
-            font-family: 'Poppins';
-            font-weight: bold;
-            font-size: clamp(14px, 1.7vw, 24px);
-            line-height: 1.25;
+.subtitulo-equipe {
+    color: #b3b3b3;
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+    font-family: 'Poppins';
+}
 
-            .nomeA{
-                margin-left: 0;
-            }
-        }
+.equipe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
 
-        .descs {
-            margin-top: 12px;
-            width: 100%;
-            color: white;
-            text-align: center;
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: clamp(8px, 1vw, 16px);
-            align-items: start;
-            font-family: 'Poppins';
-            font-size: 15px;
-            line-height: 1.55;
+.card-equipe {
+    background-color: #272727;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
 
-            .textoA {
-                margin-left: 0;
-                width: auto;
-            }
-            .textoB {
-                margin-left: 0;
-                width: auto;
-            }
-            .textoC {
-                width: auto;
-            }
-            .textoD {
-                margin-left: 0;
-                width: auto;
-            }
-            .textoE {
-                width: auto;
-            }
-        }
-    }
+.card-equipe:hover {
+    transform: translateY(-8px);
+}
 
-    .container-E {
-        width: 100%;
-        height: auto;
-        min-height: 40vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+.card-equipe img {
+    width: 50%;
+    height: 250px;
+    object-position: center;
+    margin-top: 5vh;
+}
 
-        .titul {
-            width: min(100%, 1100px);
-                color: white;
-                font-family: 'Bebas';
-            font-size: clamp(34px, 3.5vw, 48px);
-            line-height: 1.1;
-            margin-bottom: 18px;
-            }
-        
-        .contt {
-            width: min(100%, 1100px);
-            height: auto;
-            min-height: 25vh;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            align-items: stretch;
-            gap: 18px;
+.info-equipe {
+    padding: 20px;
+}
 
-            .card-info {
-                background-color: var(--cinza-escuro);
-                border: 2px solid var(--cinza-claro);
-                border-radius: 10px;
-                width: auto;
-                height: auto;
-                min-height: 170px;
-                padding: 22px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                
-                .textinho {
-                    width: min(100%, 280px);
-                    color: white;
-                    font-family: 'Poppins';
-                    font-size: clamp(16px, 1.4vw, 19px);
-                    line-height: 1.6;
-                    text-align: center;
-                }
-            }
-        }
-    }
+.nome {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+}
+
+.empresa {
+    color: #e50914;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-family: 'Poppins';
+}
+
+.area {
+    color: #b3b3b3;
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    font-family: 'Poppins';
+}
+
+.linkedin {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #e50914;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    transition: 0.3s;
+    font-family: 'Poppins';
+}
+
+.linkedin:hover {
+    background-color: #e50914;
+}
+
 }
 
 footer {
@@ -485,7 +407,7 @@ footer {
             align-items: center;
             gap: 8px;
             font-family: 'Poppins';
-            font-size: 18px;
+            font-size: 1.5rem;
             margin-bottom: 18px;
 
             img {
@@ -511,338 +433,232 @@ footer {
             text-align: center;
             width: min(90%, 1000px);
             margin-top: 16px;
-            font-size: 15px;
+            font-size: 1.2rem;
             line-height: 1.5;
         }
     }
 
 @media (max-width: 900px) {
-    .navbar {
-        width: 100%;
-        gap: 16px;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .navbar .left {
-        width: auto;
-        max-width: 100%;
-        flex-wrap: wrap;
-        gap: 8px 12px;
-    }
-
-    .navbar .right {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    header,
-    header .banner {
-        height: 62vh;
-        min-height: 430px;
+    main .container-F .equipe {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
 
     .title-banner {
-        width: min(90%, 760px);
-        top: auto;
-        bottom: 0;
-        padding: 28px 24px 18px;
+        font-size: 5rem;
+    }
+}
+
+/* ---------- Celular (até 600px) ---------- */
+@media (max-width: 600px) {
+
+    /* ----- Header / Navbar ----- */
+    header {
+        height: 55vh;
+    }
+
+    .navbar {
+        height: 60px;
+        padding: 0 12px;
+
+        .left {
+            margin-left: 0;
+            height: auto;
+
+            .logo {
+                width: 64px;
+            }
+
+            .link {
+                margin-left: 10px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .right {
+            margin-right: 0;
+            gap: 8px;
+
+            button {
+                height: 32px;
+                padding: 0 12px;
+                font-size: 13px;
+                border-radius: 12px;
+            }
+
+            .login,
+            .signup {
+                width: auto;
+            }
+        }
+    }
+
+    .banner {
+        height: 55vh;
+    }
+
+    .title-banner {
+        font-size: 3rem;
+        width: 92%;
+        padding: 20px 16px 14px;
         border-radius: 28px 28px 0 0;
-        font-size: clamp(48px, 9vw, 82px);
-        line-height: 1;
     }
 
-    main .container-A,
-    main .container-B,
-    main .container-C,
-    main .container-D,
-    main .container-E {
-        height: auto;
-        min-height: 0;
-        padding: 36px 24px;
+    main {
+        gap: 20px;
+
+
+        .container-A {
+            margin-top: 3vh;
+            min-height: auto;
+
+            .about {
+                width: 90%;
+                gap: 10px;
+
+                .titulo {
+                    font-size: 2.4rem;
+                    text-align: center;
+                }
+
+                .desc {
+                    font-size: 1.1rem;
+                    line-height: 1.6;
+                }
+            }
+        }
+
+
+        .container-C {
+            min-height: auto;
+
+            .titulo {
+                font-size: 2rem;
+                padding: 10px 18px;
+                margin: 0 16px;
+            }
+
+            .cont {
+                width: 100%;
+                min-height: auto;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+                padding: 8px 16px 16px;
+
+                .card {
+                    width: 100%;
+                    flex: none;
+                    min-height: auto;
+                    margin-top: 0;
+                    padding: 20px 16px;
+                    gap: 10px;
+
+                    .title {
+                        font-size: 1.4rem;
+                    }
+
+                    .subtitulo {
+                        font-size: 1.1rem;
+                        text-align: center;
+                    }
+
+                    .list {
+                        font-size: 1rem;
+                        line-height: 1.6;
+                    }
+                }
+            }
+        }
+
+
+        .container-F {
+            padding: 40px 5%;
+
+            .titulo-equipe {
+                font-size: 2rem;
+            }
+
+            .subtitulo-equipe {
+                font-size: 1.1rem;
+                margin-bottom: 28px;
+            }
+
+            .equipe {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card-equipe img {
+                height: 220px;
+            }
+
+            .info-equipe {
+                padding: 16px;
+            }
+
+            .nome {
+                font-size: 1.3rem;
+            }
+
+            .empresa {
+                font-size: 1.1rem;
+            }
+
+            .area {
+                font-size: 1rem;
+                margin-bottom: 14px;
+            }
+
+            .linkedin {
+                font-size: 13px;
+                padding: 8px 18px;
+            }
+        }
     }
 
-    main .container-A .about {
-        width: 100%;
-        margin-top: 0;
-    }
-
-    main .container-A .about .titulo,
-    main .container-B .desc .titulo,
-    main .container-C > .titulo,
-    main .container-E .titul {
-        font-size: clamp(30px, 5vw, 42px);
-    }
-
-    main .container-A .about .desc,
-    main .container-B .desc {
-        font-size: 18px;
-    }
-
-    main .container-B {
-        flex-direction: column;
-        gap: 28px;
-    }
-
-    main .container-B .desc {
-        width: 100%;
-        height: auto;
-    }
-
-    main .container-B img {
-        width: 100%;
-        max-width: 640px;
-        height: auto;
-        margin-left: 0;
-    }
-
-    main .container-C > .titulo {
-        width: 100%;
-        height: auto;
-        padding: 12px;
-        margin: 0;
-    }
-
-    main .container-C .cont {
-        height: auto;
-        margin-top: 18px;
-        gap: 18px;
-    }
-
-    main .container-C .cont .card {
-        width: 48%;
-        height: auto;
-        min-height: 270px;
-        margin-top: 0;
-        padding: 20px 14px;
-        border-radius: 16px;
-    }
-
-    main .container-C .cont .card .title,
-    main .container-C .cont .card .subtitulo,
-    main .container-C .cont .card .list {
-        width: 100%;
-        height: auto;
-    }
-
-    main .container-C .cont .card .title {
-        font-size: 20px;
-    }
-
-    main .container-C .cont .card .subtitulo,
-    main .container-C .cont .card .list {
-        font-size: 16px;
-    }
-
-    main .container-D img {
-        width: 100%;
-        height: auto;
-    }
-
-    main .container-D .titulos,
-    main .container-D .descs {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    main .container-D .titulos {
-        font-size: 18px;
-    }
-
-    main .container-D .titulos .nomeA,
-    main .container-D .descs .textoA,
-    main .container-D .descs .textoB,
-    main .container-D .descs .textoC,
-    main .container-D .descs .textoD,
-    main .container-D .descs .textoE {
-        width: auto;
-        margin-left: 0;
-    }
-
-    main .container-E .contt {
-        width: 100%;
-        height: auto;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-    }
-
-    main .container-E .contt .card-info {
-        width: 100%;
-        min-height: 150px;
-        height: auto;
-        padding: 16px 10px;
-    }
-
-    main .container-E .contt .card-info .textinho {
-        font-size: 16px;
-    }
 
     footer {
-        height: auto;
-        padding: 28px 20px;
-    }
+        padding: 24px 16px;
 
-    footer .mid,
-    footer .end {
-        width: 100%;
-    }
+        .top {
+            font-size: 1.1rem;
+            text-align: center;
 
-    footer .mid {
-        flex-wrap: wrap;
-        gap: 12px 22px;
-        justify-content: center;
+            img {
+                width: 28%;
+            }
+        }
+
+        .mid {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 20px;
+            font-size: 15px;
+        }
+
+        .end {
+            font-size: 0.95rem;
+            width: 100%;
+        }
     }
 }
 
-@media (max-width: 600px) {
-    .navbar {
-        position: absolute;
-        height: auto;
-        min-height: 72px;
-        padding: 12px 14px;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 8px;
-    }
-
-    .navbar .left {
-        width: 100%;
-        gap: 8px 12px;
-    }
-
-    .navbar .left .logo {
-        width: 66px;
-        height: auto;
-        margin: 0 8px 0 0;
-    }
-
-    .navbar .link {
-        margin: 0;
-        font-size: 13px;
-    }
-
-    .navbar .link:hover,
-    .navbar .link:focus-visible {
-        color: var(--cinza-claro);
-        border-bottom-color: var(--vermelho-padrao);
-    }
-
-    .navbar .right {
-        width: 100%;
-        justify-content: flex-start;
-    }
-
-    .navbar .right a {
-        width: auto;
-        min-width: 96px;
-        min-height: 34px;
-        padding: 0 12px;
-        font-size: 15px;
-    }
-
-    header,
-    header .banner {
-        height: 54vh;
-        min-height: 360px;
-    }
-
+@media (max-width: 380px) {
     .title-banner {
-        top: auto;
-        bottom: 0;
-        padding: 20px 14px 12px;
-        font-size: clamp(40px, 12vw, 58px);
+        font-size: 2.4rem;
     }
 
-    main .container-A,
-    main .container-B,
-    main .container-C,
-    main .container-D,
-    main .container-E {
-        padding: 30px 16px;
+    .navbar .left .link {
+        display: none;
     }
 
-    main .container-A .about .desc,
-    main .container-B .desc {
-        font-size: 16px;
-        line-height: 1.55;
-    }
-
-    main .container-C .cont,
-    main .container-E .contt {
-        flex-direction: column;
-        gap: 14px;
-    }
-
-    main .container-C .cont {
-        min-height: 0;
-        align-items: stretch;
-    }
-
-    main .container-E .contt {
-        grid-template-columns: 1fr;
-    }
-
-    main .container-C .cont .card,
-    main .container-E .contt .card-info {
-        width: 100%;
-    }
-
-    main .container-C .cont .card {
-        flex: 0 0 auto;
-        min-height: 0;
-        justify-content: flex-start;
-        gap: 10px;
-    }
-
-    main .container-C .cont .card .title {
-        margin-top: 0;
-    }
-
-    main .container-D .titulos,
-    main .container-D .descs {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    main .container-D .titulos {
-        font-size: 15px;
-    }
-
-    main .container-D .descs {
-        font-size: 13px;
-    }
-
-    footer .mid {
-        font-size: 15px;
+    main .container-A .about .titulo {
+        font-size: 2rem;
     }
 }
 
-@media (min-width: 901px) and (max-width: 1100px) {
-    main .container-D img {
-        width: 100%;
-        height: auto;
-    }
-
-    main .container-D .titulos,
-    main .container-D .descs {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    main .container-D .titulos .nomeA,
-    main .container-D .descs .textoA,
-    main .container-D .descs .textoB,
-    main .container-D .descs .textoC,
-    main .container-D .descs .textoD,
-    main .container-D .descs .textoE {
-        width: auto;
-        margin-left: 0;
-    }
-}
 
     
 
