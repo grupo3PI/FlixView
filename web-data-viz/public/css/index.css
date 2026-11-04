@@ -381,3 +381,329 @@ footer {
         font-size: 18px;
     }
 }
+
+@media (max-width: 900px) {
+    .title-banner {
+        font-size: 52px;
+        left: 50%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .subtitle-banner {
+        width: 80%;
+        left: 50%;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    main {
+        .container-A {
+            .title {
+                width: 80%;
+            }
+
+            .section {
+                width: 90%;
+                gap: 16px;
+
+                .card {
+                    width: 30vw;
+
+                    img {
+                        width: 6vw;
+                    }
+
+                    .titulo {
+                        font-size: 36px;
+                    }
+
+                    .desc {
+                        font-size: 16px;
+                        width: 80%;
+                    }
+
+                    .link {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .container-B {
+            .title {
+                width: 80%;
+            }
+
+            .section {
+                width: 90%;
+
+                .conteudo {
+                    width: 28vw;
+
+                    .icone {
+                        width: 8vw;
+                    }
+
+                    .titulo {
+                        font-size: 20px;
+                    }
+
+                    .desc {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .container-C {
+            .mockup {
+                width: 45vw;
+                box-shadow: -24px -18px 0px 4px var(--vermelho-secundario);
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+        }
+    }
+
+    footer {
+        .top img {
+            width: 16%;
+        }
+
+        .mid {
+            width: 60%;
+            font-size: 18px;
+        }
+
+        .end {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        height: 60vh;
+    }
+
+    .navbar {
+        height: 60px;
+        padding: 0 12px;
+
+        .left {
+            margin-left: 0;
+            height: auto;
+
+            .logo {
+                width: 64px;
+            }
+
+            .link {
+                margin-left: 10px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .right {
+            margin-right: 0;
+            gap: 8px;
+
+            button {
+                height: 32px;
+                padding: 0 12px;
+                font-size: 13px;
+                border-radius: 12px;
+            }
+
+            .login,
+            .signup {
+                width: auto;
+            }
+        }
+    }
+
+    .banner {
+        height: 60vh;
+    }
+
+    .title-banner {
+        font-size: 42px;
+        top: 42%;
+        left: 50%;
+        width: 90%;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    .subtitle-banner {
+        font-size: 16px;
+        width: 88%;
+        top: 62%;
+        left: 50%;
+        text-align: center;
+        line-height: 1.45;
+    }
+
+    main {
+        .container-A {
+            min-height: auto;
+            padding: 40px 0;
+
+            .title {
+                width: 90%;
+                font-size: 38px;
+                text-align: center;
+            }
+
+            .section {
+                width: 90%;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+
+                .card {
+                    width: 100%;
+                    min-height: auto;
+                    margin-top: 20px;
+                    padding: 24px 0;
+
+                    img {
+                        width: 56px;
+                    }
+
+                    .titulo {
+                        font-size: 34px;
+                    }
+
+                    .desc {
+                        font-size: 16px;
+                        width: 85%;
+                    }
+
+                    .link {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .container-B {
+            min-height: auto;
+            padding: 20px 0 40px;
+
+            .title {
+                width: 90%;
+                font-size: 38px;
+                text-align: center;
+            }
+
+            .section {
+                width: 90%;
+                min-height: auto;
+                flex-direction: column;
+                gap: 28px;
+                margin-top: 20px;
+
+                .conteudo {
+                    width: 100%;
+                    min-height: auto;
+
+                    .icone {
+                        width: 64px;
+                    }
+
+                    .titulo {
+                        font-size: 20px;
+                        text-align: center;
+                    }
+
+                    .desc {
+                        font-size: 16px;
+                        width: 90%;
+                    }
+                }
+            }
+        }
+
+        .container-C {
+            min-height: auto;
+            flex-direction: column;
+            padding: 30px 5% 50px;
+            gap: 28px;
+
+            .mockup {
+                width: 82%;
+                margin-right: 0;
+                margin-top: 16px;
+                box-shadow: -14px -12px 0px 3px var(--vermelho-secundario);
+            }
+
+            .title {
+                font-size: 32px;
+                height: auto;
+                text-align: center;
+            }
+
+            .subtitle {
+                font-size: 16px;
+                text-align: center;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    footer {
+        min-height: auto;
+        padding: 24px 16px;
+
+        .top {
+            font-size: 16px;
+            text-align: center;
+
+            img {
+                width: 28%;
+            }
+        }
+
+        .mid {
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 20px;
+            font-size: 15px;
+        }
+
+        .end {
+            width: 100%;
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .navbar .left .link {
+        display: none;
+    }
+
+    .title-banner {
+        font-size: 36px;
+    }
+
+    .subtitle-banner {
+        font-size: 14px;
+    }
+
+    main {
+        .container-A .title,
+        .container-B .title {
+            font-size: 32px;
+        }
+    }
+}
