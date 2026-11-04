@@ -37,6 +37,8 @@
 
 body {
     background-color: var(--cor-fundo);
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -76,7 +78,7 @@ header {
         color: white;
         font-family: 'Poppins';
         margin-left: 20px;
-        font-size: 18px;
+        font-size: 1.4rem;
         font-weight: 500;
         transition: 0.2s;
         padding-bottom: 4px;
@@ -89,6 +91,7 @@ header {
 }
 
 .faixa {
+    width: 100%;
     background-color: var(--cinza-escuro);
     border-bottom: 2px var(--vermelho-secundario) solid;
     width: 100%;
@@ -105,24 +108,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 65px;
-    height: 65px;
+    width: 10vw;
+    height: 10vw;
 }
 
 .caixa-icone img {
     width: 100%;
-    max-width: 48px;
-    height: auto;
 }
 
 .intro {
     color: white;
-    font-size: 50px;
+    font-size: 3.75rem;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
     cursor: default;
     margin-right: 35px;
-
 }
 
 .container-cards {
@@ -135,8 +134,8 @@ header {
 
 .card {
     background-color: var(--cinza-escuro);
-    width: 210px;
-    height: 200px;
+    width: 18vw;
+    height: 28vh;
     border-radius: 20px;
     padding: 10px;
     display: flex;
@@ -149,7 +148,7 @@ header {
 }
 
 .card img {
-    width: 65px;
+    width: 7vw;
     height: auto;
     gap: 10px;
 }
@@ -157,16 +156,14 @@ header {
 .card span {
     color: white;
     font-family: 'Bebas', sans-serif;
-    font-size: 20px;
-    letter-spacing: 1px;
-    padding: 10px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
 }
 
 .card:hover {
     background-color: var(--cinza-borda);
     transform: translateY(5px);
     border: 3px solid var(--vermelho-secundario);
-
 }
 
 .container-texto {
@@ -178,22 +175,31 @@ header {
     padding: 30px;
 }
 
+.texto {
+    display: none;
+}
+
 .container-texto .texto {
     color: var(--cinza-claro);
     font-family: 'Poppins', sans-serif;
-    font-size: 22px;
+    font-size: 2.20rem;
     margin-top: 50px;
-    max-width: 600px;
+    max-width: 65vw;
     line-height: 1.2;
     cursor: default;
-    transition: color 0.3s ease;
 }
 
-.container-texto .texto:hover {
-    color: var(--vermelho-secundario);
-
+body:has(.card1:hover) .container-texto .texto1 {
+    display: block;
 }
 
+body:has(.card2:hover) .container-texto .texto2 {
+    display: block;
+}
+
+body:has(.card3:hover) .container-texto .texto3 {
+    display: block;
+}
 
 @media (max-width: 768px) {
 

@@ -7,13 +7,23 @@ CREATE TABLE cargo (
     nomeCargo VARCHAR(50)
 );
 
+INSERT INTO cargo (idCargo, nomeCargo) VALUES
+('USER0001', 'Usuário Comum'),
+('DATA0001', 'Analista de Dados de Conteúdo'),
+('ADMIN001', 'Administrador');
+
 CREATE TABLE usuario ( 
     idUsuario INT PRIMARY KEY AUTO_INCREMENT, 
     nome VARCHAR(100) NOT NULL, 
     email VARCHAR(150) NULL, 
     senha VARCHAR(50) NULL, 
-    cargo VARCHAR(100) NULL, 
-    logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    logCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    idCargo CHAR(8) NOT NULL,
+
+    CONSTRAINT fk_cargo_usuario
+        FOREIGN KEY (idCargo)
+        REFERENCES cargo(idCargo)
+
 );
 
 CREATE TABLE titulo (
