@@ -41,73 +41,97 @@ a {
     text-decoration: none;
 }
 
-
-header.top {
+.navbar {
     display: flex;
+    width: 100%;
+    height: 9vh;
     align-items: center;
-    gap: 44px;
-    padding: 20px 48px;
-    border-bottom: 1px solid var(--cinza-escuro);
-}
+    justify-content: space-between;
 
-.logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    letter-spacing: .5px;
-}
+    .left {
+        margin-left: 50px;
+        height: 5.4vh;
+        display: flex;
+        align-items: center;
 
-.logo .flix {
-    color: var(--vermelho-padrao);
-}
+        .logo {
+            width: clamp(76px, 6.3vw, 112px);
 
-.logo .view {
-    color: #fff;
-}
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
 
-nav.primary {
-    display: flex;
-    gap: 28px;
-    flex: 1;
-}
+        .link {
+            color: white;
+            font-family: 'Poppins';
+            margin-left: 18px;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: 0.2s;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+        }
+    }
 
-nav.primary a {
-    font-family: 'Poppins';
-    font-size: 16px;
-    font-weight: 500;
-    color: #fff;
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
-    transition: color .15s ease, border-color .15s ease;
-}
+    .right {
+        display: flex;
+        justify-content: space-between;
+        gap: 1vw;
+        margin-right: 50px;
+        
+        #botaoSair {
+            display: none;
+        }
 
-nav.primary a:hover {
-    color: var(--cinza-claro);
-}
+        button {
+            cursor: pointer;
+            height: 3vh;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Poppins';
+            font-weight: bold;
+            font-size: 15px;
+        }
 
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-image: url(../assets/profiles/menino_loiro.png);
-    background-size: cover;
-    flex-shrink: 0;
-}
+        .login {
+            background-color: var(--vermelho-padrao);
+            color: white;
+            transition: 0.2s;
+            width: 6vw;
+        }
 
+        .login:hover {
+            background-color: var(--vermelho-secundario);
+        }
+
+        .signup {
+            background-color: white;
+            color: black;
+            transition: 0.2s;
+            width: 6vw;
+        }
+
+        .signup:hover {
+            background-color: var(--cinza-claro);
+        }
+    }
+}
 
 main {
-    max-width: 1180px;
+    width: 80%;
     margin: 0 auto;
     padding: 44px 48px 90px;
 }
 
 .section-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 34px;
+    font-size: 3rem;
     letter-spacing: .5px;
     font-weight: 400;
     margin: 0 0 24px;
 }
-
 
 .search-row {
     position: relative;
@@ -121,7 +145,7 @@ main {
     border-radius: 6px;
     padding: 14px 46px 14px 16px;
     color: #fff;
-    font-size: 14px;
+    font-size: 1.2rem;
     font-family: 'Inter', sans-serif;
     outline: none;
     transition: border-color .15s ease;
@@ -144,7 +168,6 @@ main {
     opacity: .8;
 }
 
-
 .filters {
     display: flex;
     gap: 10px;
@@ -163,7 +186,7 @@ main {
     border-radius: 20px;
     color: #fff;
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 1.1rem;
     font-weight: 500;
     padding: 9px 32px 9px 16px;
     cursor: pointer;
@@ -181,14 +204,14 @@ main {
 
 #contador {
     color: var(--cinza-claro);
-    font-size: 14px;
+    font-size: 1.1rem;
     margin: 0 0 22px;
 }
 
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 30px 20px;
 }
 
