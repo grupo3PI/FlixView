@@ -174,3 +174,23 @@
 
 </body>
 </html>
+
+<script src="../js/sessao.js"></script>
+<script>
+        window.onload = function () {
+        controlarBotoes();
+    };
+
+    function controlarBotoes() {
+    if (validarSessao()) {
+        document.getElementById("botaoCadastrar").style.display = "none";
+        document.getElementById("botaoEntrar").style.display = "none";
+        document.getElementById("botaoSair").style.display = "block";
+    } else {
+        document.getElementById("botaoCadastrar").style.display = "block";
+        document.getElementById("botaoEntrar").style.display = "block";
+        document.getElementById("botaoSair").style.display = "none";
+    }
+} 
+
+</script>

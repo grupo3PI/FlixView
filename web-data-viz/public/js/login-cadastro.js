@@ -31,7 +31,7 @@ if (window.location.hash === "#cadastro") {
             sessionStorage.setItem("ID_CARGO", resultado.idCargo);
 
             if (resultado.idCargo === "USER0001") {
-                window.location.href = "catalogo.html";
+                window.location.href = "index.html";
             } else {
                 window.location.href = "area-usuario.html";
             }
