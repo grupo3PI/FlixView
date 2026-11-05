@@ -1,3 +1,4 @@
+
 var database = require("../database/config");
 
 function listar(busca, genero, ano, popularidade, avaliacao) {
@@ -78,15 +79,15 @@ function listar(busca, genero, ano, popularidade, avaliacao) {
     // Ordenação definida pelas opções disponíveis
     if (popularidade === "alta") {
         instrucaoSql += ` ORDER BY t.popularity DESC`;
-    } 
+    }
     else if (popularidade === "votados") {
         instrucaoSql += ` ORDER BY t.vote_count DESC`;
-    } 
+    }
     else {
         instrucaoSql += ` ORDER BY t.title ASC`;
     }
 
-    return database.execute(instrucaoSql, parametros);
+    return database.executar(instrucaoSql, parametros);
 }
 
 function listarGeneros() {
@@ -99,7 +100,7 @@ function listarGeneros() {
         ORDER BY g.nome ASC;
     `;
 
-    return database.execute(instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 function listarAnos() {
@@ -111,7 +112,7 @@ function listarAnos() {
         ORDER BY ano DESC;
     `;
 
-    return database.execute(instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 module.exports = {
