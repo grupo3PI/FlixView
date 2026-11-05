@@ -69,8 +69,6 @@
 
         <h1>DESEMPENHO DE CATÁLOGO</h1>
 
-        </section>
-
 
         <!-- Área principal -->
         <section class="desempenho-grid">
@@ -82,8 +80,11 @@
                     <span>Visão geral do catálogo</span>
                 </div>
 
-                <div class="chart-placeholder">
-                    <p>Área destinada ao gráfico de desempenho</p>
+                <div class="chart-placeholder chart-area">
+                    <div class="chart-canvas-wrap">
+                        <canvas id="graficoDesempenho" role="img"
+                                aria-label="Gráfico de visualizações e nota média por título"></canvas>
+                    </div>
                 </div>
 
             </div>
@@ -105,6 +106,9 @@
         mainContent.classList.toggle("expanded");
     });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+<script src="../js/dashboard_desempenho.js"></script>
 
 </body>
 </html>

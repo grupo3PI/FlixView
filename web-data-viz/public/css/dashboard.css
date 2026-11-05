@@ -421,3 +421,41 @@ body {
 .main-content.expanded .chart-container {
     width: 35vw;
 }
+
+/* ----- Correção da tabela no notebook 1366px ----- */
+
+@media (min-width: 1101px) and (max-width: 1440px) {
+
+    body.pagina-dashboard .dashboard-grid {
+        min-width: 0;
+    }
+
+    body.pagina-dashboard .table-container {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    body.pagina-dashboard .table-header {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 12px;
+    }
+
+    body.pagina-dashboard .table-placeholder {
+        width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+    }
+
+    body.pagina-dashboard .tabela-titulos {
+        width: 100%;
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    body.pagina-dashboard .tabela-titulos th,
+    body.pagina-dashboard .tabela-titulos td {
+        padding: 9px 5px;
+        overflow-wrap: break-word;
+    }
+}

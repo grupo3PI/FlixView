@@ -1,49 +1,105 @@
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: block;
+    width: 100%;
+}
+
+.logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 @media (min-width: 701px) {
+
+    :root {
+        --nav-w: 280px;          /* largura da sidebar */
+        --nav-pad-top: 20px;     /* respiro de cima da sidebar */
+        --nav-pad-x: 20px;
+        --logo-w: 132px;
+        --logo-h: 40px;
+        --btn-size: 20px;        /* tamanho do botão hamburguer */
+        --btn-left: 28px;
+        --collapsed-ml: 58px;    /* margem do conteúdo com a sidebar fechada */
+    }
+
+    /* ----- Sidebar ----- */
     .sidebar {
-        width: clamp(190px, 15vw, 280px);
+        width: var(--nav-w);
+        padding: var(--nav-pad-top) var(--nav-pad-x) 20px;
+        overflow-x: hidden;
         overflow-y: auto;
     }
 
+    /* Botão de abrir/fechar: centro na mesma altura do centro da logo */
+    .menu-button {
+        width: var(--btn-size);
+        height: var(--btn-size);
+        top: calc(var(--nav-pad-top) + (var(--logo-h) - var(--btn-size)) / 2);
+        left: var(--btn-left);
+    }
+
     .logo {
-        width: clamp(100px, 7vw, 132px);
-        height: auto;
-        margin: 12px auto 0;
+        width: var(--logo-w);
+        height: var(--logo-h);
+        margin: 0 auto;
     }
 
     .search-box {
         min-height: 38px;
         height: auto;
+        margin-top: 22px;
+    }
+
+    .menu {
+        margin-top: 42px;
+        gap: 25px;
     }
 
     .menu-item {
-        font-size: clamp(14px, 1.15vw, 18px);
+        font-size: 18px;
     }
 
+    .menu-icon,
+    .menu-iconA,
+    .menu-iconB,
+    .menu-iconC,
+    .menu-iconD {
+        width: 30px;
+        height: 30px;
+        margin-left: 19px;
+    }
+
+    /* ----- Conteúdo ----- */
     .main-content {
-        margin-left: clamp(190px, 15vw, 280px);
-        padding: clamp(12px, 2vw, 23px);
+        margin-left: var(--nav-w);
+        padding: 23px;
+    }
+
+    .main-content.expanded {
+        margin-left: var(--collapsed-ml);
     }
 
     .dashboard-container {
         min-height: calc(100vh - 46px);
         height: auto;
-        padding: clamp(20px, 3vw, 35px) clamp(16px, 2vw, 28px);
+        padding: 35px 28px;
     }
 
     .dashboard-container h1 {
-        font-size: clamp(34px, 4vw, 55px);
+        font-size: 55px;
         line-height: 1.05;
         overflow-wrap: anywhere;
     }
 
-    .menu-button {
-        top: 24px;
-        left: 24px;
-    }
-
     .table-container {
         height: auto;
-        min-height: 60vh;
+        min-height: 648px;
         overflow: visible;
         justify-content: flex-start;
         align-items: stretch;
@@ -54,9 +110,120 @@
     .tabela-titulos {
         height: auto;
     }
+
+    /* Desempenho de Catálogo: o gráfico ocupa o resto da tela
+       (100vh - espaço do título, paddings e margens) */
+    .chart-container-desempenho {
+        height: calc(100vh - 205px);
+        min-height: 380px;
+    }
 }
 
-@media (max-width: 1100px) and (min-width: 701px) {
+@media (min-width: 701px) and (max-width: 1440px) {
+
+    :root {
+        --nav-w: 205px;
+        --nav-pad-top: 16px;
+        --nav-pad-x: 16px;
+        --logo-w: 100px;
+        --logo-h: 32px;
+        --btn-left: 20px;
+        --collapsed-ml: 40px;
+    }
+
+    .search-box {
+        min-height: 34px;
+        margin-top: 16px;
+    }
+
+    .menu {
+        margin-top: 28px;
+        gap: 18px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+    }
+
+    .menu-icon,
+    .menu-iconA,
+    .menu-iconB,
+    .menu-iconC,
+    .menu-iconD {
+        width: 26px;
+        height: 26px;
+        margin-left: 14px;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .dashboard-container {
+        min-height: calc(100vh - 36px);
+        padding: 28px 24px;
+    }
+
+    .dashboard-container h1 {
+        font-size: 44px;
+        margin-bottom: 18px;
+    }
+
+    .table-container {
+        min-height: 440px;
+    }
+
+    .chart-container-desempenho {
+        height: calc(100vh - 168px);
+        min-height: 340px;
+    }
+}
+
+
+/* =========================================================
+   3) TABLET  (701px a 1100px)
+   ========================================================= */
+
+@media (min-width: 701px) and (max-width: 1100px) {
+
+    :root {
+        --nav-w: 190px;
+        --nav-pad-top: 14px;
+        --nav-pad-x: 14px;
+        --logo-w: 96px;
+        --logo-h: 30px;
+        --btn-left: 14px;
+        --collapsed-ml: 44px;
+    }
+
+    .menu-item {
+        font-size: 14px;
+    }
+
+    .menu-icon,
+    .menu-iconA,
+    .menu-iconB,
+    .menu-iconC,
+    .menu-iconD {
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .dashboard-container {
+        min-height: calc(100vh - 32px);
+        padding: 24px 18px;
+    }
+
+    .dashboard-container h1 {
+        font-size: 38px;
+        margin-bottom: 14px;
+    }
+
     .cards {
         flex-wrap: wrap;
         gap: 14px;
@@ -126,19 +293,25 @@
         min-height: 280px;
     }
 
-    .main-content.expanded {
-        margin-left: 0;
-    }
-
     .main-content.expanded .dashboard-grid {
         justify-content: stretch;
     }
 }
 
 @media (max-width: 700px) {
+
+    :root {
+        --nav-pad-top: 16px;
+        --logo-w: 100px;
+        --logo-h: 32px;
+        --btn-size: 20px;
+    }
+
     .menu-button {
         position: absolute;
-        top: 16px;
+        width: var(--btn-size);
+        height: var(--btn-size);
+        top: calc(var(--nav-pad-top) + (var(--logo-h) - var(--btn-size)) / 2);
         right: 16px;
         left: auto;
     }
@@ -148,14 +321,13 @@
         width: 100%;
         height: auto;
         min-height: 0;
-        padding: 16px 14px 14px;
+        padding: var(--nav-pad-top) 14px 14px;
         overflow: visible;
     }
 
     .sidebar .logo {
-        display: block;
-        width: 100px;
-        height: auto;
+        width: var(--logo-w);
+        height: var(--logo-h);
         margin: 0;
     }
 
@@ -209,6 +381,10 @@
         min-height: 0;
         margin-left: 0;
         padding: 12px;
+    }
+
+    .main-content.expanded {
+        padding-top: 48px;
     }
 
     .dashboard-container {
@@ -395,7 +571,7 @@ body.pagina-dashboard .dashboard-container {
 
 body.pagina-dashboard .dashboard-container h1 {
     margin-bottom: 2px;
-    font-size: clamp(38px, 3.5vw, 50px);
+    font-size: 50px;
     line-height: 1;
     letter-spacing: 0;
 }
@@ -432,11 +608,11 @@ body.pagina-dashboard .kpi-card-texto strong {
 }
 
 body.pagina-dashboard .kpi-card strong {
-    font-size: clamp(34px, 3.5vw, 48px);
+    font-size: 48px;
 }
 
 body.pagina-dashboard .kpi-card-texto strong {
-    font-size: clamp(20px, 1.8vw, 25px);
+    font-size: 25px;
     overflow-wrap: anywhere;
 }
 
@@ -448,7 +624,7 @@ body.pagina-dashboard .dashboard-grid {
 }
 
 body.pagina-dashboard .table-header h2 {
-    font-size: clamp(18px, 1.6vw, 21px);
+    font-size: 21px;
     line-height: 1.25;
 }
 
@@ -474,22 +650,107 @@ body.pagina-dashboard .tabela-titulos td {
         flex: 0.85;
         width: auto;
         min-width: 0;
-        height: min(60vh, 480px);
+        height: 480px;
         min-height: 360px;
         border-radius: 10px;
     }
 }
 
-@media (max-width: 1100px) and (min-width: 701px) {
+
+/* ----- Notebook 1366x768 ----- */
+
+@media (min-width: 701px) and (max-width: 1440px) {
+    body.pagina-dashboard .dashboard-container {
+        gap: 14px;
+    }
+
+    body.pagina-dashboard .dashboard-container h1 {
+        font-size: 40px;
+    }
+
+    body.pagina-dashboard .cards {
+        width: min(100%, 780px);
+        gap: 14px;
+    }
+
+    body.pagina-dashboard .kpi-card,
+    body.pagina-dashboard .kpi-card-texto {
+        min-height: 104px;
+        padding: 14px;
+        gap: 10px;
+    }
+
+    body.pagina-dashboard .kpi-card span,
+    body.pagina-dashboard .kpi-card-texto span {
+        font-size: 14px;
+    }
+
+    body.pagina-dashboard .kpi-card strong {
+        font-size: 40px;
+    }
+
+    body.pagina-dashboard .kpi-card-texto strong {
+        font-size: 22px;
+    }
+
+    body.pagina-dashboard .dashboard-grid {
+        gap: 16px;
+        margin-top: 10px;
+    }
+
+    body.pagina-dashboard .table-header h2 {
+        font-size: 19px;
+    }
+
+    body.pagina-dashboard .tabela-titulos {
+        font-size: 14px;
+    }
+
+    body.pagina-dashboard .tabela-titulos th,
+    body.pagina-dashboard .tabela-titulos td {
+        padding: 9px 5px;
+    }
+}
+
+@media (min-width: 1101px) and (max-width: 1440px) {
+    body.pagina-dashboard .chart-container {
+        height: 400px;
+        min-height: 320px;
+    }
+}
+
+
+/* ----- Tablet ----- */
+
+@media (min-width: 701px) and (max-width: 1100px) {
+    body.pagina-dashboard .dashboard-container h1 {
+        font-size: 38px;
+    }
+
     body.pagina-dashboard .kpi-card,
     body.pagina-dashboard .kpi-card-texto {
         padding: 14px;
+    }
+
+    body.pagina-dashboard .kpi-card strong {
+        font-size: 36px;
+    }
+
+    body.pagina-dashboard .kpi-card-texto strong {
+        font-size: 20px;
+    }
+
+    body.pagina-dashboard .table-header h2 {
+        font-size: 18px;
     }
 
     body.pagina-dashboard .table-container {
         border-radius: 10px;
     }
 }
+
+
+/* ----- Celular ----- */
 
 @media (max-width: 700px) {
     body.pagina-dashboard .dashboard-container h1 {
@@ -506,6 +767,18 @@ body.pagina-dashboard .tabela-titulos td {
     body.pagina-dashboard .kpi-card-texto {
         min-height: 104px;
         padding: 14px;
+    }
+
+    body.pagina-dashboard .kpi-card strong {
+        font-size: 34px;
+    }
+
+    body.pagina-dashboard .kpi-card-texto strong {
+        font-size: 20px;
+    }
+
+    body.pagina-dashboard .table-header h2 {
+        font-size: 18px;
     }
 }
 
