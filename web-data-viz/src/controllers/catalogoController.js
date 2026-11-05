@@ -16,7 +16,7 @@ function listar(req, res) {
         avaliacao
     )
     .then(function (resultado) {
-        res.status(200).json(resultado[0]);
+        res.status(200).json(resultado);
     })
     .catch(function (erro) {
         console.log(erro);
@@ -28,7 +28,7 @@ function listarGeneros(req, res) {
 
     catalogoModel.listarGeneros()
         .then(function (resultado) {
-            res.status(200).json(resultado[0]);
+            res.status(200).json(resultado);
         })
         .catch(function (erro) {
             console.log(erro);
@@ -40,7 +40,7 @@ function listarAnos(req, res) {
 
     catalogoModel.listarAnos()
         .then(function (resultado) {
-            res.status(200).json(resultado[0]);
+            res.status(200).json(resultado);
         })
         .catch(function (erro) {
             console.log(erro);
