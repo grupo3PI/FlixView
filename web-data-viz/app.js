@@ -13,7 +13,7 @@ var usuarioRouter = require("./src/routes/usuarios");
 var tituloRouter = require("./src/routes/titulos");
 var catalogoRoutes = require("./src/routes/catalogo");
 
-app.use("/catalogo", catalogoRoutes);
+app.use("/catalogos", catalogoRoutes);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
