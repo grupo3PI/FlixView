@@ -1,15 +1,14 @@
 # FlixView — Inteligência para Catálogos de Streaming
 
-**Projeto — Grupo 3 | São Paulo Tech School (SPTech)**
+**Aplicação Web | Projeto — Grupo 3 | São Paulo Tech School (SPTech)**
 
-O FlixView é um protótipo acadêmico de uma plataforma web para explorar informações sobre filmes e séries e apoiar análises de catálogo. A proposta é reunir dados como popularidade, avaliações e gêneros em uma interface de consulta e visualização, facilitando a identificação de tendências e a análise do desempenho dos títulos.
+O FlixView é um protótipo acadêmico de uma plataforma web desenvolvida para explorar informações sobre filmes e séries e apoiar análises de catálogo. A aplicação reúne dados como popularidade, avaliações e gêneros em uma interface de consulta e visualização, facilitando a identificação de tendências e a análise do desempenho dos títulos.
 
 O projeto parte de um desafio comum aos serviços de streaming: a grande quantidade de conteúdos e dados pode dificultar tanto a escolha do que assistir quanto a análise do catálogo. O FlixView explora como ferramentas de busca, indicadores e dashboards podem ajudar a organizar essas informações e apoiar decisões relacionadas a conteúdo e engajamento.
 
-
 ## 🛠️ Tecnologias e Arquitetura
 
-A aplicação web é organizada em componentes de interface, rotas, controllers e models, seguindo uma separação de responsabilidades inspirada no padrão MVC. O repositório também inclui ferramentas auxiliares para obtenção e importação de dados.
+A aplicação utiliza uma arquitetura organizada em componentes de interface, rotas, controllers e models, seguindo uma separação de responsabilidades inspirada no padrão MVC.
 
 | Categoria | Tecnologias e ferramentas |
 | --- | --- |
@@ -18,36 +17,45 @@ A aplicação web é organizada em componentes de interface, rotas, controllers 
 | Banco de dados | MySQL |
 | Visualização de dados | Chart.js |
 | Integração de catálogo | TMDB API |
-| Importação de planilhas | Java, Maven, Apache POI e JDBC |
-| Extração e exportação de dados | Python, `requests`, `pandas` e `openpyxl` |
-| Gestão e desenvolvimento | Scrum, TDD e Git |
+| Desenvolvimento | Git, Scrum e TDD |
 
-## ✨ O que o projeto contempla
+## ✨ Funcionalidades
 
-- Páginas de apresentação, login e cadastro, catálogo, detalhes de títulos e dashboards.
-- API para cadastro e autenticação de usuários.
-- Consulta à TMDB para sincronizar títulos populares e gêneros com o banco de dados.
-- Estrutura inicial de banco de dados para usuários, títulos, gêneros, reviews e suas associações.
-- Ferramentas para importar dados de planilhas e exportar informações de catálogo.
+- **Página inicial:** apresentação do projeto e direcionamento para as áreas de cliente e empresa.
+- **Autenticação:** cadastro e login de usuários.
+- **Catálogo:** consulta e exploração de filmes e séries.
+- **Detalhes dos títulos:** visualização de informações relacionadas aos conteúdos.
+- **Dashboards:** apresentação de indicadores e visualizações de dados do catálogo.
+- **Integração com a TMDB:** consulta à API externa para obtenção de informações de filmes, séries e gêneros.
+- **Banco de dados:** estrutura para armazenamento de usuários, títulos, gêneros, reviews e associações.
 
-Algumas telas e dados do front-end são demonstrativos. A presença de uma página ou requisito no projeto não significa que todo o fluxo esteja integrado ao banco de dados ou à API.
+> **Observação:** o projeto é um protótipo acadêmico. Algumas telas, indicadores e fluxos são demonstrativos e podem não estar totalmente integrados ao banco de dados ou às APIs.
 
-## 🚀 Como executar a aplicação web
+## 🚀 Como executar a aplicação
 
 ### Pré-requisitos
 
-- Node.js e npm.
+- Node.js e npm instalados.
 - MySQL em execução e acessível.
 - Um banco de dados chamado `flixview`.
 - Um token de leitura da TMDB para utilizar a sincronização de títulos.
 
-### 1. Prepare o banco de dados
+### 1. Clone o repositório
 
-Execute o script `web-data-viz/src/database/script-tabelas.sql` no MySQL para criar a estrutura inicial do banco.
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd web-data-viz
+```
 
-### 2. Configure as variáveis de ambiente
+### 2. Prepare o banco de dados
 
-Crie o arquivo `web-data-viz/.env` com as configurações do seu ambiente:
+Execute o script `src/database/script-tabelas.sql` no MySQL para criar a estrutura inicial do banco.
+
+Certifique-se de que o banco de dados `flixview` esteja criado antes de executar a aplicação.
+
+### 3. Configure as variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto (`web-data-viz/`) com as configurações do seu ambiente:
 
 ```dotenv
 AMBIENTE_PROCESSO=desenvolvimento
@@ -63,13 +71,21 @@ DB_DATABASE=flixview
 TMDB_API_READ_ACCESS_TOKEN=seu_token_de_leitura
 ```
 
-Use suas próprias credenciais e não publique o arquivo `.env` nem tokens de acesso.
+Substitua os valores pelas credenciais correspondentes ao seu ambiente.
 
-### 3. Instale as dependências e inicie o servidor
+**Importante:** não compartilhe o arquivo `.env` nem publique tokens ou credenciais no repositório.
+
+### 4. Instale as dependências
 
 ```bash
-cd web-data-viz
 npm install
+```
+
+### 5. Inicie o servidor
+
+Para iniciar a aplicação:
+
+```bash
 npm start
 ```
 
@@ -79,17 +95,27 @@ Para iniciar em modo de desenvolvimento, com reinicialização automática:
 npm run dev
 ```
 
-Com o servidor em execução, acesse `http://localhost:8080` (ou a porta configurada em `APP_PORT`).
+Com o servidor em execução, acesse:
+
+```text
+http://localhost:8080
+```
+
+Caso tenha alterado a variável `APP_PORT`, utilize a porta configurada.
 
 ## 🔌 Rotas da API
 
-| Método | Caminho | Descrição |
-| --- | --- | --- |
-| `POST` | `/usuarios/cadastrar` | Cadastra um usuário. |
-| `POST` | `/usuarios/autenticar` | Autentica um usuário. |
-| `POST` | `/titulos/sincronizar` | Consulta a TMDB e sincroniza títulos populares da página informada. |
+A aplicação disponibiliza endpoints para operações relacionadas aos usuários e ao catálogo.
 
-Exemplo de sincronização da primeira página:
+| Método | Endpoint | Descrição |
+| --- | --- | --- |
+| `POST` | `/usuarios/cadastrar` | Realiza o cadastro de um usuário. |
+| `POST` | `/usuarios/autenticar` | Realiza a autenticação de um usuário. |
+| `POST` | `/titulos/sincronizar` | Consulta a TMDB e sincroniza títulos populares com o banco de dados. |
+
+### Exemplo de sincronização de títulos
+
+Para solicitar a sincronização da primeira página de resultados:
 
 ```bash
 curl -X POST http://localhost:8080/titulos/sincronizar \
@@ -97,54 +123,67 @@ curl -X POST http://localhost:8080/titulos/sincronizar \
   -d '{"page":1}'
 ```
 
-O campo `page` é opcional e, quando omitido, usa o valor `1`. A sincronização requer um token válido da TMDB, acesso à internet e conexão com o MySQL.
+O campo `page` é opcional e, quando omitido, utiliza o valor `1`.
 
-## 📊 Ferramentas de dados
+A sincronização depende de:
+- Token de acesso válido da TMDB.
+- Conexão com a internet.
+- Banco de dados MySQL disponível e configurado.
 
-### Importação com Java
+## 🗄️ Banco de dados
 
-O módulo `LeitorJava/` contém leitores de planilhas Excel e integração JDBC para inserir informações no banco. Para compilar, use Maven e um JDK compatível com a versão declarada em `LeitorJava/pom.xml`.
+O projeto utiliza o MySQL para armazenar informações relacionadas aos usuários e ao catálogo de conteúdos.
 
-Antes de executar a importação, revise `LeitorJava/src/main/java/school/sptech/DBConnectionProvider.java` e configure a conexão para o seu ambiente. No estado atual, os parâmetros de conexão estão definidos diretamente no código; utilize credenciais locais e não publique credenciais no repositório. Os leitores também possuem um limite de linhas para teste, então valide e ajuste esse comportamento antes de importar uma planilha completa.
-
-### Extração com Python
-
-O script `python/conversor/tmdb_excel.py` consulta a TMDB API para obter informações de filmes e séries disponíveis na Netflix no Brasil e gera uma planilha Excel no diretório `python/conversor/`.
-
-Instale as dependências necessárias:
-
-```bash
-python -m pip install requests pandas openpyxl
-```
-
-Configure a variável de ambiente `TMDB_TOKEN` com seu token da TMDB e execute:
-
-```bash
-python python/conversor/tmdb_excel.py
-```
-
-O uso da TMDB está sujeito aos termos da API. O projeto não é endossado nem certificado pela TMDB.
-
-## 🗂️ Estrutura do repositório
+A estrutura inicial está definida no arquivo:
 
 ```text
-.
-├── web-data-viz/       # Aplicação web, API e scripts do banco
-├── LeitorJava/         # Leitura de planilhas e importação para MySQL
-├── python/conversor/   # Consulta à TMDB e exportação para Excel
-└── ConsoleLog/         # Módulo Java auxiliar para registros no console
+src/database/script-tabelas.sql
 ```
 
-## 📌 Observações sobre o protótipo
+Entre as entidades previstas estão:
+- Usuários;
+- Títulos;
+- Gêneros;
+- Reviews;
+- Relacionamentos entre títulos, gêneros e usuários.
 
-- O script SQL representa uma estrutura inicial. Algumas colunas utilizadas pelos models da API, como `tipoUsuario` e `idTMDB`, não estão definidas atualmente no script. Alinhe o banco e os models antes de utilizar esses fluxos em conjunto.
-- Cadastro e autenticação são funcionalidades de protótipo; não utilize dados pessoais ou senhas reais.
-- Dashboards, reviews e outras telas podem apresentar conteúdo estático ou demonstrativo, sem refletir dados reais de operação de qualquer serviço.
-- As informações exibidas são limitadas às bases disponíveis e às integrações configuradas no ambiente.
+**Atenção:** o script SQL representa uma estrutura inicial e pode apresentar diferenças em relação aos campos utilizados atualmente pelos models da API. Antes de executar todos os fluxos em conjunto, verifique a compatibilidade entre o banco e a aplicação.
+
+## 📁 Estrutura do projeto
+
+```text
+web-data-viz/
+├── public/                 # Arquivos públicos da aplicação
+│   ├── assets/             # Imagens e recursos visuais
+│   ├── css/                # Folhas de estilo
+│   ├── js/                 # Scripts do front-end
+│   └── html/                 # Páginas HTML
+│
+├── src/
+│   ├── controllers/         # Controle das requisições
+│   ├── database/            # Scripts e configurações do banco
+│   ├── models/              # Consultas e regras de acesso aos dados
+│   ├── routes/              # Definição das rotas da API
+│   └── ...                  # Outros módulos da aplicação
+│
+├── .env                    # Variáveis de ambiente (não versionar)
+├── package.json            # Dependências e scripts
+└── README.md               # Documentação do projeto
+```
+
+*Observação: a estrutura acima apresenta uma visão geral da organização da aplicação. Consulte os diretórios do repositório para verificar a disposição completa dos arquivos.*
+
+## ⚠️ Observações importantes
+
+- O FlixView é um protótipo acadêmico, não uma plataforma comercial de streaming.
+- As funcionalidades de cadastro e autenticação possuem finalidade demonstrativa. Não utilize dados pessoais ou senhas reais.
+- Algumas telas e dashboards podem apresentar informações estáticas ou demonstrativas.
+- A sincronização do catálogo depende da disponibilidade da API da TMDB e das configurações de acesso.
+- O projeto não é endossado nem certificado pela TMDB.
 
 ## 👥 Equipe
 
-Projeto — Grupo 3, São Paulo Tech School:
+**Projeto — Grupo 3 | São Paulo Tech School (SPTech)**
 
 | Integrante | RA |
 | --- | --- |
@@ -157,4 +196,4 @@ Projeto — Grupo 3, São Paulo Tech School:
 
 ## 📄 Licença
 
-Consulte `web-data-viz/LICENSE` para os termos de licença presentes no repositório.
+Consulte o arquivo `LICENSE` presente neste repositório para conhecer os termos de utilização e distribuição do projeto.
