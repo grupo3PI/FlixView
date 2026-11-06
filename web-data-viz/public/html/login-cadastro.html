@@ -8,8 +8,12 @@
 </head>
 <body>
     <header>
+        <a href="./index.html" class="back-link" aria-label="Voltar para a página institucional">
+            <span aria-hidden="true">←</span>
+            <span>Voltar</span>
+        </a>
         <div class="logo">
-            <img src="../assets/imgs/Logo FlixView.png" alt="" class="logo">
+            <img src="../assets/imgs/Logo FlixView.png" alt="FlixView" class="logo">
         </div>
     </header>
     <main>
@@ -20,32 +24,57 @@
                 </a>
             </div>
              <div class="forms">
-                <div class="nav">
-                    <button class="acess" onclick="exibirEntrar()">Entrar</button>
-                    <button class="acess" onclick="exibirCadastrar()">Cadastrar</button>
+                <div class="nav" role="tablist" aria-label="Acesso à conta">
+                    <button class="acess active" id="tab-entrar" type="button" role="tab" aria-selected="true" onclick="exibirEntrar()">Entrar</button>
+                    <button class="acess" id="tab-cadastrar" type="button" role="tab" aria-selected="false" onclick="exibirCadastrar()">Cadastrar</button>
+                </div>
+                <div class="form-intro" aria-live="polite">
+                    <h1 id="form-titulo">Boas-vindas de volta</h1>
+                    <p id="form-descricao">Entre para continuar explorando o FlixView.</p>
                 </div>
                 <div class="section-B">
-                    <div class="container-entrar" style="display:flex;">
-                   <input type="email" placeholder="Email" class="info" id="login_email">
-                   <input type="password" placeholder="Senha" class="info" id="login_senha">
-                    </div>
+                    <form class="container-entrar" id="form-entrar" style="display:flex;" onsubmit="event.preventDefault(); autenticarUsuario()">
+                        <div class="field">
+                            <label for="login_email">Email</label>
+                            <input type="email" placeholder="voce@exemplo.com" class="info" id="login_email" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="login_senha">Senha</label>
+                            <input type="password" placeholder="Digite sua senha" class="info" id="login_senha" autocomplete="current-password" required>
+                        </div>
+                    </form>
 
                     <form class="container-cadastrar" id="form-cadastrar" style="display: none;" onsubmit="cadastrarUsuario(event)">
-                   <input type="text" placeholder="Nome" class="info" id="usuario_nome" autocomplete="name" required>
-                   <input type="email" placeholder="Email" class="info" id="cadastro_email" autocomplete="email" required>
-                   <input type="password" placeholder="Senha" class="info" id="cadastro_senha" autocomplete="new-password" required>
-                   <input type="password" placeholder="Confirme a Senha" class="info" id="usuario_senha_confirmacao" autocomplete="new-password" required>
-                   <input type="text" placeholder="Código de Acesso" class="info" id="usuario_codigo"> 
+                        <div class="field">
+                            <label for="usuario_nome">Nome completo</label>
+                            <input type="text" placeholder="Como podemos chamar você?" class="info" id="usuario_nome" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="cadastro_email">Email</label>
+                            <input type="email" placeholder="voce@exemplo.com" class="info" id="cadastro_email" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="cadastro_senha">Crie uma senha</label>
+                            <input type="password" placeholder="Escolha uma senha" class="info" id="cadastro_senha" autocomplete="new-password" required>
+                        </div>
+                        <div class="field">
+                            <label for="usuario_senha_confirmacao">Confirme sua senha</label>
+                            <input type="password" placeholder="Digite a senha novamente" class="info" id="usuario_senha_confirmacao" autocomplete="new-password" required>
+                        </div>
+                        <div class="field" id="campo-codigo-acesso">
+                            <label for="usuario_codigo">Código de acesso <span>(opcional)</span></label>
+                            <input type="text" placeholder="Informe seu código disponibilizado pela FlixView" class="info" id="usuario_codigo" autocomplete="off">
+                        </div>
                     </form>
 
                 <div class="section-C" style="display: flex;">
-                    <button class="singin" onclick="autenticarUsuario()" type="button">Entrar</button>
+                    <button class="singin" type="submit" form="form-entrar">Entrar</button>
                     <a href="" class="link">Esqueceu a senha?</a>
                 </div>
 
                 <div class="section-D" style="display: none;">
                     <div class="manter">
-                        <input type="checkbox" id="codigo" checked class="check">
+                        <input type="checkbox" id="codigo" class="check">
                         <label for="codigo" class="link">Não possuo um código de acesso</label>  
                     </div>
 
@@ -64,17 +93,41 @@
 
         document.querySelector(".container-cadastrar").style.display = "none";
         document.querySelector(".section-D").style.display = "none";
+        document.getElementById("tab-entrar").classList.add("active");
+        document.getElementById("tab-entrar").setAttribute("aria-selected", "true");
+        document.getElementById("tab-cadastrar").classList.remove("active");
+        document.getElementById("tab-cadastrar").setAttribute("aria-selected", "false");
+        document.getElementById("form-titulo").textContent = "Boas-vindas de volta";
+        document.getElementById("form-descricao").textContent = "Entre para continuar explorando o FlixView.";
     }
 
     function exibirCadastrar() {
-        document.querySelector(".container-cadastrar").style.display = "flex";
+        document.querySelector(".container-cadastrar").style.display = "grid";
         document.querySelector(".section-D").style.display = "flex";
 
         document.querySelector(".container-entrar").style.display = "none";
         document.querySelector(".section-C").style.display = "none";
+        document.getElementById("tab-cadastrar").classList.add("active");
+        document.getElementById("tab-cadastrar").setAttribute("aria-selected", "true");
+        document.getElementById("tab-entrar").classList.remove("active");
+        document.getElementById("tab-entrar").setAttribute("aria-selected", "false");
+        document.getElementById("form-titulo").textContent = "Crie sua conta";
+        document.getElementById("form-descricao").textContent = "Cadastre-se para acompanhar o que importa para você.";
     }
 
-    document.getElementById('codigo').checked = false;
+    const opcaoSemCodigo = document.getElementById("codigo");
+    const campoCodigoAcesso = document.getElementById("campo-codigo-acesso");
+
+    function atualizarCampoCodigo() {
+        campoCodigoAcesso.hidden = opcaoSemCodigo.checked;
+    }
+
+    opcaoSemCodigo.addEventListener("change", atualizarCampoCodigo);
+    atualizarCampoCodigo();
+
+    if (window.location.hash === "#cadastro") {
+        exibirCadastrar();
+    }
 
 </script>
 <script src="../js/login-cadastro.js"></script>

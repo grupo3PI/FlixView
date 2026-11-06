@@ -1,7 +1,7 @@
 if (window.location.hash === "#cadastro") {
         exibirCadastrar();
     }
-    
+
     async function autenticarUsuario() {
         const email = document.getElementById("login_email").value.trim();
         const senha = document.getElementById("login_senha").value;

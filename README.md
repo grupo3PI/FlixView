@@ -6,7 +6,6 @@ O FlixView é um protótipo acadêmico de uma plataforma web para explorar infor
 
 O projeto parte de um desafio comum aos serviços de streaming: a grande quantidade de conteúdos e dados pode dificultar tanto a escolha do que assistir quanto a análise do catálogo. O FlixView explora como ferramentas de busca, indicadores e dashboards podem ajudar a organizar essas informações e apoiar decisões relacionadas a conteúdo e engajamento.
 
-> **Projeto acadêmico:** o FlixView não é um produto oficial da Netflix, não tem acesso a dados internos da empresa e não reproduz filmes ou séries. Os dados dependem das fontes e bases utilizadas no projeto e não representam necessariamente a operação real de qualquer plataforma.
 
 ## 🛠️ Tecnologias e Arquitetura
 
